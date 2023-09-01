@@ -1,0 +1,28 @@
+{
+  "data": [
+    {
+      "title": "Total Licenses",
+      "icon": "receipt",
+      "value": "4",
+      "diff": 34
+    },
+    {
+      "title": "Total Businesses",
+      "icon": "coin",
+      "value": "6",
+      "diff": 13
+    },
+    {
+      "title": "Due Invoices",
+      "icon": "discount",
+      "value": "Ksh. 74,065",
+      "diff": 18
+    },
+    {
+      "title": "Invoices Paid",
+      "icon": "user",
+      "value": "Ksh. 10,394",
+      "diff": -30
+    }
+  ]
+}
