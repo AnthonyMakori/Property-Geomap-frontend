@@ -3,6 +3,7 @@ function path(root: string, sublink: string) {
 }
 
 const ROOTS_DASHBOARD = '/dashboard'
+const ROOTS_ASKARIS_REVENUE = '/askaris'
 const ROOTS_PAGES = '/pages'
 const ROOTS_INVOICES = '/invoices'
 const ROOTS_AUTH = '/auth'
@@ -13,6 +14,15 @@ export const PATH_DASHBOARD = {
     default: path(ROOTS_DASHBOARD, '/default'),
     analytics: path(ROOTS_DASHBOARD, '/askaris'),
     saas: path(ROOTS_DASHBOARD, '/admin'),
+}
+
+export const PATH_ASKARIS_REVENUE = {
+    root: ROOTS_ASKARIS_REVENUE,
+    businesses: path(ROOTS_ASKARIS_REVENUE, '/businesses'),
+    parking: path(ROOTS_ASKARIS_REVENUE, '/revenue/parking'),
+    landrates: path(ROOTS_ASKARIS_REVENUE, '/revenue/landrates'),
+    rentals: path(ROOTS_ASKARIS_REVENUE, '/revenue/rentals'),
+    add: path(ROOTS_ASKARIS_REVENUE, '/revenue/addother'),
 }
 
 export const PATH_PAGES = {

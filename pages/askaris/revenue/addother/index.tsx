@@ -26,13 +26,13 @@ function List() {
                                 gap={{base: 'sm', sm: 4}}
                             >
                                 <Stack>
-                                    <Title order={3}>Businesses</Title>
+                                    <Title order={3}>More Revenue Streams</Title>
                                 </Stack>
-                                <Button leftIcon={<IconPlus size={18}/>}>New Business</Button>
+                                <Button leftIcon={<IconPlus size={18}/>}>Revenue Stream</Button>
                             </Flex>
                         <Paper {...PAPER_PROPS}>
                             <Group position="apart" mb="md">
-                                <Text fz="lg" fw={600}>Businesses</Text>
+                                <Text fz="lg" fw={600}>More Revenue Streams</Text>
                                 <Input placeholder="Search" />
                             </Group>
                             <Table>
@@ -47,7 +47,7 @@ function List() {
                             </thead>
                             <tbody>
                             <tr >
-                            <td>Business 1</td>
+                            <td>Revenue 1</td>
                             <td>Test Category</td>
                             <td>Steve Owuor</td>
                             <td>01/09/2023</td>
@@ -57,7 +57,7 @@ function List() {
                             </td>
                             </tr>
                             <tr >
-                            <td>Business 1</td>
+                            <td>Revenue 1</td>
                             <td>Test Category</td>
                             <td>Steve Owuor</td>
                             <td>01/09/2023</td>
@@ -67,7 +67,7 @@ function List() {
                             </td>
                             </tr>
                             <tr >
-                            <td>Business 1</td>
+                            <td>Revenue 1</td>
                             <td>Test Category</td>
                             <td>Steve Owuor</td>
                             <td>01/09/2023</td>
@@ -77,7 +77,7 @@ function List() {
                             </td>
                             </tr>
                             <tr >
-                            <td>Business 1</td>
+                            <td>Revenue 1</td>
                             <td>Test Category</td>
                             <td>Steve Owuor</td>
                             <td>01/09/2023</td>
@@ -87,7 +87,7 @@ function List() {
                             </td>
                             </tr>
                             <tr >
-                            <td>Business 1</td>
+                            <td>Revenue 1</td>
                             <td>Test Category</td>
                             <td>Steve Owuor</td>
                             <td>01/09/2023</td>
@@ -97,7 +97,7 @@ function List() {
                             </td>
                             </tr>
                             <tr >
-                            <td>Business 1</td>
+                            <td>Revenue 1</td>
                             <td>Test Category</td>
                             <td>Steve Owuor</td>
                             <td>01/09/2023</td>
@@ -107,7 +107,7 @@ function List() {
                             </td>
                             </tr>
                             <tr >
-                            <td>Business 1</td>
+                            <td>Revenue 1</td>
                             <td>Test Category</td>
                             <td>Steve Owuor</td>
                             <td>01/09/2023</td>
@@ -117,7 +117,7 @@ function List() {
                             </td>
                             </tr>
                             <tr >
-                            <td>Business 1</td>
+                            <td>Revenue 1</td>
                             <td>Test Category</td>
                             <td>Steve Owuor</td>
                             <td>01/09/2023</td>
@@ -127,7 +127,7 @@ function List() {
                             </td>
                             </tr>
                             <tr >
-                            <td>Business 1</td>
+                            <td>Revenue 1</td>
                             <td>Test Category</td>
                             <td>Steve Owuor</td>
                             <td>01/09/2023</td>
@@ -137,7 +137,7 @@ function List() {
                             </td>
                             </tr>
                             <tr >
-                            <td>Business 1</td>
+                            <td>Revenue 1</td>
                             <td>Test Category</td>
                             <td>Steve Owuor</td>
                             <td>01/09/2023</td>
@@ -147,7 +147,7 @@ function List() {
                             </td>
                             </tr>
                             <tr >
-                            <td>Business 1</td>
+                            <td>Revenue 1</td>
                             <td>Test Category</td>
                             <td>Steve Owuor</td>
                             <td>01/09/2023</td>

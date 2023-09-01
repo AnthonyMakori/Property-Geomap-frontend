@@ -15,14 +15,10 @@ import useStyles from "./Navigation.styles";
 import {Logo, UserProfileButton} from "@/components";
 import {
     PATH_AUTH,
-    PATH_CALENDAR,
-    PATH_DASHBOARD, PATH_DOCS,
-    PATH_ERROR,
+    PATH_DASHBOARD,
+    PATH_ASKARIS_REVENUE,
     PATH_INVOICES,
-    PATH_ORDERS,
     PATH_PAGES,
-    PATH_PROJECTS,
-    PATH_TASKS
 } from "@/routes";
 import UserProfileData from ".././../../mocks/UserProfile.json";
 import {LinksGroup} from "@/layout/App/Navigation/Links/Links";
@@ -41,11 +37,11 @@ const mockdata = [
                 label: 'Revenue Streams',
                 icon: IconBuildingSkyscraper,
                 links: [
-                    {label: 'Businesses', link: PATH_DASHBOARD.default},
-                    {label: 'Parking', link: PATH_DASHBOARD.default},
-                    {label: 'Land Rates', link: PATH_DASHBOARD.default},
-                    {label: 'Rentals', link: PATH_DASHBOARD.default},
-                    {label: 'Add Revenue Streams', link: PATH_DASHBOARD.default},
+                    {label: 'Businesses', link: PATH_ASKARIS_REVENUE.businesses},
+                    {label: 'Parking', link: PATH_ASKARIS_REVENUE.parking},
+                    {label: 'Land Rates', link: PATH_ASKARIS_REVENUE.landrates},
+                    {label: 'Rentals', link: PATH_ASKARIS_REVENUE.rentals},
+                    {label: 'Add More', link: PATH_ASKARIS_REVENUE.add},
                 ]
             },
             {
