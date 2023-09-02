@@ -6,6 +6,7 @@ import {InvoicesTable, PageHeader} from "@/components";
 import InvoicesData from "@/mocks/Invoices.json";
 import {AppLayout} from "@/layout";
 import {IconEdit, IconEye, IconPlus} from "@tabler/icons-react";
+import Link from 'next/link';
 
 const PAPER_PROPS: PaperProps = {
     p: "md",
@@ -28,7 +29,10 @@ function List() {
                                 <Stack>
                                     <Title order={3}>Parkings</Title>
                                 </Stack>
+                                
+                                <Link href="/askaris/revenue/parking/create">
                                 <Button leftIcon={<IconPlus size={18}/>}>New Parking</Button>
+                                </Link>
                             </Flex>
                         <Paper {...PAPER_PROPS}>
                             <Group position="apart" mb="md">
@@ -39,8 +43,8 @@ function List() {
                             <thead>
                                 <tr>
                                 <th>Name</th>
-                                <th>Category</th>
-                                <th>Owner</th>
+                                <th>Zone</th>
+                                <th>Location</th>
                                 <th>Created On</th>
                                 <th>Action</th>
                                 </tr>
@@ -48,8 +52,8 @@ function List() {
                             <tbody>
                             <tr >
                             <td>Parking 1</td>
-                            <td>Test Category</td>
-                            <td>Steve Owuor</td>
+                            <td>Test Zone</td>
+                            <td>CBD</td>
                             <td>01/09/2023</td>
                             <td>
                                 <Button leftIcon={<IconEye size="1rem" />} variant='outline' mr="md" size='xs'> View </Button>
@@ -58,8 +62,8 @@ function List() {
                             </tr>
                             <tr >
                             <td>Parking 1</td>
-                            <td>Test Category</td>
-                            <td>Steve Owuor</td>
+                            <td>Test Zone</td>
+                            <td>CBD</td>
                             <td>01/09/2023</td>
                             <td>
                                 <Button leftIcon={<IconEye size="1rem" />} variant='outline' mr="md" size='xs'> View </Button>
@@ -68,8 +72,8 @@ function List() {
                             </tr>
                             <tr >
                             <td>Parking 1</td>
-                            <td>Test Category</td>
-                            <td>Steve Owuor</td>
+                            <td>Test Zone</td>
+                            <td>CBD</td>
                             <td>01/09/2023</td>
                             <td>
                                 <Button leftIcon={<IconEye size="1rem" />} variant='outline' mr="md" size='xs'> View </Button>
@@ -78,8 +82,8 @@ function List() {
                             </tr>
                             <tr >
                             <td>Parking 1</td>
-                            <td>Test Category</td>
-                            <td>Steve Owuor</td>
+                            <td>Test Zone</td>
+                            <td>CBD</td>
                             <td>01/09/2023</td>
                             <td>
                                 <Button leftIcon={<IconEye size="1rem" />} variant='outline' mr="md" size='xs'> View </Button>
@@ -88,8 +92,8 @@ function List() {
                             </tr>
                             <tr >
                             <td>Parking 1</td>
-                            <td>Test Category</td>
-                            <td>Steve Owuor</td>
+                            <td>Test Zone</td>
+                            <td>CBD</td>
                             <td>01/09/2023</td>
                             <td>
                                 <Button leftIcon={<IconEye size="1rem" />} variant='outline' mr="md" size='xs'> View </Button>
@@ -98,8 +102,8 @@ function List() {
                             </tr>
                             <tr >
                             <td>Parking 1</td>
-                            <td>Test Category</td>
-                            <td>Steve Owuor</td>
+                            <td>Test Zone</td>
+                            <td>CBD</td>
                             <td>01/09/2023</td>
                             <td>
                                 <Button leftIcon={<IconEye size="1rem" />} variant='outline' mr="md" size='xs'> View </Button>
@@ -108,8 +112,8 @@ function List() {
                             </tr>
                             <tr >
                             <td>Parking 1</td>
-                            <td>Test Category</td>
-                            <td>Steve Owuor</td>
+                            <td>Test Zone</td>
+                            <td>CBD</td>
                             <td>01/09/2023</td>
                             <td>
                                 <Button leftIcon={<IconEye size="1rem" />} variant='outline' mr="md" size='xs'> View </Button>
@@ -118,8 +122,8 @@ function List() {
                             </tr>
                             <tr >
                             <td>Parking 1</td>
-                            <td>Test Category</td>
-                            <td>Steve Owuor</td>
+                            <td>Test Zone</td>
+                            <td>CBD</td>
                             <td>01/09/2023</td>
                             <td>
                                 <Button leftIcon={<IconEye size="1rem" />} variant='outline' mr="md" size='xs'> View </Button>
@@ -128,8 +132,8 @@ function List() {
                             </tr>
                             <tr >
                             <td>Parking 1</td>
-                            <td>Test Category</td>
-                            <td>Steve Owuor</td>
+                            <td>Test Zone</td>
+                            <td>CBD</td>
                             <td>01/09/2023</td>
                             <td>
                                 <Button leftIcon={<IconEye size="1rem" />} variant='outline' mr="md" size='xs'> View </Button>
@@ -138,8 +142,8 @@ function List() {
                             </tr>
                             <tr >
                             <td>Parking 1</td>
-                            <td>Test Category</td>
-                            <td>Steve Owuor</td>
+                            <td>Test Zone</td>
+                            <td>CBD</td>
                             <td>01/09/2023</td>
                             <td>
                                 <Button leftIcon={<IconEye size="1rem" />} variant='outline' mr="md" size='xs'> View </Button>
@@ -148,8 +152,8 @@ function List() {
                             </tr>
                             <tr >
                             <td>Parking 1</td>
-                            <td>Test Category</td>
-                            <td>Steve Owuor</td>
+                            <td>Test Zone</td>
+                            <td>CBD</td>
                             <td>01/09/2023</td>
                             <td>
                                 <Button leftIcon={<IconEye size="1rem" />} variant='outline' mr="md" size='xs'> View </Button>

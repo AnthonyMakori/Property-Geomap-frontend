@@ -6,6 +6,7 @@ import {InvoicesTable, PageHeader} from "@/components";
 import InvoicesData from "@/mocks/Invoices.json";
 import {AppLayout} from "@/layout";
 import {IconEdit, IconEye, IconPlus} from "@tabler/icons-react";
+import Link from 'next/link';
 
 const PAPER_PROPS: PaperProps = {
     p: "md",
@@ -28,7 +29,9 @@ function List() {
                                 <Stack>
                                     <Title order={3}>Land Rates</Title>
                                 </Stack>
+                                <Link href="/askaris/revenue/landrates/create" >
                                 <Button leftIcon={<IconPlus size={18}/>}>New Land Rate</Button>
+                                </Link>
                             </Flex>
                         <Paper {...PAPER_PROPS}>
                             <Group position="apart" mb="md">
