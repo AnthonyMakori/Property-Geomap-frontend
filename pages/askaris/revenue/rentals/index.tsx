@@ -6,6 +6,7 @@ import {InvoicesTable, PageHeader} from "@/components";
 import InvoicesData from "@/mocks/Invoices.json";
 import {AppLayout} from "@/layout";
 import {IconEdit, IconEye, IconPlus} from "@tabler/icons-react";
+import Link from 'next/link';
 
 const PAPER_PROPS: PaperProps = {
     p: "md",
@@ -26,13 +27,15 @@ function List() {
                                 gap={{base: 'sm', sm: 4}}
                             >
                                 <Stack>
-                                    <Title order={3}>Rentals</Title>
+                                    <Title order={3}>Buildings</Title>
                                 </Stack>
-                                <Button leftIcon={<IconPlus size={18}/>}>New Rental</Button>
+                                <Link href="/askaris/revenue/rentals/create">
+                                <Button leftIcon={<IconPlus size={18}/>}>New Building</Button>
+                                </Link>
                             </Flex>
                         <Paper {...PAPER_PROPS}>
                             <Group position="apart" mb="md">
-                                <Text fz="lg" fw={600}>Rentals</Text>
+                                <Text fz="lg" fw={600}>Buildings</Text>
                                 <Input placeholder="Search" />
                             </Group>
                             <Table>
@@ -40,7 +43,7 @@ function List() {
                                 <tr>
                                 <th>Name</th>
                                 <th>Category</th>
-                                <th>Owner</th>
+                                <th>Landloard</th>
                                 <th>Created On</th>
                                 <th>Action</th>
                                 </tr>

@@ -28,7 +28,7 @@ function List() {
             <AppLayout>
                 <Container fluid>
                     <Stack spacing="lg">
-                        <PageHeader title="Invoices" breadcrumbItems={items} invoiceAction={true}/>
+                        <PageHeader title="Invoices" invoiceAction={true}/>
                         <Paper {...PAPER_PROPS}>
                             <Group position="apart" mb="md">
                                 <Text fz="lg" fw={600}>Invoices</Text>

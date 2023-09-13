@@ -177,7 +177,7 @@ const InvoicesTable = ({data}: InvoicesTableProps) => {
                     {
                         accessor: 'amount',
                         sortable: true,
-                        render: (item) => <Text>${item.amount}</Text>
+                        render: (item) => <Text>Ksh. {item.amount}</Text>
                     },
                     {
                         accessor: 'issue_date'

@@ -36,24 +36,6 @@ const PAPER_PROPS: PaperProps = {
 
 function CreateBusiness() {
     const [file, setFile] = useState<File | null>(null);
-    const accountForm = useForm({
-        initialValues: {
-            username: 'kelvinkiprop',
-            biograghy: 'I\'m a software engineering graduate with a passion for transforming ideas into simple applications. I love experimenting with new technologies. Right now, I\'m working on building and shipping business automation solutions at Alternate Limited.\n',
-        },
-    });
-    const accountInfoForm = useForm({
-        initialValues: {
-            firstname: 'kelvin',
-            lastname: 'kiprop',
-            email: 'kelvin.kiprop96@gmail.com',
-            address: '',
-            apartment: '',
-            city: '',
-            state: '',
-            zip: ''
-        },
-    });
 
     return (
         <>

@@ -27,32 +27,32 @@ function List() {
                                 gap={{base: 'sm', sm: 4}}
                             >
                                 <Stack>
-                                    <Title order={3}>Manage Units</Title>
+                                    <Title order={3}>Landloards</Title>
                                 </Stack>
-                                <Link href="/askaris/revenue/addother/create">
-                                <Button leftIcon={<IconPlus size={18}/>}>Add Unit</Button>
+                                <Link href="/askaris/owners/create">
+                                <Button leftIcon={<IconPlus size={18}/>}>Add Landloard</Button>
                                 </Link>
                             </Flex>
                         <Paper {...PAPER_PROPS}>
                             <Group position="apart" mb="md">
-                                <Text fz="lg" fw={600}>Manage Units</Text>
+                                <Text fz="lg" fw={600}>Landloards</Text>
                                 <Input placeholder="Search" />
                             </Group>
                             <Table>
                             <thead>
                                 <tr>
-                                <th>Unit Name</th>
-                                <th>Building</th>
-                                <th>Tenant</th>
+                                <th>Name</th>
+                                <th>Phone No.</th>
+                                <th>Email</th>
                                 <th>Created On</th>
                                 <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                             <tr >
-                            <td>B12</td>
-                            <td>Ridge Apartments</td>
                             <td>Steve Owuor</td>
+                            <td>0799117020</td>
+                            <td>landloard@gmail.com</td>
                             <td>01/09/2023</td>
                             <td>
                                 <Button leftIcon={<IconEye size="1rem" />} variant='outline' mr="md" size='xs'> View </Button>
@@ -60,9 +60,9 @@ function List() {
                             </td>
                             </tr>
                             <tr >
-                            <td>B12</td>
-                            <td>Ridge Apartments</td>
                             <td>Steve Owuor</td>
+                            <td>0799117020</td>
+                            <td>landloard@gmail.com</td>
                             <td>01/09/2023</td>
                             <td>
                                 <Button leftIcon={<IconEye size="1rem" />} variant='outline' mr="md" size='xs'> View </Button>
@@ -70,9 +70,9 @@ function List() {
                             </td>
                             </tr>
                             <tr >
-                            <td>B12</td>
-                            <td>Ridge Apartments</td>
                             <td>Steve Owuor</td>
+                            <td>0799117020</td>
+                            <td>landloard@gmail.com</td>
                             <td>01/09/2023</td>
                             <td>
                                 <Button leftIcon={<IconEye size="1rem" />} variant='outline' mr="md" size='xs'> View </Button>
@@ -80,9 +80,9 @@ function List() {
                             </td>
                             </tr>
                             <tr >
-                            <td>B12</td>
-                            <td>Ridge Apartments</td>
                             <td>Steve Owuor</td>
+                            <td>0799117020</td>
+                            <td>landloard@gmail.com</td>
                             <td>01/09/2023</td>
                             <td>
                                 <Button leftIcon={<IconEye size="1rem" />} variant='outline' mr="md" size='xs'> View </Button>
@@ -90,9 +90,9 @@ function List() {
                             </td>
                             </tr>
                             <tr >
-                            <td>B12</td>
-                            <td>Ridge Apartments</td>
                             <td>Steve Owuor</td>
+                            <td>0799117020</td>
+                            <td>landloard@gmail.com</td>
                             <td>01/09/2023</td>
                             <td>
                                 <Button leftIcon={<IconEye size="1rem" />} variant='outline' mr="md" size='xs'> View </Button>
@@ -100,9 +100,9 @@ function List() {
                             </td>
                             </tr>
                             <tr >
-                            <td>B12</td>
-                            <td>Ridge Apartments</td>
                             <td>Steve Owuor</td>
+                            <td>0799117020</td>
+                            <td>landloard@gmail.com</td>
                             <td>01/09/2023</td>
                             <td>
                                 <Button leftIcon={<IconEye size="1rem" />} variant='outline' mr="md" size='xs'> View </Button>
@@ -110,9 +110,9 @@ function List() {
                             </td>
                             </tr>
                             <tr >
-                            <td>B12</td>
-                            <td>Ridge Apartments</td>
                             <td>Steve Owuor</td>
+                            <td>0799117020</td>
+                            <td>landloard@gmail.com</td>
                             <td>01/09/2023</td>
                             <td>
                                 <Button leftIcon={<IconEye size="1rem" />} variant='outline' mr="md" size='xs'> View </Button>
@@ -120,9 +120,9 @@ function List() {
                             </td>
                             </tr>
                             <tr >
-                            <td>B12</td>
-                            <td>Ridge Apartments</td>
                             <td>Steve Owuor</td>
+                            <td>0799117020</td>
+                            <td>landloard@gmail.com</td>
                             <td>01/09/2023</td>
                             <td>
                                 <Button leftIcon={<IconEye size="1rem" />} variant='outline' mr="md" size='xs'> View </Button>
@@ -130,9 +130,9 @@ function List() {
                             </td>
                             </tr>
                             <tr >
-                            <td>B12</td>
-                            <td>Ridge Apartments</td>
                             <td>Steve Owuor</td>
+                            <td>0799117020</td>
+                            <td>landloard@gmail.com</td>
                             <td>01/09/2023</td>
                             <td>
                                 <Button leftIcon={<IconEye size="1rem" />} variant='outline' mr="md" size='xs'> View </Button>
@@ -140,9 +140,9 @@ function List() {
                             </td>
                             </tr>
                             <tr >
-                            <td>B12</td>
-                            <td>Ridge Apartments</td>
                             <td>Steve Owuor</td>
+                            <td>0799117020</td>
+                            <td>landloard@gmail.com</td>
                             <td>01/09/2023</td>
                             <td>
                                 <Button leftIcon={<IconEye size="1rem" />} variant='outline' mr="md" size='xs'> View </Button>
@@ -150,9 +150,9 @@ function List() {
                             </td>
                             </tr>
                             <tr >
-                            <td>B12</td>
-                            <td>Ridge Apartments</td>
                             <td>Steve Owuor</td>
+                            <td>0799117020</td>
+                            <td>landloard@gmail.com</td>
                             <td>01/09/2023</td>
                             <td>
                                 <Button leftIcon={<IconEye size="1rem" />} variant='outline' mr="md" size='xs'> View </Button>

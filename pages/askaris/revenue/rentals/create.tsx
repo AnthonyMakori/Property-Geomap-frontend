@@ -50,22 +50,56 @@ function CreateBusiness() {
                                 gap={{base: 'sm', sm: 4}}
                             >
                                 <Stack>
-                                    <Title order={3}>Create Parking</Title>
+                                    <Title order={3}>Create Building</Title>
                                 </Stack>
-                                <Link href="/askaris/revenue/parking">
+                                <Link href="/askaris/revenue/rentals">
                                 <Button leftIcon={<IconArrowBack size={18}/>} size='xs' variant='outline'>Back</Button>
                                 </Link>
                             </Flex>
                         <Paper {...PAPER_PROPS}>
                             <Stack>
-                                <Text size="md" fw={600}>Parking Details</Text>
+                                <Text size="md" fw={600}>Property Details</Text>
                                 <Group grow>
                                 <TextInput
-                                    label="Name"
-                                    placeholder="Parking 1"
+                                    label="Building Name"
+                                    placeholder="Building 1"
                                     />
-                                <Select
-                                    label="Parking Zone"
+                                    <TextInput
+                                    label="Building Code"
+                                    placeholder="B013"
+                                    />
+                                     <Select
+                                    label="Landloard"
+                                    placeholder="Select Building Owner"
+                                    searchable
+                                    clearable
+                                    data={[
+                                        { value: '1', label: 'Steve Owuor' },
+                                        { value: '2', label: 'Enock Monyancha' },
+                                        { value: '3', label: 'Timothy Karani' },
+                                    ]}
+                                    />
+                                
+                                    </Group>
+                                    <Group grow>
+                               
+                                    <Select
+                                    label="Building Type"
+                                    placeholder="Select Type"
+                                    searchable
+                                    clearable
+                                    data={[
+                                        { value: '1', label: 'Apartment' },
+                                        { value: '2', label: 'Commercial' },
+                                        { value: '3', label: 'Flats' },
+                                    ]}
+                                    />
+                                    <TextInput
+                                        label="Total Units"
+                                        placeholder="Rental Units No. Eg. 3"
+                                    />
+                                    <Select
+                                    label="Building Zone"
                                     placeholder="Select Zone"
                                     searchable
                                     clearable
@@ -75,8 +109,11 @@ function CreateBusiness() {
                                         { value: '3', label: 'Zone 3' },
                                     ]}
                                     />
-                                    <Select
-                                    label="Parking Location"
+                                    
+                                    </Group>
+                                     <Group grow>
+                                     <Select
+                                    label="Building Location"
                                     placeholder="Select Location"
                                     searchable
                                     clearable
@@ -86,10 +123,8 @@ function CreateBusiness() {
                                         { value: '3', label: 'Location 3' },
                                     ]}
                                     />
-                                    </Group>
-                                     <Group grow>
                                     <Select
-                                    label="Parking Street"
+                                    label="Building Street"
                                     placeholder="Select Street"
                                     searchable
                                     clearable
@@ -102,15 +137,12 @@ function CreateBusiness() {
                                     <Button leftIcon={<IconCurrentLocation />} mt="xl" variant="outline">
                                     Pin Location
                                     </Button>
-                                    <TextInput
-                                        label="No. of Parking Slots"
-                                        placeholder="Parking Slots No. Eg. 3"
-                                    />
+                                    
                                     </Group>
-                                    <Group grow>
+                                    {/* <Group grow>
                                     <TextInput
-                                        label="Parking Lane"
-                                        placeholder="Tom Mboya"
+                                        label="Rent Amount"
+                                        placeholder="Ksh. 5000"
                                     />
                                     <Select
                                     label="Payment Terms"
@@ -136,7 +168,7 @@ function CreateBusiness() {
                                         { value: '3', label: 'Reserved' },
                                     ]}
                                     />
-                                </Group>
+                                </Group> */}
                                 <Box sx={{width: 'auto'}}>
                                     <Button>Save</Button>
                                 </Box>

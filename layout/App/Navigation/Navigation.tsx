@@ -18,6 +18,8 @@ import {
     PATH_DASHBOARD,
     PATH_ASKARIS_REVENUE,
     PATH_INVOICES,
+    PATH_MANAGE_OWNERS,
+    // PATH_ZONES,
     PATH_PAGES,
 } from "@/routes";
 import UserProfileData from ".././../../mocks/UserProfile.json";
@@ -34,25 +36,30 @@ const mockdata = [
                 link: PATH_DASHBOARD.default
             },
             {
-                label: 'Revenue Streams',
+                label: 'Properties',
                 icon: IconBuildingSkyscraper,
                 links: [
-                    {label: 'Businesses', link: PATH_ASKARIS_REVENUE.businesses},
-                    {label: 'Parking', link: PATH_ASKARIS_REVENUE.parking},
-                    {label: 'Land Rates', link: PATH_ASKARIS_REVENUE.landrates},
-                    {label: 'Rentals', link: PATH_ASKARIS_REVENUE.rentals},
-                    {label: 'Add More', link: PATH_ASKARIS_REVENUE.add},
+                    // {label: 'Businesses', link: PATH_ASKARIS_REVENUE.businesses},
+                    // {label: 'Parking', link: PATH_ASKARIS_REVENUE.parking},
+                    // {label: 'Land Rates', link: PATH_ASKARIS_REVENUE.landrates},
+                    {label: 'Buildings', link: PATH_ASKARIS_REVENUE.rentals},
+                    {label: 'Units', link: PATH_ASKARIS_REVENUE.add},
                 ]
             },
             {
                 label: 'Manage Invoices',
                 icon: IconCashBanknote,
-                link: PATH_DASHBOARD.default
+                link: PATH_INVOICES.invoices.all
             },
             {
-                label: 'Manage Owners',
+                label: 'Manage Landloards',
                 icon: IconUserPlus,
-                link: PATH_DASHBOARD.default
+                link: PATH_MANAGE_OWNERS.all
+            },
+            {
+                label: 'Manage Tenants',
+                icon: IconUserPlus,
+                link: PATH_MANAGE_OWNERS.all
             },
             {
                 label: 'Manage Zones',

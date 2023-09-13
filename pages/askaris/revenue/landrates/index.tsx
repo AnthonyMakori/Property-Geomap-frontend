@@ -50,7 +50,7 @@ function List() {
                             </thead>
                             <tbody>
                             <tr >
-                            <td>Parking 1</td>
+                            <td>Plot 1</td>
                             <td>Test Category</td>
                             <td>Steve Owuor</td>
                             <td>01/09/2023</td>
@@ -60,7 +60,7 @@ function List() {
                             </td>
                             </tr>
                             <tr >
-                            <td>Parking 1</td>
+                            <td>Plot 1</td>
                             <td>Test Category</td>
                             <td>Steve Owuor</td>
                             <td>01/09/2023</td>
@@ -70,7 +70,7 @@ function List() {
                             </td>
                             </tr>
                             <tr >
-                            <td>Parking 1</td>
+                            <td>Plot 1</td>
                             <td>Test Category</td>
                             <td>Steve Owuor</td>
                             <td>01/09/2023</td>
@@ -80,7 +80,7 @@ function List() {
                             </td>
                             </tr>
                             <tr >
-                            <td>Parking 1</td>
+                            <td>Plot 1</td>
                             <td>Test Category</td>
                             <td>Steve Owuor</td>
                             <td>01/09/2023</td>
@@ -90,7 +90,7 @@ function List() {
                             </td>
                             </tr>
                             <tr >
-                            <td>Parking 1</td>
+                            <td>Plot 1</td>
                             <td>Test Category</td>
                             <td>Steve Owuor</td>
                             <td>01/09/2023</td>
@@ -100,7 +100,7 @@ function List() {
                             </td>
                             </tr>
                             <tr >
-                            <td>Parking 1</td>
+                            <td>Plot 1</td>
                             <td>Test Category</td>
                             <td>Steve Owuor</td>
                             <td>01/09/2023</td>
@@ -110,7 +110,7 @@ function List() {
                             </td>
                             </tr>
                             <tr >
-                            <td>Parking 1</td>
+                            <td>Plot 1</td>
                             <td>Test Category</td>
                             <td>Steve Owuor</td>
                             <td>01/09/2023</td>
@@ -120,7 +120,7 @@ function List() {
                             </td>
                             </tr>
                             <tr >
-                            <td>Parking 1</td>
+                            <td>Plot 1</td>
                             <td>Test Category</td>
                             <td>Steve Owuor</td>
                             <td>01/09/2023</td>
@@ -130,7 +130,7 @@ function List() {
                             </td>
                             </tr>
                             <tr >
-                            <td>Parking 1</td>
+                            <td>Plot 1</td>
                             <td>Test Category</td>
                             <td>Steve Owuor</td>
                             <td>01/09/2023</td>
@@ -140,7 +140,7 @@ function List() {
                             </td>
                             </tr>
                             <tr >
-                            <td>Parking 1</td>
+                            <td>Plot 1</td>
                             <td>Test Category</td>
                             <td>Steve Owuor</td>
                             <td>01/09/2023</td>
@@ -150,7 +150,7 @@ function List() {
                             </td>
                             </tr>
                             <tr >
-                            <td>Parking 1</td>
+                            <td>Plot 1</td>
                             <td>Test Category</td>
                             <td>Steve Owuor</td>
                             <td>01/09/2023</td>

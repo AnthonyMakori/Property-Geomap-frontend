@@ -4,6 +4,7 @@ function path(root: string, sublink: string) {
 
 const ROOTS_DASHBOARD = '/dashboard'
 const ROOTS_ASKARIS_REVENUE = '/askaris'
+const ROOTS_MANAGE_OWNERS = '/askaris/owners'
 const ROOTS_PAGES = '/pages'
 const ROOTS_INVOICES = '/invoices'
 const ROOTS_AUTH = '/auth'
@@ -24,6 +25,12 @@ export const PATH_ASKARIS_REVENUE = {
     rentals: path(ROOTS_ASKARIS_REVENUE, '/revenue/rentals'),
     add: path(ROOTS_ASKARIS_REVENUE, '/revenue/addother'),
 }
+
+export const PATH_MANAGE_OWNERS = {
+    root: ROOTS_MANAGE_OWNERS,
+    all: path(ROOTS_MANAGE_OWNERS, '/'),
+}
+
 
 export const PATH_PAGES = {
     root: ROOTS_PAGES,
