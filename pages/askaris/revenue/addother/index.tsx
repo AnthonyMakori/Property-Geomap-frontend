@@ -55,7 +55,9 @@ function List() {
                             <td>Steve Owuor</td>
                             <td>01/09/2023</td>
                             <td>
+                                <Link href="/askaris/revenue/addother/1">
                                 <Button leftIcon={<IconEye size="1rem" />} variant='outline' mr="md" size='xs'> View </Button>
+                                </Link>
                                 <Button leftIcon={<IconEdit size="1rem" />} variant='outline' size='xs'> Edit </Button>                            
                             </td>
                             </tr>
@@ -65,7 +67,9 @@ function List() {
                             <td>Steve Owuor</td>
                             <td>01/09/2023</td>
                             <td>
+                                <Link href="/askaris/revenue/addother/1">
                                 <Button leftIcon={<IconEye size="1rem" />} variant='outline' mr="md" size='xs'> View </Button>
+                                </Link>
                                 <Button leftIcon={<IconEdit size="1rem" />} variant='outline' size='xs'> Edit </Button>                            
                             </td>
                             </tr>
@@ -75,7 +79,9 @@ function List() {
                             <td>Steve Owuor</td>
                             <td>01/09/2023</td>
                             <td>
+                                <Link href="/askaris/revenue/addother/1">
                                 <Button leftIcon={<IconEye size="1rem" />} variant='outline' mr="md" size='xs'> View </Button>
+                                </Link>
                                 <Button leftIcon={<IconEdit size="1rem" />} variant='outline' size='xs'> Edit </Button>                            
                             </td>
                             </tr>
@@ -85,7 +91,9 @@ function List() {
                             <td>Steve Owuor</td>
                             <td>01/09/2023</td>
                             <td>
+                                <Link href="/askaris/revenue/addother/1">
                                 <Button leftIcon={<IconEye size="1rem" />} variant='outline' mr="md" size='xs'> View </Button>
+                                </Link>
                                 <Button leftIcon={<IconEdit size="1rem" />} variant='outline' size='xs'> Edit </Button>                            
                             </td>
                             </tr>
@@ -95,7 +103,9 @@ function List() {
                             <td>Steve Owuor</td>
                             <td>01/09/2023</td>
                             <td>
+                                <Link href="/askaris/revenue/addother/1">
                                 <Button leftIcon={<IconEye size="1rem" />} variant='outline' mr="md" size='xs'> View </Button>
+                                </Link>
                                 <Button leftIcon={<IconEdit size="1rem" />} variant='outline' size='xs'> Edit </Button>                            
                             </td>
                             </tr>
@@ -105,7 +115,9 @@ function List() {
                             <td>Steve Owuor</td>
                             <td>01/09/2023</td>
                             <td>
+                                <Link href="/askaris/revenue/addother/1">
                                 <Button leftIcon={<IconEye size="1rem" />} variant='outline' mr="md" size='xs'> View </Button>
+                                </Link>
                                 <Button leftIcon={<IconEdit size="1rem" />} variant='outline' size='xs'> Edit </Button>                            
                             </td>
                             </tr>
@@ -115,7 +127,9 @@ function List() {
                             <td>Steve Owuor</td>
                             <td>01/09/2023</td>
                             <td>
+                                <Link href="/askaris/revenue/addother/1">
                                 <Button leftIcon={<IconEye size="1rem" />} variant='outline' mr="md" size='xs'> View </Button>
+                                </Link>
                                 <Button leftIcon={<IconEdit size="1rem" />} variant='outline' size='xs'> Edit </Button>                            
                             </td>
                             </tr>
@@ -125,7 +139,9 @@ function List() {
                             <td>Steve Owuor</td>
                             <td>01/09/2023</td>
                             <td>
+                                <Link href="/askaris/revenue/addother/1">
                                 <Button leftIcon={<IconEye size="1rem" />} variant='outline' mr="md" size='xs'> View </Button>
+                                </Link>
                                 <Button leftIcon={<IconEdit size="1rem" />} variant='outline' size='xs'> Edit </Button>                            
                             </td>
                             </tr>
@@ -135,7 +151,9 @@ function List() {
                             <td>Steve Owuor</td>
                             <td>01/09/2023</td>
                             <td>
+                                <Link href="/askaris/revenue/addother/1">
                                 <Button leftIcon={<IconEye size="1rem" />} variant='outline' mr="md" size='xs'> View </Button>
+                                </Link>
                                 <Button leftIcon={<IconEdit size="1rem" />} variant='outline' size='xs'> Edit </Button>                            
                             </td>
                             </tr>
@@ -145,7 +163,9 @@ function List() {
                             <td>Steve Owuor</td>
                             <td>01/09/2023</td>
                             <td>
+                                <Link href="/askaris/revenue/addother/1">
                                 <Button leftIcon={<IconEye size="1rem" />} variant='outline' mr="md" size='xs'> View </Button>
+                                </Link>
                                 <Button leftIcon={<IconEdit size="1rem" />} variant='outline' size='xs'> Edit </Button>                            
                             </td>
                             </tr>
@@ -155,7 +175,9 @@ function List() {
                             <td>Steve Owuor</td>
                             <td>01/09/2023</td>
                             <td>
+                                <Link href="/askaris/revenue/addother/1">
                                 <Button leftIcon={<IconEye size="1rem" />} variant='outline' mr="md" size='xs'> View </Button>
+                                </Link>
                                 <Button leftIcon={<IconEdit size="1rem" />} variant='outline' size='xs'> Edit </Button>                            
                             </td>
                             </tr>

@@ -64,10 +64,7 @@ function CreateBusiness() {
                                     label="Building Name"
                                     placeholder="Building 1"
                                     />
-                                    <TextInput
-                                    label="Building Code"
-                                    placeholder="B013"
-                                    />
+                                    
                                      <Select
                                     label="Landloard"
                                     placeholder="Select Building Owner"
@@ -78,6 +75,11 @@ function CreateBusiness() {
                                         { value: '2', label: 'Enock Monyancha' },
                                         { value: '3', label: 'Timothy Karani' },
                                     ]}
+                                    />
+
+                                    <TextInput
+                                        label="Total Units"
+                                        placeholder="Rental Units No. Eg. 3"
                                     />
                                 
                                     </Group>
@@ -94,10 +96,7 @@ function CreateBusiness() {
                                         { value: '3', label: 'Flats' },
                                     ]}
                                     />
-                                    <TextInput
-                                        label="Total Units"
-                                        placeholder="Rental Units No. Eg. 3"
-                                    />
+                                    
                                     <Select
                                     label="Building Zone"
                                     placeholder="Select Zone"

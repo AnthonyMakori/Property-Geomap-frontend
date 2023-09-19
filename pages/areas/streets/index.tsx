@@ -27,140 +27,140 @@ function List() {
                                 gap={{base: 'sm', sm: 4}}
                             >
                                 <Stack>
-                                    <Title order={3}>Buildings</Title>
+                                    <Title order={3}>Streets</Title>
                                 </Stack>
-                                <Link href="/askaris/revenue/rentals/create">
-                                <Button leftIcon={<IconPlus size={18}/>}>New Building</Button>
+                                <Link href="/areas/streets/create">
+                                <Button leftIcon={<IconPlus size={18}/>}>Add Street</Button>
                                 </Link>
                             </Flex>
                         <Paper {...PAPER_PROPS}>
                             <Group position="apart" mb="md">
-                                <Text fz="lg" fw={600}>Buildings</Text>
+                                <Text fz="lg" fw={600}>Streets</Text>
                                 <Input placeholder="Search" />
                             </Group>
                             <Table>
                             <thead>
                                 <tr>
-                                <th>Name</th>
-                                <th>Category</th>
-                                <th>Landloard</th>
+                                <th>Street Name</th>
+                                <th>Description</th>
                                 <th>Created On</th>
                                 <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                             <tr >
-                            <td>Rental 1</td>
-                            <td>Test Category</td>
-                            <td>Steve Owuor</td>
+                            <td>Street 1</td>
+                            <td>Test Description</td>
                             <td>01/09/2023</td>
                             <td>
-                                <Link href="/askaris/revenue/rentals/1">
+                                <Link href="#">
                                 <Button leftIcon={<IconEye size="1rem" />} variant='outline' mr="md" size='xs'> View </Button>
                                 </Link>
                                 <Button leftIcon={<IconEdit size="1rem" />} variant='outline' size='xs'> Edit </Button>                            
                             </td>
                             </tr>
                             <tr >
-                            <td>Rental 1</td>
-                            <td>Test Category</td>
-                            <td>Steve Owuor</td>
+                            <td>Street 1</td>
+                            <td>Test Description</td>
                             <td>01/09/2023</td>
                             <td>
-                            <Link href="/askaris/revenue/rentals/1">
+                                <Link href="#">
                                 <Button leftIcon={<IconEye size="1rem" />} variant='outline' mr="md" size='xs'> View </Button>
                                 </Link>
                                 <Button leftIcon={<IconEdit size="1rem" />} variant='outline' size='xs'> Edit </Button>                            
                             </td>
                             </tr>
                             <tr >
-                            <td>Rental 1</td>
-                            <td>Test Category</td>
-                            <td>Steve Owuor</td>
+                            <td>Street 1</td>
+                            <td>Test Description</td>
                             <td>01/09/2023</td>
                             <td>
-                            <Link href="/askaris/revenue/rentals/1">
+                                <Link href="#">
                                 <Button leftIcon={<IconEye size="1rem" />} variant='outline' mr="md" size='xs'> View </Button>
                                 </Link>
                                 <Button leftIcon={<IconEdit size="1rem" />} variant='outline' size='xs'> Edit </Button>                            
                             </td>
                             </tr>
                             <tr >
-                            <td>Rental 1</td>
-                            <td>Test Category</td>
-                            <td>Steve Owuor</td>
+                            <td>Street 1</td>
+                            <td>Test Description</td>
                             <td>01/09/2023</td>
                             <td>
-                            <Link href="/askaris/revenue/rentals/1">
+                                <Link href="#">
                                 <Button leftIcon={<IconEye size="1rem" />} variant='outline' mr="md" size='xs'> View </Button>
                                 </Link>
                                 <Button leftIcon={<IconEdit size="1rem" />} variant='outline' size='xs'> Edit </Button>                            
                             </td>
                             </tr>
                             <tr >
-                            <td>Rental 1</td>
-                            <td>Test Category</td>
-                            <td>Steve Owuor</td>
+                            <td>Street 1</td>
+                            <td>Test Description</td>
                             <td>01/09/2023</td>
                             <td>
+                                <Link href="#">
                                 <Button leftIcon={<IconEye size="1rem" />} variant='outline' mr="md" size='xs'> View </Button>
+                                </Link>
                                 <Button leftIcon={<IconEdit size="1rem" />} variant='outline' size='xs'> Edit </Button>                            
                             </td>
                             </tr>
                             <tr >
-                            <td>Rental 1</td>
-                            <td>Test Category</td>
-                            <td>Steve Owuor</td>
+                            <td>Street 1</td>
+                            <td>Test Description</td>
                             <td>01/09/2023</td>
                             <td>
+                                <Link href="#">
                                 <Button leftIcon={<IconEye size="1rem" />} variant='outline' mr="md" size='xs'> View </Button>
+                                </Link>
                                 <Button leftIcon={<IconEdit size="1rem" />} variant='outline' size='xs'> Edit </Button>                            
                             </td>
                             </tr>
                             <tr >
-                            <td>Rental 1</td>
-                            <td>Test Category</td>
-                            <td>Steve Owuor</td>
+                            <td>Street 1</td>
+                            <td>Test Description</td>
                             <td>01/09/2023</td>
                             <td>
+                                <Link href="#">
                                 <Button leftIcon={<IconEye size="1rem" />} variant='outline' mr="md" size='xs'> View </Button>
+                                </Link>
                                 <Button leftIcon={<IconEdit size="1rem" />} variant='outline' size='xs'> Edit </Button>                            
                             </td>
                             </tr>
                             <tr >
-                            <td>Rental 1</td>
-                            <td>Test Category</td>
-                            <td>Steve Owuor</td>
+                            <td>Street 1</td>
+                            <td>Test Description</td>
                             <td>01/09/2023</td>
                             <td>
+                                <Link href="#">
                                 <Button leftIcon={<IconEye size="1rem" />} variant='outline' mr="md" size='xs'> View </Button>
+                                </Link>
                                 <Button leftIcon={<IconEdit size="1rem" />} variant='outline' size='xs'> Edit </Button>                            
                             </td>
                             </tr>
                             <tr >
-                            <td>Rental 1</td>
-                            <td>Test Category</td>
-                            <td>Steve Owuor</td>
+                            <td>Street 1</td>
+                            <td>Test Description</td>
                             <td>01/09/2023</td>
                             <td>
+                                <Link href="#">
                                 <Button leftIcon={<IconEye size="1rem" />} variant='outline' mr="md" size='xs'> View </Button>
+                                </Link>
                                 <Button leftIcon={<IconEdit size="1rem" />} variant='outline' size='xs'> Edit </Button>                            
                             </td>
                             </tr>
                             <tr >
-                            <td>Rental 1</td>
-                            <td>Test Category</td>
-                            <td>Steve Owuor</td>
+                            <td>Street 1</td>
+                            <td>Test Description</td>
                             <td>01/09/2023</td>
                             <td>
+                                <Link href="#">
                                 <Button leftIcon={<IconEye size="1rem" />} variant='outline' mr="md" size='xs'> View </Button>
+                                </Link>
                                 <Button leftIcon={<IconEdit size="1rem" />} variant='outline' size='xs'> Edit </Button>                            
                             </td>
                             </tr>
                             <tr >
-                            <td>Rental 1</td>
-                            <td>Test Category</td>
-                            <td>Steve Owuor</td>
+                            <td>Street 1</td>
+                            <td>Test Description</td>
                             <td>01/09/2023</td>
                             <td>
                                 <Button leftIcon={<IconEye size="1rem" />} variant='outline' mr="md" size='xs'> View </Button>

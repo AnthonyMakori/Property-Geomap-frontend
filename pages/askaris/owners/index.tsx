@@ -55,7 +55,9 @@ function List() {
                             <td>landloard@gmail.com</td>
                             <td>01/09/2023</td>
                             <td>
+                                <Link href="/askaris/owners/1">
                                 <Button leftIcon={<IconEye size="1rem" />} variant='outline' mr="md" size='xs'> View </Button>
+                                </Link>
                                 <Button leftIcon={<IconEdit size="1rem" />} variant='outline' size='xs'> Edit </Button>                            
                             </td>
                             </tr>
@@ -65,7 +67,9 @@ function List() {
                             <td>landloard@gmail.com</td>
                             <td>01/09/2023</td>
                             <td>
+                                <Link href="/askaris/owners/1">
                                 <Button leftIcon={<IconEye size="1rem" />} variant='outline' mr="md" size='xs'> View </Button>
+                                </Link>
                                 <Button leftIcon={<IconEdit size="1rem" />} variant='outline' size='xs'> Edit </Button>                            
                             </td>
                             </tr>
@@ -75,7 +79,9 @@ function List() {
                             <td>landloard@gmail.com</td>
                             <td>01/09/2023</td>
                             <td>
+                                <Link href="/askaris/owners/1">
                                 <Button leftIcon={<IconEye size="1rem" />} variant='outline' mr="md" size='xs'> View </Button>
+                                </Link>
                                 <Button leftIcon={<IconEdit size="1rem" />} variant='outline' size='xs'> Edit </Button>                            
                             </td>
                             </tr>
@@ -85,7 +91,9 @@ function List() {
                             <td>landloard@gmail.com</td>
                             <td>01/09/2023</td>
                             <td>
+                                <Link href="/askaris/owners/1">
                                 <Button leftIcon={<IconEye size="1rem" />} variant='outline' mr="md" size='xs'> View </Button>
+                                </Link>
                                 <Button leftIcon={<IconEdit size="1rem" />} variant='outline' size='xs'> Edit </Button>                            
                             </td>
                             </tr>
@@ -95,7 +103,9 @@ function List() {
                             <td>landloard@gmail.com</td>
                             <td>01/09/2023</td>
                             <td>
+                                <Link href="/askaris/owners/1">
                                 <Button leftIcon={<IconEye size="1rem" />} variant='outline' mr="md" size='xs'> View </Button>
+                                </Link>
                                 <Button leftIcon={<IconEdit size="1rem" />} variant='outline' size='xs'> Edit </Button>                            
                             </td>
                             </tr>
@@ -105,7 +115,9 @@ function List() {
                             <td>landloard@gmail.com</td>
                             <td>01/09/2023</td>
                             <td>
+                                <Link href="/askaris/owners/1">
                                 <Button leftIcon={<IconEye size="1rem" />} variant='outline' mr="md" size='xs'> View </Button>
+                                </Link>
                                 <Button leftIcon={<IconEdit size="1rem" />} variant='outline' size='xs'> Edit </Button>                            
                             </td>
                             </tr>

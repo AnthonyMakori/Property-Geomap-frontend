@@ -50,40 +50,73 @@ function CreateBusiness() {
                                 gap={{base: 'sm', sm: 4}}
                             >
                                 <Stack>
-                                    <Title order={3}>Add Landloard</Title>
+                                    <Title order={3}>Add Tenant</Title>
                                 </Stack>
-                                <Link href="/askaris/revenue/addother">
+                                <Link href="/askaris/tenants">
                                 <Button leftIcon={<IconArrowBack size={18}/>} size='xs' variant='outline'>Back</Button>
                                 </Link>
                             </Flex>
                         <Paper {...PAPER_PROPS}>
                             <Stack>
-                                <Text size="md" fw={600}>Landloard Details</Text>
+                                <Text size="md" fw={600}>Tenant Details</Text>
                                 <Group grow>
+                                <Select
+                                    label="Tenant Type"
+                                    placeholder="Select Type"
+                                    searchable
+                                    clearable
+                                    data={[
+                                        { value: '1', label: 'Individual' },
+                                        { value: '2', label: 'Family' },
+                                        { value: '3', label: 'Business' },
+                                    ]}
+                                    />
                                 <TextInput
-                                    label="Landloard Name"
-                                    placeholder="Landloard Name"
+                                    label="Tenant Name"
+                                    placeholder="Tenant Name"
                                     />
                                     <TextInput
-                                    label="Landloard Phone"
-                                    placeholder="Landloard Phone"
+                                    label="Tenant Phone"
+                                    placeholder="Tenant Phone"
                                     />
+                                    
+                                    </Group> 
+                                    <Group grow>
                                     <TextInput
-                                    label="Landloard Email"
-                                    placeholder="Landloard Email"
+                                    label="Tenant Email"
+                                    placeholder="Tenant Email"
                                     />
+                                     <TextInput
+                                    label="Tenant ID Number"
+                                    placeholder="Tenant ID Number"
+                                    />
+                                <Select
+                                    label="Gender"
+                                    placeholder="Select Gender"
+                                    searchable
+                                    clearable
+                                    data={[
+                                        { value: '1', label: 'Male' },
+                                        { value: '2', label: 'Female' },
+                                    ]}
+                                    />
+                               
+                                    
                                     </Group> 
                                    <Group grow>
-                                   <TextInput
-                                    label="Landloard KRA Pin"
-                                    placeholder="Landloard KRA Pin"
-                                    />
-                                    <TextInput
-                                    label="Landloard National ID"
-                                    placeholder="Landloard National ID"
+                                   <Select
+                                    label="Marital Status"
+                                    placeholder="Select Marital Status"
+                                    searchable
+                                    clearable
+                                    data={[
+                                        { value: '1', label: 'Single' },
+                                        { value: '2', label: 'Married' },
+                                        { value: '3', label: 'Divorced' },
+                                    ]}
                                     />
                                     <Select
-                                    label="Landloard Location"
+                                    label="Tenant Location"
                                     placeholder="Select Location"
                                     searchable
                                     clearable
@@ -93,19 +126,10 @@ function CreateBusiness() {
                                         { value: '3', label: 'Location 3' },
                                     ]}
                                     />
-                                    </Group>
-                                     <Group grow>
-                                    
-                                    <Button leftIcon={<IconCurrentLocation />} mt="xl" variant="outline">
-                                    Pin Location
-                                    </Button>
+
                                     <TextInput
                                     label="Password"
                                     placeholder="Password"
-                                    />
-                                    <TextInput
-                                    label="Confirm Password"
-                                    placeholder="Confirm Password"
                                     />
 
                                     </Group>

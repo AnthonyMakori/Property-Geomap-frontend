@@ -5,6 +5,10 @@ function path(root: string, sublink: string) {
 const ROOTS_DASHBOARD = '/dashboard'
 const ROOTS_ASKARIS_REVENUE = '/askaris'
 const ROOTS_MANAGE_OWNERS = '/askaris/owners'
+const ROOTS_MANAGE_TENANTS = '/askaris/tenants'
+const ROOTS_MANAGE_ZONES = '/areas/zones'
+const ROOTS_MANAGE_LOCATIONS = '/areas/locations'
+const ROOTS_MANAGE_STREETS = '/areas/streets'
 const ROOTS_PAGES = '/pages'
 const ROOTS_INVOICES = '/invoices'
 const ROOTS_AUTH = '/auth'
@@ -29,6 +33,27 @@ export const PATH_ASKARIS_REVENUE = {
 export const PATH_MANAGE_OWNERS = {
     root: ROOTS_MANAGE_OWNERS,
     all: path(ROOTS_MANAGE_OWNERS, '/'),
+}
+
+export const PATH_MANAGE_TENANTS = {
+    root: ROOTS_MANAGE_TENANTS,
+    all: path(ROOTS_MANAGE_TENANTS, '/'),
+}
+
+export const PATH_MANAGE_ZONES = {
+    root: ROOTS_MANAGE_ZONES,
+    all: path(ROOTS_MANAGE_ZONES, '/'),
+}
+
+
+export const PATH_MANAGE_LOCATIONS = {
+    root: ROOTS_MANAGE_LOCATIONS,
+    all: path(ROOTS_MANAGE_LOCATIONS, '/'),
+}
+
+export const PATH_MANAGE_STREETS = {
+    root: ROOTS_MANAGE_STREETS,
+    all: path(ROOTS_MANAGE_STREETS, '/'),
 }
 
 

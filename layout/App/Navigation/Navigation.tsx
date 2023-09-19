@@ -19,6 +19,10 @@ import {
     PATH_ASKARIS_REVENUE,
     PATH_INVOICES,
     PATH_MANAGE_OWNERS,
+    PATH_MANAGE_TENANTS,
+    PATH_MANAGE_STREETS,
+    PATH_MANAGE_LOCATIONS,
+    PATH_MANAGE_ZONES,
     // PATH_ZONES,
     PATH_PAGES,
 } from "@/routes";
@@ -59,22 +63,22 @@ const mockdata = [
             {
                 label: 'Manage Tenants',
                 icon: IconUserPlus,
-                link: PATH_MANAGE_OWNERS.all
+                link: PATH_MANAGE_TENANTS.all
             },
             {
                 label: 'Manage Zones',
                 icon: IconPin,
-                link: PATH_DASHBOARD.default
+                link: PATH_MANAGE_ZONES.all
             },
             {
                 label: 'Manage Locations',
                 icon: IconMapPin,
-                link: PATH_DASHBOARD.default
+                link: PATH_MANAGE_LOCATIONS.all
             },
             {
                 label: 'Manage Streets',
                 icon: IconCurrentLocation,
-                link: PATH_DASHBOARD.default
+                link: PATH_MANAGE_STREETS.all
             },
             {
                 label: 'My Profile',

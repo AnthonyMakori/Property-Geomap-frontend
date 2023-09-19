@@ -64,6 +64,10 @@ function CreateBusiness() {
                                     label="Unit Name"
                                     placeholder="B12"
                                     />
+                                    <TextInput
+                                    label="Unit Code"
+                                    placeholder="B013"
+                                    />
                                 <TextInput
                                     label="Unit Floor"
                                     placeholder="4"
