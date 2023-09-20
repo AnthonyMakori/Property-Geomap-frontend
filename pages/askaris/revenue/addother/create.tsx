@@ -60,12 +60,25 @@ function CreateBusiness() {
                             <Stack>
                                 <Text size="md" fw={600}>Unit Details</Text>
                                 <Group grow>
+                                <Select
+                                    label="Select Building"
+                                    placeholder="Select Building"
+                                    searchable
+                                    clearable
+                                    data={[
+                                        { value: '4', label: 'Building 1' },
+                                        { value: '1', label: 'Building 2' },
+                                        { value: '2', label: 'Building 3' },
+                                        { value: '3', label: 'Building 4' },
+
+                                    ]}
+                                    />
                                 <TextInput
                                     label="Unit Name"
                                     placeholder="B12"
                                     />
                                     <TextInput
-                                    label="Unit Code"
+                                    label="Unit Code (Number)"
                                     placeholder="B013"
                                     />
                                 <TextInput
@@ -78,6 +91,7 @@ function CreateBusiness() {
                                     />
                                     </Group>
                                     <Group grow>
+                                    
                                     <Select
                                     label="Unit Type"
                                     placeholder="Select Unit Type"
@@ -92,13 +106,32 @@ function CreateBusiness() {
                                         { value: '5', label: 'Villa' },
                                     ]}
                                     />
-                                <TextInput
-                                    label="Bedrooms"
-                                    placeholder="2"
-                                    />
                                     <TextInput
                                     label="Square Foot"
                                     placeholder="100sq"
+                                    />
+                                    <Select
+                                    label="Status"
+                                    placeholder="Select Status"
+                                    searchable
+                                    clearable
+                                    data={[
+                                        { value: '4', label: 'Vacant' },
+                                        { value: '1', label: 'Occupied' },
+                                        { value: '2', label: 'Under Maintenance' },
+                                    ]}
+                                    />
+                                    <Select
+                                    label="Assign Tenant"
+                                    placeholder="Assign Tenant"
+                                    searchable
+                                    clearable
+                                    data={[
+                                        { value: '4', label: 'Tenant 1' },
+                                        { value: '1', label: 'Tenant 2' },
+                                        { value: '2', label: 'Tenant 3' },
+                                        { value: '3', label: 'Tenant 4' },
+                                    ]}
                                     />
                                     </Group>
 

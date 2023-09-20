@@ -5,7 +5,7 @@ import {PATH_DASHBOARD} from "@/routes";
 import {InvoicesTable, PageHeader} from "@/components";
 import InvoicesData from "@/mocks/Invoices.json";
 import {AppLayout} from "@/layout";
-import {IconEdit, IconEye, IconPlus} from "@tabler/icons-react";
+import {IconEdit, IconEye, IconPlus, IconTrash} from "@tabler/icons-react";
 import Link from 'next/link';
 
 const PAPER_PROPS: PaperProps = {
@@ -58,7 +58,10 @@ function List() {
                                 <Link href="/askaris/revenue/rentals/1">
                                 <Button leftIcon={<IconEye size="1rem" />} variant='outline' mr="md" size='xs'> View </Button>
                                 </Link>
-                                <Button leftIcon={<IconEdit size="1rem" />} variant='outline' size='xs'> Edit </Button>                            
+                                <Button leftIcon={<IconEdit size="1rem" />} variant='outline' size='xs'> Edit </Button>    
+                                {/* <ActionIcon variant="filled" color='red' aria-label="Settings">
+                                    <IconTrash />
+                                </ActionIcon>                         */}
                             </td>
                             </tr>
                             <tr >

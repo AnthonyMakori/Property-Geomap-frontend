@@ -24,19 +24,23 @@ import {IconArrowBack, IconCurrentLocation} from "@tabler/icons-react";
 import {AppLayout} from "@/layout";
 import {PageHeader} from "@/components";
 import Link from 'next/link';
+import { Autocomplete, useLoadScript } from "@react-google-maps/api";
+
+const placesLibrary = ["places"];
 
 const ICON_SIZE = 18;
 
-const PAPER_PROPS: PaperProps = {
-    p: "md",
-    shadow: "md",
-    radius: "md",
-    sx: {height: '100%'}
-}
+
 
 function CreateBusiness() {
-    const [file, setFile] = useState<File | null>(null);
+    const [location, setLocation] = useState("");
 
+    const { isLoaded } = useLoadScript({
+        googleMapsApiKey: process?.env?.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY ?? "",
+        libraries: placesLibrary,
+      });
+    
+      const [autocompleteRef, setAutocompleteRef] = useState("");
 
     return (
         <>
@@ -56,10 +60,21 @@ function CreateBusiness() {
                                 <Button leftIcon={<IconArrowBack size={18}/>} size='xs' variant='outline'>Back</Button>
                                 </Link>
                             </Flex>
-                        <Paper {...PAPER_PROPS}>
+                        <Paper p="md">
                             <Stack>
                                 <Text size="md" fw={600}>Property Details</Text>
                                 <Group grow>
+                                <Select
+                                    label="Property Category"
+                                    placeholder="Select Property Category"
+                                    searchable
+                                    clearable
+                                    data={[
+                                        { value: '2', label: 'Flats' },
+                                        { value: '1', label: 'Standalone' },
+                                    ]}
+                                    />
+
                                 <TextInput
                                     label="Building Name"
                                     placeholder="Building 1"
@@ -79,7 +94,12 @@ function CreateBusiness() {
 
                                     <TextInput
                                         label="Total Units"
-                                        placeholder="Rental Units No. Eg. 3"
+                                        placeholder="Total Units No. Eg. 3"
+                                    />
+
+                                    <TextInput
+                                        label="Total Standalone"
+                                        placeholder="Total Standalone No. Eg. 3"
                                     />
                                 
                                     </Group>
@@ -111,17 +131,24 @@ function CreateBusiness() {
                                     
                                     </Group>
                                      <Group grow>
-                                     <Select
-                                    label="Building Location"
-                                    placeholder="Select Location"
-                                    searchable
-                                    clearable
-                                    data={[
-                                        { value: '1', label: 'Location 1' },
-                                        { value: '2', label: 'Location 2' },
-                                        { value: '3', label: 'Location 3' },
-                                    ]}
-                                    />
+                                     {isLoaded && (
+                                        <Autocomplete
+                                        onPlaceChanged={() => {
+                                            setLocation(autocompleteRef?.getPlace()?.formatted_address);
+                                        }}
+                                        onLoad={(autocomplete) => {
+                                            setAutocompleteRef(autocomplete);
+                                        }}
+                                        >
+                                        <TextInput
+                                            label="Location"
+                                            placeholder="Location"
+                                            type="text"
+                                            value={location}
+                                            onChange={(e) => setLocation(e.target.value)}
+                                        />
+                                        </Autocomplete>
+                                    )}
                                     <Select
                                     label="Building Street"
                                     placeholder="Select Street"
@@ -133,41 +160,47 @@ function CreateBusiness() {
                                         { value: '3', label: 'Street 3' },
                                     ]}
                                     />
-                                    <Button leftIcon={<IconCurrentLocation />} mt="xl" variant="outline">
-                                    Pin Location
-                                    </Button>
                                     
                                     </Group>
-                                    {/* <Group grow>
+                                    <Group grow>
+                                    <TextInput
+                                    label="Unit Code (Number)"
+                                    placeholder="B013"
+                                    />
                                     <TextInput
                                         label="Rent Amount"
                                         placeholder="Ksh. 5000"
                                     />
                                     <Select
-                                    label="Payment Terms"
-                                    placeholder="Select Payment Term"
+                                    label="Unit Type"
+                                    placeholder="Select Unit Type"
                                     searchable
                                     clearable
                                     data={[
-                                        { value: '1', label: 'Daily' },
-                                        { value: '2', label: 'Monthly' },
-                                        { value: '3', label: 'Quatery' },
-                                        { value: '4', label: 'Semi-Annually' },
-                                        { value: '4', label: 'Yearly' },
+                                        { value: '4', label: 'Studio' },
+                                        { value: '1', label: 'One Bedroom' },
+                                        { value: '2', label: 'Two Bedroom' },
+                                        { value: '3', label: 'Bedsitter' },
+                                        
+                                        { value: '5', label: 'Villa' },
                                     ]}
                                     />
-                                    <Select
+                                    <TextInput
+                                    label="Square Foot"
+                                    placeholder="100sq"
+                                    />
+                                   <Select
                                     label="Status"
                                     placeholder="Select Status"
                                     searchable
                                     clearable
                                     data={[
-                                        { value: '1', label: 'Free' },
-                                        { value: '2', label: 'Occupied' },
-                                        { value: '3', label: 'Reserved' },
+                                        { value: '4', label: 'Vacant' },
+                                        { value: '1', label: 'Occupied' },
+                                        { value: '2', label: 'Under Maintenance' },
                                     ]}
                                     />
-                                </Group> */}
+                                </Group>
                                 <Box sx={{width: 'auto'}}>
                                     <Button>Save</Button>
                                 </Box>

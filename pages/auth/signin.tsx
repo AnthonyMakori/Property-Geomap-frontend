@@ -39,7 +39,7 @@ function Signin() {
         <>
             <AuthLayout>
                 <Title ta="center">
-                    Geomap Portal
+                    Properties Management Portal
                 </Title>
                 <Text ta="center">Sign in to your account to continue</Text>
 
