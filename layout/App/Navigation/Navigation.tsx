@@ -10,6 +10,7 @@ import {
     IconMapPin,
     IconCurrentLocation,
     IconSettings,
+    IconUserCog,
 } from '@tabler/icons-react';
 import useStyles from "./Navigation.styles";
 import {Logo, UserProfileButton} from "@/components";
@@ -51,37 +52,32 @@ const mockdata = [
                 ]
             },
             {
-                label: 'Manage Invoices',
+                label: 'Manage Users',
+                icon: IconUserCog,
+                links: [
+                    {label: 'Landloards', link: PATH_MANAGE_OWNERS.all},
+                    {label: 'Tenants', link: PATH_MANAGE_TENANTS.all},
+                ]
+            },
+            {
+                label: 'Manage Accounts',
                 icon: IconCashBanknote,
-                link: PATH_INVOICES.invoices.all
-            },
-            {
-                label: 'Manage Landloards',
-                icon: IconUserPlus,
-                link: PATH_MANAGE_OWNERS.all
-            },
-            {
-                label: 'Manage Tenants',
-                icon: IconUserPlus,
-                link: PATH_MANAGE_TENANTS.all
-            },
-            {
-                label: 'Manage Zones',
-                icon: IconPin,
-                link: PATH_MANAGE_ZONES.all
+                links: [
+                    {label: 'Invoices', link: PATH_INVOICES.invoices.all},
+                    {label: 'Expenses', link: PATH_INVOICES.invoices.all},
+                ]
             },
             {
                 label: 'Manage Locations',
                 icon: IconMapPin,
-                link: PATH_MANAGE_LOCATIONS.all
+                links: [
+                    {label: 'Zones', link: PATH_MANAGE_ZONES.all},
+                    // {label: 'Locations', link: PATH_MANAGE_LOCATIONS.all},
+                    {label: 'Streets', link: PATH_MANAGE_STREETS.all},
+                ]
             },
             {
-                label: 'Manage Streets',
-                icon: IconCurrentLocation,
-                link: PATH_MANAGE_STREETS.all
-            },
-            {
-                label: 'My Profile',
+                label: 'My Account',
                 icon: IconSettings,
                 link: PATH_DASHBOARD.default
             },

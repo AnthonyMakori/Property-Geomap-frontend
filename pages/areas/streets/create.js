@@ -24,18 +24,73 @@ import {IconArrowBack, IconCurrentLocation} from "@tabler/icons-react";
 import {AppLayout} from "@/layout";
 import {PageHeader} from "@/components";
 import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { showNotification } from '@mantine/notifications';
+
+const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
 const ICON_SIZE = 18;
 
-const PAPER_PROPS: PaperProps = {
-    p: "md",
-    shadow: "md",
-    radius: "md",
-    sx: {height: '100%'}
-}
-
 function CreateBusiness() {
-    const [file, setFile] = useState<File | null>(null);
+    const [name, setName] = useState('');
+    const [description, setDescription] = useState('');
+    const router = useRouter();
+    const [isSubmitting, setIsSubmitting] = useState(false);
+
+    const submit = async (e) => {
+        e.preventDefault();
+        
+        if(!name){
+            showNotification({
+                title: "Error",
+                message: "Name is required!",
+                color: "red",
+            });
+            return;
+        }
+
+
+        setIsSubmitting(true);
+    
+        try {
+            const response = await fetch(`${API_URL}/locations/store-street`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                credentials: 'include',
+                body: JSON.stringify({
+                    name,
+                    description,
+                }),
+            });
+    
+            if (!response.ok) {
+                throw new Error(`Failed to store: ${response.statusText}`);
+            }
+
+            setIsSubmitting(false);
+
+            showNotification({
+                title: "Success",
+                message: "Street Created Successfull",
+                color: "green",
+            });
+    
+            // Assuming the login was successful, you can proceed to navigate to the dashboard.
+            await router.push('/areas/streets');
+        } catch (error) {
+            setIsSubmitting(false);
+            // Handle network errors or other errors here
+
+            showNotification({
+                title: "Error",
+                message: "" + error,
+                color: "red",
+            });
+        }
+    }
+
 
 
     return (
@@ -56,24 +111,26 @@ function CreateBusiness() {
                                 <Button leftIcon={<IconArrowBack size={18}/>} size='xs' variant='outline'>Back</Button>
                                 </Link>
                             </Flex>
-                        <Paper {...PAPER_PROPS}>
+                        <Paper p="md">
                             <Stack>
                                 <Text size="md" fw={600}>Street Details</Text>
                                 <Group grow>
                                 <TextInput
                                     label="Street Name"
                                     placeholder="Street Name"
+                                    onChange={e => setName(e.target.value)}
                                     />
                                     <TextInput
                                     label="Description"
                                     placeholder="Description"
+                                    onChange={e => setDescription(e.target.value)}
                                     />
                                     
                                     </Group> 
                                    
 
                                 <Box sx={{width: 'auto'}}>
-                                    <Button>Save</Button>
+                                    <Button onClick={submit} loading={isSubmitting}>Create Street</Button>
                                 </Box>
                             </Stack>
                         </Paper>
