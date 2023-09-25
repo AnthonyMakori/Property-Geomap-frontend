@@ -8,20 +8,20 @@ import {AppLayout} from "@/layout";
 import {IconEdit, IconEye, IconPlus, IconTrash} from "@tabler/icons-react";
 import Link from 'next/link';
 import { useEffect } from 'react';
-import PaginationLinks from '../../../../components/Pagination/pagination-links';
+import PaginationLinks from '@/components/Pagination/pagination-links';
 import store from '@/store/store'
 import { useSelector } from "react-redux";
-import { getBuildings } from "@/store/properties/buildings/buildings-slice";
+import { getLeases } from "@/store/properties/buildings/buildings-slice";
 import { debounce } from 'lodash'; // Import debounce from lodash
 
-function List() {
+function Leases() {
     const [searchTerm, setSearchTerm] = useState('');
     const [debouncedSearchTerm, setDebouncedSearchTerm] = useState('');
   
-    const buildingsStatus = useSelector((state) => state.buildings.getBuildingsStatus);
-    const buildings = useSelector((state) => state.buildings.getBuildings);
+    const leasesStatus = useSelector((state) => state.buildings.getLeasesStatus);
+    const leases = useSelector((state) => state.buildings.getLeases);
   
-    const isLoading = buildingsStatus === 'loading';
+    const isLoading = leasesStatus === 'loading';
   
     useEffect(() => {
       const params = {};
@@ -30,10 +30,10 @@ function List() {
         params['filter'] = debouncedSearchTerm;
       }
   
-      store.dispatch(getBuildings(params));
+      store.dispatch(getLeases(params));
     }, [debouncedSearchTerm]);
   
-    console.log('Buildings data monyancha', buildings);
+    console.log('data monyancha', leases);
   
     function onPaginationLinkClicked(page) {
       if (!page) {
@@ -47,7 +47,7 @@ function List() {
         params['filter'] = debouncedSearchTerm;
       }
   
-      store.dispatch(getBuildings(params));
+      store.dispatch(getLeases(params));
     }
   
     console.log('Search Term Here', debouncedSearchTerm);
@@ -74,15 +74,15 @@ function List() {
                                 gap={{base: 'sm', sm: 4}}
                             >
                                 <Stack>
-                                    <Title order={3}>Buildings</Title>
+                                    <Title order={3}>Leases</Title>
                                 </Stack>
-                                <Link href="/askaris/revenue/rentals/create">
-                                <Button leftIcon={<IconPlus size={18}/>}>New Building</Button>
+                                <Link href="/leases/create">
+                                <Button leftIcon={<IconPlus size={18}/>}>New Lease</Button>
                                 </Link>
                             </Flex>
                         <Paper p="md" shadow='md' radius="md">
                             <Group position="apart" mb="md">
-                                <Text fz="lg" fw={600}>Buildings</Text>
+                                <Text fz="lg" fw={600}>Leases</Text>
                                 <TextInput
                                     label="Search"
                                     placeholder="Search"
@@ -94,31 +94,44 @@ function List() {
                             <Table>
                             <thead>
                                 <tr>
-                                <th>Name</th>
-                                <th>Category</th>
-                                <th>Owner</th>
-                                <th>Total Units</th>
-                                <th>Zone</th>
-                                <th>Location</th>
-                                <th>Street Address</th>
+                                {/* <th>Lease No.</th> */}
+                                <th>Building</th>
+                                <th>Unit</th>
+                                <th>Tenant</th>
+                                <th>Rent Amount</th>
+                                {/* <th>Deposit</th> */}
+                                {/* <th>Processing Fee</th> */}
+                                {/* <th>Service Fee</th> */}
+                                {/* <th>Penalty Fee</th> */}
+                                <th>Start Date</th>
+                                <th>Last Billing</th>
+                                <th>Due Day</th>
+                                <th>Status</th>
                                 <th>Created On</th>
                                 <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                            {buildings?.data?.map((item) => (
+                            {leases?.data?.map((item) => (
                             <tr key={item?.id} >
-                            <td>{ item?.name }</td>
-                            <td>{ item?.type ?? '-' }</td>
-                            <td>{item?.owner?.name ?? "-"}</td>
-                            <td>{item?.units ?? "-"}</td>
-                            <td>{item?.zone?.name ?? "-"}</td>
-                            <td>{item?.location ?? "-"}</td>
-                            <td>{item?.street?.name ?? "-"}</td>
-                            <td>{new Date(item?.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</td>
+                            {/* <td>{ item?.code }</td> */}
+                            <td>{ item?.building?.name ?? '-' }</td>
+                            <td>{item?.unit?.name ?? "-"}</td>
+                            <td>{item?.tenant?.name ?? "-"}</td>
+                            <td>Ksh. {item?.amount ?? "-"}</td>
+                            {/* <td>Ksh. {item?.deposit ?? "-"}</td> */}
+                            {/* <td>Ksh. {item?.processing_fee ?? "-"}</td> */}
+                            {/* <td>Ksh. {item?.service_fee ?? "-"}</td> */}
+                            {/* <td>Ksh. {item?.penalty ?? "-"}</td> */}
+                            <td>{new Date(item?.start_date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' })}</td>
+                            <td>{new Date(item?.last_billing).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' })}</td>
+                            <td>{item?.due ?? "-"}</td>
+                            <td>{item?.status ?? "-"}</td>
+                            
+                            <td>{new Date(item?.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' })}</td>
                             <td>
                                 <Link href={`/askaris/revenue/rentals/${item?.id}`}>
-                                <Button leftIcon={<IconEye size="1rem" />} variant='outline' mr="md" size='xs'> View </Button>
+                                <Button leftIcon={<IconEye size="1rem" />} variant='outline' mr="xs" size='xs'> View </Button>
                                 </Link>
                                 <Button leftIcon={<IconEdit size="1rem" />} variant='outline' size='xs'> Edit </Button>    
                                 {/* <ActionIcon variant="filled" color='red' aria-label="Settings">
@@ -132,7 +145,7 @@ function List() {
                             
                             </Table>
                             <PaginationLinks
-                                paginatedData={buildings}
+                                paginatedData={leases}
                                 onLinkClicked={onPaginationLinkClicked}
                             />
                         </Paper>
@@ -143,4 +156,4 @@ function List() {
     );
 }
 
-export default List;
+export default Leases;

@@ -49,6 +49,8 @@ const mockdata = [
                     // {label: 'Land Rates', link: PATH_ASKARIS_REVENUE.landrates},
                     {label: 'Buildings', link: PATH_ASKARIS_REVENUE.rentals},
                     {label: 'Units', link: PATH_ASKARIS_REVENUE.add},
+                    {label: 'Leases', link: "/leases"},
+                    {label: 'Unit Types', link: "/settings/unit-types"},
                 ]
             },
             {
@@ -63,7 +65,7 @@ const mockdata = [
                 label: 'Manage Accounts',
                 icon: IconCashBanknote,
                 links: [
-                    {label: 'Invoices', link: PATH_INVOICES.invoices.all},
+                    {label: 'Invoices', link: '/invoices'},
                     {label: 'Expenses', link: PATH_INVOICES.invoices.all},
                 ]
             },

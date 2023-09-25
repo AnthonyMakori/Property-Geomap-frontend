@@ -38,6 +38,7 @@ function CreateBusiness() {
     const [owners, setOwners] = useState([]);
     const [zones, setZones] = useState([]);
     const [streets, setStreets] = useState([]);
+    const [types, setTypes] = useState([]);
 
     const { isLoaded } = useLoadScript({
         googleMapsApiKey: process?.env?.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY ?? "",
@@ -203,6 +204,28 @@ function CreateBusiness() {
         )();
     }, []);
 
+    
+
+    useEffect(() => {
+        (
+            async () => {
+                try {
+                    const response = await fetch('http://localhost:8000/api/units/unit-types');
+    
+                    if (response.ok) {
+                        const result = await response.json();
+                        setTypes(result);
+                        console.log("All", result);
+                    } else {
+                        console.log("Error: API request failed");
+                    }
+    
+                } catch (e) {
+                    console.log("Error ", e);
+                }
+            }
+        )();
+    }, []);
 
     const ownersList =
     owners?.data?.map((item) => ({
@@ -223,6 +246,11 @@ function CreateBusiness() {
       label: item?.name,
     })) ?? [];
 
+    const unitTypesList =
+    types?.data?.map((item) => ({
+      value: item?.id,
+      label: item?.name,
+    })) ?? [];
 
     return (
         <>
@@ -340,19 +368,7 @@ function CreateBusiness() {
                                         searchable
                                         clearable
                                         onChange={setUnitType}
-                                        data={[
-                                            { value: 'Single Room', label: 'Single Room' },
-                                            { value: 'Studio', label: 'Studio' },
-                                            { value: 'Bedsitter', label: 'Bedsitter' },
-                                            { value: 'One Bedroom', label: 'One Bedroom' },
-                                            { value: 'Two Bedroom', label: 'Two Bedroom' },
-                                            { value: 'Three Bedroom', label: 'Three Bedroom' },
-                                            { value: 'Four Bedroom', label: 'Four Bedroom' },
-                                            { value: 'Five Bedroom', label: 'Five Bedroom' },
-                                            { value: 'Bungalow', label: 'Bungalow' },
-                                            { value: 'Mansionnate', label: 'Mansionnate' },
-
-                                        ]}
+                                        data={ unitTypesList }
                                     />
                                     <TextInput
                                         label="Square Foot"

@@ -1,4 +1,4 @@
-import React, {SyntheticEvent, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import Head from "next/head";
 import {ActionIcon, Table, Container, Group, Title, Input, Select, Button, Space, Flex, Paper, PaperProps, Stack, Text} from "@mantine/core";
 import {PATH_DASHBOARD} from "@/routes";
@@ -7,41 +7,42 @@ import InvoicesData from "@/mocks/Invoices.json";
 import {AppLayout} from "@/layout";
 import {IconEdit, IconEye, IconPlus} from "@tabler/icons-react";
 import Link from 'next/link';
-import { useEffect } from 'react';
-import PaginationLinks from '../../../../components/Pagination/pagination-links';
-import store from '@/store/store'
-import { useSelector } from "react-redux";
-import { getUnits } from "@/store/properties/buildings/buildings-slice";
+import PaginationLinks from '../../../components/Pagination/pagination-links';
+
 
 function List() {
 
-    const unitsStatus = useSelector(
-        (state) => state.buildings.getUnitsStatus
-      );
-      const units = useSelector(
-        (state) => state.buildings.getUnits
-      );
-    
-      const isLoading = unitsStatus === "loading";
-    
-      useEffect(() => {  
-        const params = {};
+    const [types, setTypes] = useState([]);
 
-        store.dispatch(getUnits(params));
-      }, []);
+    useEffect(() => {
+        (
+            async () => {
+                try {
+                    const response = await fetch('http://localhost:8000/api/units/unit-types');
     
-      console.log("Units data monyancha", units);
+                    if (response.ok) {
+                        const result = await response.json();
+                        setTypes(result);
+                        console.log("All", result);
+                    } else {
+                        console.log("Error: API request failed");
+                    }
+    
+                } catch (e) {
+                    console.log("Error ", e);
+                }
+            }
+        )();
+    }, []);
 
-      function onPaginationLinkClicked(page) {
+    
+    function onPaginationLinkClicked(page) {
         if (!page) {
           return;
         }
-    
-        const params = {};
-        params["page"] = page;
-    
-        store.dispatch(getUnits(params));
+
       }
+
     return (
         <>
             <AppLayout>
@@ -54,46 +55,34 @@ function List() {
                                 gap={{base: 'sm', sm: 4}}
                             >
                                 <Stack>
-                                    <Title order={3}>Manage Units</Title>
+                                    <Title order={3}>Unit Types</Title>
                                 </Stack>
-                                <Link href="/askaris/revenue/addother/create">
-                                <Button leftIcon={<IconPlus size={18}/>}>Add Unit</Button>
+                                <Link href="/settings/unit-types/create">
+                                <Button leftIcon={<IconPlus size={18}/>}>Add Unit Type</Button>
                                 </Link>
                             </Flex>
-                        <Paper p="md" shadow='md' radius="md">
+                        <Paper p="md">
                             <Group position="apart" mb="md">
-                                <Text fz="lg" fw={600}>Manage Units</Text>
+                                <Text fz="lg" fw={600}>Unit Types</Text>
                                 <Input placeholder="Search" />
                             </Group>
                             <Table>
                             <thead>
-                                <tr>                               
-                                <th>Unit Name</th>
-                                <th>Unit Code</th>
-                                <th>Building</th>
-                                <th>Rent Amount</th>
-                                <th>Tenant</th>
-                                <th>Type</th>
-                                <th>Square Foot</th>
-                                <th>Status</th>                               
+                                <tr>
+                                <th>Name</th>
+                                <th>Description</th>
                                 <th>Created On</th>
                                 <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                            {units?.data?.map((item) => (
+                            {types?.data?.map((item) => (
                             <tr >
                             <td>{item?.name}</td>
-                            <td>{item?.code ?? "-"}</td>
-                            <td>{item?.building?.name}</td>
-                            <td>Ksh. {item?.amount ?? "0"}</td>
-                            <td>{item?.tenant?.name ?? "-"}</td>
-                            <td>{item?.type?.name ?? "-"}</td>
-                            <td>{item?.sqfoot ?? "-"}</td>
-                            <td>{item?.status ?? "Vacant"}</td>
+                            <td>{item?.description ?? "-"}</td>
                             <td>{new Date(item?.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</td>
                             <td>
-                                <Link href="/askaris/revenue/addother/1">
+                                <Link href="#">
                                 <Button leftIcon={<IconEye size="1rem" />} variant='outline' mr="md" size='xs'> View </Button>
                                 </Link>
                                 <Button leftIcon={<IconEdit size="1rem" />} variant='outline' size='xs'> Edit </Button>                            
@@ -104,7 +93,7 @@ function List() {
                             </tbody>
                             </Table>
                             <PaginationLinks
-                                paginatedData={units}
+                                paginatedData={types}
                                 onLinkClicked={onPaginationLinkClicked}
                             />
                         </Paper>
