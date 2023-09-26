@@ -9,8 +9,10 @@ import {
     IconPin,
     IconMapPin,
     IconCurrentLocation,
+    IconMessage2,
     IconSettings,
     IconUserCog,
+    IconMessageCircle2,
 } from '@tabler/icons-react';
 import useStyles from "./Navigation.styles";
 import {Logo, UserProfileButton} from "@/components";
@@ -76,6 +78,13 @@ const mockdata = [
                     {label: 'Zones', link: PATH_MANAGE_ZONES.all},
                     // {label: 'Locations', link: PATH_MANAGE_LOCATIONS.all},
                     {label: 'Streets', link: PATH_MANAGE_STREETS.all},
+                ]
+            },
+            {
+                label: 'Communications',
+                icon: IconMessageCircle2,
+                links: [
+                    {label: 'Sent Box', link: '/communications'},
                 ]
             },
             {
