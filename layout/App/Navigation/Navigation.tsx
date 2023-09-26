@@ -55,7 +55,7 @@ const mockdata = [
                 ]
             },
             {
-                label: 'Manage Users',
+                label: 'All Users',
                 icon: IconUserCog,
                 links: [
                     {label: 'Landloards', link: PATH_MANAGE_OWNERS.all},
@@ -63,7 +63,7 @@ const mockdata = [
                 ]
             },
             {
-                label: 'Manage Accounts',
+                label: 'Accounts',
                 icon: IconCashBanknote,
                 links: [
                     {label: 'Invoices', link: '/invoices'},

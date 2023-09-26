@@ -117,7 +117,7 @@ function CreateUnitType() {
                                 <Group grow>
                                 <TextInput
                                     label="Name"
-                                    placeholder="Name"
+                                    placeholder="Name E.g One Bedroom"
                                     onChange={e => setName(e.target.value)}
                                     />
                                     <TextInput
