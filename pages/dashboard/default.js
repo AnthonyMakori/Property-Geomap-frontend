@@ -23,11 +23,12 @@ import {
     MobileDesktopChart, PageHeader,
     SalesChart,
     StatsCard,
-    TrafficTable
+    TrafficTable,
+    ProjectsTable ,
 } from "@/components";
 import StatsData from "../../mocks/StatsGrid.json";
 import LanguagesData from "../../mocks/Languages.json";
-import TrafficData from "../../mocks/Traffic.json";
+import ProjectsData from "../../mocks/Projects.json"
 
 const PRIMARY_COL_HEIGHT = rem(300);
 
@@ -51,7 +52,13 @@ function Analytics() {
                                 <LanguageTable data={LanguagesData.slice(0, 6)} p="md" shadow='md' radius="md"/>
                             </Grid.Col>
                             <Grid.Col lg={8}>
-                                <TrafficTable data={TrafficData.slice(0, 6)} p="md" shadow='md' radius="md"/>
+                                <Paper p="md" shadow='md' radius="md">
+                                    <Group position="apart" mb="md">
+                                        <Text size="lg" fw={600}>Recent Invoices</Text>
+                                        
+                                    </Group>
+                                    <ProjectsTable data={ProjectsData.slice(0, 6)}/>
+                                </Paper>
                             </Grid.Col>
                         </Grid>
                     </Stack>

@@ -66,10 +66,10 @@ function Invoices() {
       //
   const printInvoice = async (itemId) => {
     // Set loading state to true for the clicked item
-    // setPdfLoading((prevPdfLoading) => ({
-    //   ...prevPdfLoading,
-    //   [itemId]: true,
-    // }));
+    setPdfLoading((prevPdfLoading) => ({
+      ...prevPdfLoading,
+      [itemId]: true,
+    }));
 
     const API_URL = process.env.NEXT_PUBLIC_API_URL;
     const endpoint = `${API_URL}/accounts/download-invoice/${itemId}`;

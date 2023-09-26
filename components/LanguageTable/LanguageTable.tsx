@@ -19,7 +19,7 @@ const LanguageTable = ({data, ...others}: LanguageTableProps) => {
                 verticalSpacing="sm"
                 highlightOnHover
                 columns={[
-                    {accessor: 'business'},
+                    {accessor: 'building_name'},
                 ]}
                 records={data}
             />

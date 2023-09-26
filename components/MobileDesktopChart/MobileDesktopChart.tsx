@@ -8,10 +8,10 @@ type MobileDesktopChartProps = PaperProps
 const MobileDesktopChart = ({...others}: MobileDesktopChartProps) => {
     const theme = useMantineTheme()
     const series = [{
-        name: 'PRODUCT A',
+        name: 'Building 1',
         data: [44, 55, 41, 67, 22, 43, 34]
     }, {
-        name: 'PRODUCT B',
+        name: 'Building 2',
         data: [13, 23, 20, 8, 13, 27, 10]
     }]
 
@@ -73,7 +73,7 @@ const MobileDesktopChart = ({...others}: MobileDesktopChartProps) => {
     return (
         <Paper {...others}>
             <Group position="apart" mb="md">
-                <Text size="lg" fw={600}>Mobile/Desktop</Text>
+                <Text size="lg" fw={600}>Rental Income</Text>
                 <ActionIcon>
                     <IconDotsVertical size={18}/>
                 </ActionIcon>
