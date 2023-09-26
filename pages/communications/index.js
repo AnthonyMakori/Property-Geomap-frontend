@@ -74,12 +74,12 @@ function Leases() {
                                 gap={{base: 'sm', sm: 4}}
                             >
                                 <Stack>
-                                    <Title order={3}>Communications</Title>
+                                    <Title order={3}>Messages</Title>
                                 </Stack>
                             </Flex>
                         <Paper p="md" shadow='md' radius="md">
                             <Group position="apart" mb="md">
-                                <Text fz="lg" fw={600}>Communications</Text>
+                                <Text fz="lg" fw={600}>Messages</Text>
                                 <TextInput
                                     label="Search"
                                     placeholder="Search"

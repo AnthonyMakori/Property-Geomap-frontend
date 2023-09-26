@@ -51,8 +51,7 @@ const mockdata = [
                     // {label: 'Land Rates', link: PATH_ASKARIS_REVENUE.landrates},
                     {label: 'Buildings', link: PATH_ASKARIS_REVENUE.rentals},
                     {label: 'Units', link: PATH_ASKARIS_REVENUE.add},
-                    {label: 'Leases', link: "/leases"},
-                    {label: 'Unit Types', link: "/settings/unit-types"},
+                    {label: 'Leases', link: "/leases"},                   
                 ]
             },
             {
@@ -69,29 +68,24 @@ const mockdata = [
                 links: [
                     {label: 'Invoices', link: '/invoices'},
                     {label: 'Payments', link: '/payments'},
-                    {label: 'Expenses', link: PATH_INVOICES.invoices.all},
+                    {label: 'Expenses', link: '/invoices'},
                 ]
             },
             {
-                label: 'Manage Locations',
-                icon: IconMapPin,
-                links: [
-                    {label: 'Zones', link: PATH_MANAGE_ZONES.all},
-                    // {label: 'Locations', link: PATH_MANAGE_LOCATIONS.all},
-                    {label: 'Streets', link: PATH_MANAGE_STREETS.all},
-                ]
-            },
-            {
-                label: 'Communications',
+                label: 'Messages',
                 icon: IconMessageCircle2,
                 links: [
                     {label: 'Sent Box', link: '/communications'},
                 ]
             },
             {
-                label: 'My Account',
+                label: 'Settings',
                 icon: IconSettings,
-                link: PATH_DASHBOARD.default
+                links: [
+                    {label: 'Unit Types', link: "/settings/unit-types"},
+                    {label: 'Zones', link: PATH_MANAGE_ZONES.all},
+                    {label: 'Streets', link: PATH_MANAGE_STREETS.all},
+                ]
             },
            
         ]
