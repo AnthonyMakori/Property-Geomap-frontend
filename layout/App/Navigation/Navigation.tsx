@@ -68,6 +68,7 @@ const mockdata = [
                 icon: IconCashBanknote,
                 links: [
                     {label: 'Invoices', link: '/invoices'},
+                    {label: 'Payments', link: '/payments'},
                     {label: 'Expenses', link: PATH_INVOICES.invoices.all},
                 ]
             },

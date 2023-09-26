@@ -14,6 +14,7 @@ import { useSelector } from "react-redux";
 import { getInvoices } from "@/store/accounts/accounts-slice";
 import { debounce } from 'lodash'; // Import debounce from lodash
 import { showNotification } from '@mantine/notifications';
+import RecordPaymentModal from '@/components/Invoices/record-payment-modal';
 
 function Invoices() {
     const [searchTerm, setSearchTerm] = useState('');
@@ -200,7 +201,7 @@ function Invoices() {
                                 <Button color="indigo" leftIcon={<IconEdit size="1rem" />} variant='outline' mb="xs"  mr="xs" size='xs'> Edit </Button>
                                 <Button color="violet" leftIcon={<IconShare size="1rem" />} variant='outline'  mb="xs" mr="xs" size='xs'> Share </Button>
                                 <Button color="yellow" loading={pdfLoading[item.id]} onClick={() => printInvoice(item?.id)} mb="xs" leftIcon={<IconPrinter size="1rem" />} variant='outline' mr="xs" size='xs'> Download </Button>
-                                <Button color="green" leftIcon={<IconCurrencyDollar size="1rem" />} variant='outline' size='xs'> Record Payment </Button>
+                                <RecordPaymentModal item={item} />
                                     
                                 {/* <ActionIcon variant="filled" color='red' aria-label="Settings">
                                     <IconTrash />
