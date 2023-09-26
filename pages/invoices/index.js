@@ -168,13 +168,15 @@ function Invoices() {
                             <thead>
                                 <tr>
                                 <th>Invoice No.</th>
-                                <th>Building</th>
-                                <th>Unit</th>
-                                <th>Tenant</th>
-                                <th>Lease No.</th>
-                                <th>Rent Amount</th>
+                                <th>Tenant</th>                                
+                                <th>Rent</th>
+                                <th>Deposit</th>
+                                <th>Service Fee</th>
+                                <th>Processing Fee</th>
+                                <th>Penalty</th>
+                                <th>Gross Total</th>
                                 <th>Paid</th>
-                                <th>Balance</th>
+                                <th>Owed</th>
                                 <th>Status</th>
                                 <th>Created On</th>
                                 <th>Action</th>
@@ -183,16 +185,27 @@ function Invoices() {
                             <tbody>
                             {invoices?.data?.map((item) => (
                             <tr key={item?.id} >
-                            <td>{ item?.code }</td>
-                            <td>{ item?.building?.name ?? '-' }</td>
-                            <td>{item?.unit?.name ?? "-"}</td>
-                            <td>{item?.tenant?.name ?? "-"}</td>
-                            <td>{ item?.lease?.code }</td>
-                            <td>Ksh. {item?.amount ?? "-"}</td>
-                            <td>Ksh. 0</td>
-                            <td>Ksh. 0</td>
-                            <td>{item?.status ?? "-"}</td>
+                            <td>#{ item?.code }</td>
+                            <td>{item?.tenant?.name ?? "-"}</td>                            
+                            <td>Ksh. {item?.amount ?? "0"}</td>
+                            <td>Ksh. {item?.deposit ?? "0"}</td>
+                            <td>Ksh. {item?.service_fee ?? "0"}</td>
+                            <td>Ksh. {item?.processing_fee ?? "0"}</td>
+                            <td>Ksh. {item?.penalty ?? "0"}</td>
+                            <td>Ksh. {item?.total ?? "0"}</td>
+                            <td>Ksh. {item?.total_paid ?? "0"}</td>
+                            <td>Ksh. {item?.total_owed ?? "0"}</td>
                             
+                            <td>
+                              {item?.total_paid > 0
+                                ? "Partially Paid"
+                                : item?.total_paid === 0
+                                ? "Pending"
+                                : item?.total_owed === 0
+                                ? "Complete"
+                                : null}
+                            </td>
+                                                                                
                             <td>{new Date(item?.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' })}</td>
                             <td>
                                 <Link href={`/askaris/revenue/rentals/${item?.id}`}>

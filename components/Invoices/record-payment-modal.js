@@ -24,6 +24,24 @@ function RecordPaymentModal({ item }) {
 
   const submitDetails = async (e) => {
     e.preventDefault();
+
+    if (amount > item?.total_owed){
+      showNotification({
+        title: "Error",
+        message: "Amount is greater than the invoice balance of Ksh. " + item?.total_owed,
+        color: "red",
+      });
+      return;
+    }
+
+    if (item?.total_owed === 0){
+      showNotification({
+        title: "Error",
+        message: "Invoice already fully paid!",
+        color: "red",
+      });
+      return;
+    }
     
     if (!amount) {
       showNotification({
@@ -77,6 +95,9 @@ function RecordPaymentModal({ item }) {
             color: "green",
         });
 
+        setAmount("");
+        setPaymentMethod("");
+        setReferenceCode("");
         setOpened(false);
         const params = {};
         store.dispatch(getInvoices(params));
