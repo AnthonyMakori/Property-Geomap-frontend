@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, {useState} from 'react';
 import Head from "next/head";
 import {
@@ -172,7 +173,7 @@ function CreateBusiness() {
             });
 
             // Assuming the login was successful, you can proceed to navigate to the dashboard.
-            await router.push('/leases');
+            // await router.push('/leases');
         } catch (error) {
             setIsSubmitting(false);
             // Handle network errors or other errors here

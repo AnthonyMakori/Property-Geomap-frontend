@@ -51,7 +51,7 @@ function Error500() {
                     <div className={classes.label}>500</div>
                     <Title className={classes.title}>Sorry, unexpected error..</Title>
                     <Text fz="md" ta="center" className={classes.description}>
-                        Our servers could not handle your request. Don't worry, our development team was already
+                        Our servers could not handle your request. Dont worry, our development team was already
                         notified. Try refreshing the page.
                     </Text>
                     <Group position="center" mt="md">

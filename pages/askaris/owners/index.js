@@ -79,7 +79,7 @@ function List() {
                             </thead>
                             <tbody>
                             {owners?.data?.map((item) => (
-                            <tr >
+                            <tr key={item?.id}>
                             <td>{item?.name}</td>
                             <td>{item?.phone ?? '-'}</td>
                             <td>{item?.email ?? '-'}</td>

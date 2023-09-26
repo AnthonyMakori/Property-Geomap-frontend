@@ -31,13 +31,6 @@ import TrafficData from "../../mocks/Traffic.json";
 
 const PRIMARY_COL_HEIGHT = rem(300);
 
-const PAPER_PROPS: PaperProps = {
-    p: "md",
-    shadow: "md",
-    radius: "md",
-    sx: {height: '100%'}
-}
-
 function Analytics() {
     const theme = useMantineTheme();
     const SECONDARY_COL_HEIGHT = `calc(${PRIMARY_COL_HEIGHT} / 2 - ${theme.spacing.md} / 2)`;
@@ -50,22 +43,22 @@ function Analytics() {
                         <PageHeader title="Analytics dashboard" withActions={true}/>
                         <SimpleGrid cols={2} spacing="md" breakpoints={[{maxWidth: 'sm', cols: 1}]}>
                             <SimpleGrid cols={2}>
-                                {StatsData?.data.map(s => <StatsCard key={s.title} data={s} {...PAPER_PROPS}/>)}
+                                {StatsData?.data.map(s => <StatsCard key={s.title} data={s} p="md" shadow='md' radius="md"/>)}
                             </SimpleGrid>
-                            <MobileDesktopChart {...PAPER_PROPS}/>
+                            <MobileDesktopChart p="md" shadow='md' radius="md"/>
                         </SimpleGrid>
                         <Grid>
                             <Grid.Col lg={8}>
-                                <MapChart {...PAPER_PROPS}/>
+                                <MapChart p="md" shadow='md' radius="md"/>
                             </Grid.Col>
                             <Grid.Col lg={4}>
-                                <SalesChart {...PAPER_PROPS}/>
+                                <SalesChart p="md" shadow='md' radius="md"/>
                             </Grid.Col>
                             <Grid.Col lg={4}>
-                                <LanguageTable data={LanguagesData.slice(0, 6)} {...PAPER_PROPS}/>
+                                <LanguageTable data={LanguagesData.slice(0, 6)} p="md" shadow='md' radius="md"/>
                             </Grid.Col>
                             <Grid.Col lg={8}>
-                                <TrafficTable data={TrafficData.slice(0, 6)} {...PAPER_PROPS}/>
+                                <TrafficTable data={TrafficData.slice(0, 6)} p="md" shadow='md' radius="md"/>
                             </Grid.Col>
                         </Grid>
                     </Stack>

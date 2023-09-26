@@ -50,7 +50,7 @@ function Error403() {
                     <div className={classes.label}>403</div>
                     <Title className={classes.title}>Access Denied.</Title>
                     <Text fz="md" ta="center" className={classes.description}>
-                        The page you're trying to access has restricted access. Please refer to your system
+                        The page youre trying to access has restricted access. Please refer to your system
                         administrator.
                     </Text>
                     <Group position="center" mt="md">

@@ -77,7 +77,7 @@ function List() {
                             </thead>
                             <tbody>
                             {zones?.data?.map((item) => (
-                            <tr >
+                            <tr key={item?.id}>
                             <td>{item?.name}</td>
                             <td>{item?.description ?? "-"}</td>
                             <td>{new Date(item?.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</td>
