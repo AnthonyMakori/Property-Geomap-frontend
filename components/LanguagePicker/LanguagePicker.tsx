@@ -2,6 +2,7 @@ import {useState} from "react";
 import {Group, Image, Menu, UnstyledButton,} from "@mantine/core";
 import {IconChevronDown, IconPower} from "@tabler/icons-react";
 import useStyles from "./LanguagePicker.styles";
+import { useRouter } from "next/router";
 
 const data = [
     {
@@ -11,18 +12,27 @@ const data = [
     },
 ];
 
+
+
 type LanguagePickerProps = {
     type: "collapsed" | "expanded"
 }
 
 const LanguagePicker = ({type}: LanguagePickerProps) => {
+    const router = useRouter();
     const [opened, setOpened] = useState(false);
     const {classes} = useStyles({opened});
     const [selected, setSelected] = useState(data[0]);
+
+    const logout = () => {
+        router.push('/auth/signin');
+    }
+
+    
     const items = data.map((item) => (
         <Menu.Item
             icon={<IconPower />}
-            onClick={() => setSelected(item)}
+            onClick={logout}
             key={item.label}
         >
             {item.label}
