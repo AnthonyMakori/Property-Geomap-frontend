@@ -167,7 +167,7 @@ function RecordPaymentModal({ item }) {
         size="xs"
         color="green"
       >
-        Record payment
+        Pay
       </Button>
     </>
   );

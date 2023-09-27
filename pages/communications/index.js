@@ -95,7 +95,7 @@ function Leases() {
                                 <th>Tenant</th>
                                 <th>Type</th>
                                 <th>Message</th>
-                                <th>Status</th>
+                                {/* <th>Status</th> */}
                                 <th>Created On</th>
                                 </tr>
                             </thead>
@@ -106,7 +106,7 @@ function Leases() {
                             <td>{item?.user?.name ?? "-"}</td>
                             <td>{item?.subject ?? "-"}</td>
                             <td>{item?.message ?? "-"}</td>
-                            <td>Success</td>                           
+                            {/* <td>Success</td>                            */}
                             <td>{new Date(item?.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' })}</td>
                             </tr>
                              ))}

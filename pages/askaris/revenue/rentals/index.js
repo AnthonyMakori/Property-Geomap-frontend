@@ -97,11 +97,11 @@ function List() {
                                 <th>Name</th>
                                 <th>Category</th>
                                 <th>Owner</th>
-                                <th>Total Units</th>
-                                <th>Zone</th>
+                                <th>Units</th>
+                                {/* <th>Zone</th> */}
                                 <th>Location</th>
-                                <th>Street Address</th>
-                                <th>Created On</th>
+                                {/* <th>Street</th> */}
+                                <th>Date</th>
                                 <th>Action</th>
                                 </tr>
                             </thead>
@@ -112,15 +112,15 @@ function List() {
                             <td>{ item?.type ?? '-' }</td>
                             <td>{item?.owner?.name ?? "-"}</td>
                             <td>{item?.units ?? "-"}</td>
-                            <td>{item?.zone?.name ?? "-"}</td>
+                            {/* <td>{item?.zone?.name ?? "-"}</td> */}
                             <td>{item?.location ?? "-"}</td>
-                            <td>{item?.street?.name ?? "-"}</td>
+                            {/* <td>{item?.street?.name ?? "-"}</td> */}
                             <td>{new Date(item?.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</td>
                             <td>
                                 <Link href={`/askaris/revenue/rentals/${item?.id}`}>
                                 <Button leftIcon={<IconEye size="1rem" />} variant='outline' mr="md" size='xs'> View </Button>
                                 </Link>
-                                <Button leftIcon={<IconEdit size="1rem" />} variant='outline' size='xs'> Edit </Button>    
+                                {/* <Button leftIcon={<IconEdit size="1rem" />} variant='outline' size='xs'> Edit </Button>     */}
                                 {/* <ActionIcon variant="filled" color='red' aria-label="Settings">
                                     <IconTrash />
                                 </ActionIcon>                         */}

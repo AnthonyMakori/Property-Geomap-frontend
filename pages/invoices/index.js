@@ -5,7 +5,7 @@ import {PATH_DASHBOARD} from "@/routes";
 import {InvoicesTable, PageHeader} from "@/components";
 import InvoicesData from "@/mocks/Invoices.json";
 import {AppLayout} from "@/layout";
-import {IconEdit, IconEye, IconPrinter, IconCurrencyDollar, IconShare} from "@tabler/icons-react";
+import {IconEdit, IconEye, IconPrinter, IconCurrencyDollar, IconShare, IconPlus} from "@tabler/icons-react";
 import Link from 'next/link';
 import { useEffect } from 'react';
 import PaginationLinks from '@/components/Pagination/pagination-links';
@@ -152,6 +152,9 @@ function Invoices() {
                                 <Stack>
                                     <Title order={3}>Invoices</Title>
                                 </Stack>
+                                <Link href="/leases/create">
+                                <Button leftIcon={<IconPlus size={18}/>}>New Invoice</Button>
+                                </Link>
                             </Flex>
                         <Paper p="md" shadow='md' radius="md">
                             <Group position="apart" mb="md">
@@ -167,18 +170,18 @@ function Invoices() {
                             <Table>
                             <thead>
                                 <tr>
-                                <th>Invoice No.</th>
+                                <th>No.</th>
                                 <th>Tenant</th>                                
-                                <th>Rent</th>
+                                {/* <th>Rent</th>
                                 <th>Deposit</th>
                                 <th>Service Fee</th>
                                 <th>Processing Fee</th>
-                                <th>Penalty</th>
-                                <th>Gross Total</th>
+                                <th>Penalty</th> */}
+                                <th>Total</th>
                                 <th>Paid</th>
                                 <th>Owed</th>
                                 <th>Status</th>
-                                <th>Created On</th>
+                                {/* <th>Date</th> */}
                                 <th>Action</th>
                                 </tr>
                             </thead>
@@ -187,11 +190,11 @@ function Invoices() {
                             <tr key={item?.id} >
                             <td>#{ item?.code }</td>
                             <td>{item?.tenant?.name ?? "-"}</td>                            
-                            <td>Ksh. {item?.amount ?? "0"}</td>
+                            {/* <td>Ksh. {item?.amount ?? "0"}</td>
                             <td>Ksh. {item?.deposit ?? "0"}</td>
                             <td>Ksh. {item?.service_fee ?? "0"}</td>
                             <td>Ksh. {item?.processing_fee ?? "0"}</td>
-                            <td>Ksh. {item?.penalty ?? "0"}</td>
+                            <td>Ksh. {item?.penalty ?? "0"}</td> */}
                             <td>Ksh. {item?.total ?? "0"}</td>
                             <td>Ksh. {item?.total_paid ?? "0"}</td>
                             <td>Ksh. {item?.total_owed ?? "0"}</td>
@@ -206,13 +209,13 @@ function Invoices() {
                                 : null}
                             </td>
                                                                                 
-                            <td>{new Date(item?.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' })}</td>
+                            {/* <td>{new Date(item?.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' })}</td> */}
                             <td>
-                                <Link href={`/askaris/revenue/rentals/${item?.id}`}>
+                                {/* <Link href={`/askaris/revenue/rentals/${item?.id}`}>
                                 <Button color="cyan" leftIcon={<IconEye size="1rem" />} variant='outline' mr="xs" mb="xs" size='xs'> View </Button>
                                 </Link>
                                 <Button color="indigo" leftIcon={<IconEdit size="1rem" />} variant='outline' mb="xs"  mr="xs" size='xs'> Edit </Button>
-                                <Button color="violet" leftIcon={<IconShare size="1rem" />} variant='outline'  mb="xs" mr="xs" size='xs'> Share </Button>
+                                <Button color="violet" leftIcon={<IconShare size="1rem" />} variant='outline'  mb="xs" mr="xs" size='xs'> Share </Button> */}
                                 <Button color="yellow" loading={pdfLoading[item.id]} onClick={() => printInvoice(item?.id)} mb="xs" leftIcon={<IconPrinter size="1rem" />} variant='outline' mr="xs" size='xs'> Download </Button>
                                 <RecordPaymentModal item={item} />
                                     

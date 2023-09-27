@@ -95,7 +95,7 @@ function Leases() {
                                 <th>Tenant</th>
                                 <th>Amount</th>
                                 <th>Method</th>
-                                <th>Created On</th>
+                                <th>Date</th>
                                 </tr>
                             </thead>
                             <tbody>

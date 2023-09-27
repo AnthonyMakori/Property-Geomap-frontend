@@ -71,11 +71,11 @@ function List() {
                             <thead>
                                 <tr>
                                 <th>Name</th>
-                                <th>Phone No.</th>
+                                <th>Phone</th>
                                 <th>Email</th>
-                                <th>National ID No.</th>
+                                <th>ID No.</th>
                                 <th>KRA PIN</th>
-                                <th>Created On</th>
+                                <th>Date</th>
                                 <th>Action</th>
                                 </tr>
                             </thead>
@@ -92,7 +92,7 @@ function List() {
                                 <Link href="/askaris/owners/1">
                                 <Button leftIcon={<IconEye size="1rem" />} variant='outline' mr="md" size='xs'> View </Button>
                                 </Link>
-                                <Button leftIcon={<IconEdit size="1rem" />} variant='outline' size='xs'> Edit </Button>                            
+                                {/* <Button leftIcon={<IconEdit size="1rem" />} variant='outline' size='xs'> Edit </Button>                             */}
                             </td>
                             </tr>
                             ))}

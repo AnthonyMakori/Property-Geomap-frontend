@@ -69,20 +69,20 @@ function List() {
                             <Table>
                             <thead>
                                 <tr>
-                                <th>Code</th>
+                                {/* <th>Code</th> */}
                                 <th>Name</th>
-                                <th>Phone No.</th>
+                                <th>Phone</th>
                                 <th>Email</th>
-                                <th>National ID No.</th>
+                                <th>ID No.</th>
                                 <th>Gender</th>
-                                <th>Created On</th>
+                                <th>Date</th>
                                 <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                             {tenants?.data?.map((item) => (
                             <tr key={item?.id}>
-                            <td>{item?.code}</td>
+                            {/* <td>{item?.code}</td> */}
                             <td>{item?.name ?? "-"}</td>
                             <td>{item?.phone ?? "-"}</td>
                             <td>{item?.email ?? '-'}</td>
@@ -93,7 +93,7 @@ function List() {
                                 <Link href="/askaris/tenants/1">
                                 <Button leftIcon={<IconEye size="1rem" />} variant='outline' mr="md" size='xs'> View </Button>
                                 </Link>
-                                <Button leftIcon={<IconEdit size="1rem" />} variant='outline' size='xs'> Edit </Button>                            
+                                {/* <Button leftIcon={<IconEdit size="1rem" />} variant='outline' size='xs'> Edit </Button>                             */}
                             </td>
                             </tr>
                             ))}

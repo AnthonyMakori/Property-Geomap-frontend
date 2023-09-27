@@ -95,27 +95,27 @@ function Leases() {
                             <thead>
                                 <tr>
                                 {/* <th>Lease No.</th> */}
-                                <th>Building</th>
+                                {/* <th>Building</th> */}
                                 <th>Unit</th>
                                 <th>Tenant</th>
-                                <th>Rent Amount</th>
+                                <th>Rent</th>
                                 {/* <th>Deposit</th> */}
                                 {/* <th>Processing Fee</th> */}
                                 {/* <th>Service Fee</th> */}
                                 {/* <th>Penalty Fee</th> */}
-                                <th>Start Date</th>
+                                {/* <th>Start Date</th> */}
                                 <th>Last Billing</th>
-                                <th>Due Day</th>
+                                <th>Due</th>
                                 <th>Status</th>
-                                <th>Created On</th>
-                                <th>Action</th>
+                                {/* <th>Date</th> */}
+                                {/* <th>Action</th> */}
                                 </tr>
                             </thead>
                             <tbody>
                             {leases?.data?.map((item) => (
                             <tr key={item?.id} >
                             {/* <td>{ item?.code }</td> */}
-                            <td>{ item?.building?.name ?? '-' }</td>
+                            {/* <td>{ item?.building?.name ?? '-' }</td> */}
                             <td>{item?.unit?.name ?? "-"}</td>
                             <td>{item?.tenant?.name ?? "-"}</td>
                             <td>Ksh. {item?.amount ?? "-"}</td>
@@ -123,17 +123,17 @@ function Leases() {
                             {/* <td>Ksh. {item?.processing_fee ?? "-"}</td> */}
                             {/* <td>Ksh. {item?.service_fee ?? "-"}</td> */}
                             {/* <td>Ksh. {item?.penalty ?? "-"}</td> */}
-                            <td>{new Date(item?.start_date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' })}</td>
+                            {/* <td>{new Date(item?.start_date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' })}</td> */}
                             <td>{new Date(item?.last_billing).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' })}</td>
                             <td>{item?.due ?? "-"}</td>
                             <td>{item?.status ?? "-"}</td>
                             
-                            <td>{new Date(item?.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' })}</td>
+                            {/* <td>{new Date(item?.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' })}</td> */}
                             <td>
-                                <Link href={`/askaris/revenue/rentals/${item?.id}`}>
+                                {/* <Link href={`/askaris/revenue/rentals/${item?.id}`}>
                                 <Button leftIcon={<IconEye size="1rem" />} variant='outline' mr="xs" size='xs'> View </Button>
                                 </Link>
-                                <Button leftIcon={<IconEdit size="1rem" />} variant='outline' size='xs'> Edit </Button>    
+                                <Button leftIcon={<IconEdit size="1rem" />} variant='outline' size='xs'> Edit </Button>     */}
                                 {/* <ActionIcon variant="filled" color='red' aria-label="Settings">
                                     <IconTrash />
                                 </ActionIcon>                         */}

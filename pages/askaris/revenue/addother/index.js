@@ -62,21 +62,21 @@ function List() {
                             </Flex>
                         <Paper p="md" shadow='md' radius="md">
                             <Group position="apart" mb="md">
-                                <Text fz="lg" fw={600}>Manage Units</Text>
+                                <Text fz="lg" fw={600}>All Units</Text>
                                 <Input placeholder="Search" />
                             </Group>
                             <Table>
                             <thead>
                                 <tr>                               
-                                <th>Unit Name</th>
-                                <th>Unit Code</th>
+                                <th>Name</th>
+                                {/* <th>Unit Code</th> */}
                                 <th>Building</th>
-                                <th>Rent Amount</th>
+                                <th>Rent</th>
                                 <th>Tenant</th>
                                 <th>Type</th>
-                                <th>Square Foot</th>
-                                <th>Status</th>                               
-                                <th>Created On</th>
+                                {/* <th>Square Foot</th> */}
+                                {/* <th>Status</th>                                */}
+                                <th>Date</th>
                                 <th>Action</th>
                                 </tr>
                             </thead>
@@ -84,19 +84,19 @@ function List() {
                             {units?.data?.map((item) => (
                             <tr key={item?.id}>
                             <td>{item?.name}</td>
-                            <td>{item?.code ?? "-"}</td>
+                            {/* <td>{item?.code ?? "-"}</td> */}
                             <td>{item?.building?.name}</td>
                             <td>Ksh. {item?.amount ?? "0"}</td>
                             <td>{item?.tenant?.name ?? "-"}</td>
                             <td>{item?.type?.name ?? "-"}</td>
-                            <td>{item?.sqfoot ?? "-"}</td>
-                            <td>{item?.status ?? "Vacant"}</td>
+                            {/* <td>{item?.sqfoot ?? "-"}</td> */}
+                            {/* <td>{item?.status ?? "Vacant"}</td> */}
                             <td>{new Date(item?.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</td>
                             <td>
                                 <Link href="/askaris/revenue/addother/1">
                                 <Button leftIcon={<IconEye size="1rem" />} variant='outline' mr="md" size='xs'> View </Button>
                                 </Link>
-                                <Button leftIcon={<IconEdit size="1rem" />} variant='outline' size='xs'> Edit </Button>                            
+                                {/* <Button leftIcon={<IconEdit size="1rem" />} variant='outline' size='xs'> Edit </Button>                             */}
                             </td>
                             </tr>
                             ))}
