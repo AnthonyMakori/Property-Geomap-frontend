@@ -1,64 +1,62 @@
-import React from 'react';
-import Head from "next/head";
-import {AppLayout} from "@/layout";
-import {
-    ActionIcon,
-    Container,
-    Divider,
-    Grid,
-    Group,
-    Paper, PaperProps,
-    rem,
-    SimpleGrid,
-    Stack,
-    Text,
-    Title,
-    useMantineTheme
-} from "@mantine/core";
-import {IconRefresh} from "@tabler/icons-react";
-import {
-    FilterDateMenu,
-    LanguageTable,
-    MapChart,
-    MobileDesktopChart, PageHeader,
-    SalesChart,
-    StatsCard,
-    TrafficTable
-} from "@/components";
-import StatsData from "../../mocks/StatsGrid.json";
-import LanguagesData from "../../mocks/Languages.json";
-import TrafficData from "../../mocks/Traffic.json";
+// pages/index.js
 
-const PRIMARY_COL_HEIGHT = rem(300);
+import React, { useEffect, useRef } from 'react';
+import Chart from 'chart.js/auto';
 
-function Analytics() {
+const BuildingRevenueChartPage = () => {
+  const chartRef = useRef(null);
+  const chartInstance = useRef(null); // Store a reference to the chart instance
 
-    return (
-        <>
-            <AppLayout>
-                <Container fluid>
-                    <Stack spacing="lg">
-                        <PageHeader title="Welcome back Steve," withActions={true}/>
-                        <SimpleGrid cols={2} spacing="md" breakpoints={[{maxWidth: 'sm', cols: 1}]}>
-                            <SimpleGrid cols={2}>
-                                {StatsData?.data.map(s => <StatsCard key={s.title} data={s} p="md" shadow='md' radius="md"/>)}
-                            </SimpleGrid>
-                            <MobileDesktopChart p="md" shadow='md' radius="md"/>
-                        </SimpleGrid>
-                        <Grid>
-                            
-                            <Grid.Col lg={4}>
-                                <LanguageTable data={LanguagesData.slice(0, 6)} p="md" shadow='md' radius="md"/>
-                            </Grid.Col>
-                            <Grid.Col lg={8}>
-                                <TrafficTable data={TrafficData.slice(0, 6)} p="md" shadow='md' radius="md"/>
-                            </Grid.Col>
-                        </Grid>
-                    </Stack>
-                </Container>
-            </AppLayout>
-        </>
-    );
-}
+  useEffect(() => {
+    const data = {
+      labels: [
+        'January', 'February', 'March', 'April',
+        'May', 'June', 'July', 'August',
+        'September', 'October', 'November', 'December'
+      ],
+      datasets: [
+        {
+          label: 'Building A',
+          data: [1000, 1200, 1500, 1400, 1600, 1800, 2000, 2200, 2400, 2600, 2800, 3000],
+          backgroundColor: 'rgba(255, 99, 132, 0.6)', // Customize the color
+        },
+        {
+          label: 'Building B',
+          data: [800, 900, 1100, 1200, 1400, 1500, 1600, 1700, 1800, 1900, 2000, 2200],
+          backgroundColor: 'rgba(54, 162, 235, 0.6)', // Customize the color
+        },
+        // Add more buildings' data here
+      ],
+    };
 
-export default Analytics;
+    const ctx = chartRef.current.getContext('2d');
+
+    // Check if a chart instance already exists and destroy it
+    if (chartInstance.current) {
+      chartInstance.current.destroy();
+    }
+
+    // Create a new chart instance
+    chartInstance.current = new Chart(ctx, {
+      type: 'bar',
+      data: data,
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true,
+          },
+        },
+      },
+    });
+  }, []);
+
+  return (
+    <div>
+      <div style={{ width: '80%', margin: '0 auto' }}>
+        <canvas ref={chartRef} width={400} height={200} />
+      </div>
+    </div>
+  );
+};
+
+export default BuildingRevenueChartPage;

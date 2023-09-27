@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import Head from "next/head";
 import {AppLayout} from "@/layout";
 import {
@@ -34,9 +34,13 @@ import ProjectsData from "../../mocks/Projects.json"
 import { getDashboard } from "@/store/dashboard/dashboard-slice";
 import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import store from '@/store/store'
+import store from '@/store/store';
+import Chart from 'chart.js/auto';
 
 function Analytics() {
+    //Chart Data
+    const chartRef = useRef(null);
+    const chartInstance = useRef(null); // Store a reference to the chart instance
 
     const dashboardStatus = useSelector((state) => state.dashboard.getDashboardStatus);
     const dashboard = useSelector((state) => state.dashboard.getDashboard);
@@ -75,6 +79,51 @@ function Analytics() {
     }
   
     console.log('data monyancha', dashboard);
+
+    //Chart Data
+
+    useEffect(() => {
+      const data = {
+        labels: [
+          'January', 'February', 'March', 'April',
+          'May', 'June', 'July', 'August',
+          'September', 'October', 'November', 'December'
+        ],
+        datasets: [
+          {
+            label: 'Ridge Apartments',
+            data: [1000, 1200, 1500, 1400, 1600, 1800, 2000, 2200, 2400, 2600, 2800, 3000],
+            backgroundColor: 'rgba(255, 99, 132, 0.6)', // Customize the color
+          },
+          {
+            label: 'Eden palace',
+            data: [800, 900, 1100, 1200, 1400, 1500, 1600, 1700, 1800, 1900, 2000, 2200],
+            backgroundColor: 'rgba(54, 162, 235, 0.6)', // Customize the color
+          },
+          // Add more buildings' data here
+        ],
+      };
+  
+      const ctx = chartRef.current.getContext('2d');
+  
+      // Check if a chart instance already exists and destroy it
+      if (chartInstance.current) {
+        chartInstance.current.destroy();
+      }
+  
+      // Create a new chart instance
+      chartInstance.current = new Chart(ctx, {
+        type: 'bar',
+        data: data,
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true,
+            },
+          },
+        },
+      });
+    }, []);
 
     return (
         <>
@@ -184,7 +233,14 @@ function Analytics() {
                                 
 
                             </SimpleGrid>
-                            <MobileDesktopChart p="md" shadow='md' radius="md"/>
+                            <Paper p="md" shadow='md' radius="md">
+                            <Group position="apart" mb="md">
+                                <Text fz="lg" fw={600}>Revenue Graph</Text>
+                            </Group>
+                            <div style={{ width: '100%', margin: '0 auto' }}>
+                                <canvas ref={chartRef} width={400} height={200} />
+                            </div>
+                            </Paper>
                         </SimpleGrid>
                         <Grid>
                             
