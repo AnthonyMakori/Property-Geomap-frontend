@@ -1,6 +1,6 @@
 import React, {SyntheticEvent, useState} from 'react';
 import Head from "next/head";
-import {ActionIcon, Table, Container, Group, Title, Input, Select, Button, Space, Flex, Paper, PaperProps, Stack, Text} from "@mantine/core";
+import {ActionIcon, Table, Container, Group, Title, Input, Select, Button, Space, Flex, Paper, PaperProps, Stack, Text, Badge} from "@mantine/core";
 import {PATH_DASHBOARD} from "@/routes";
 import {InvoicesTable, PageHeader} from "@/components";
 import InvoicesData from "@/mocks/Invoices.json";
@@ -75,7 +75,7 @@ function List() {
                                 <th>Tenant</th>
                                 <th>Type</th>
                                 {/* <th>Square Foot</th> */}
-                                {/* <th>Status</th>                                */}
+                                <th>Status</th>                               
                                 <th>Date</th>
                                 <th>Action</th>
                                 </tr>
@@ -90,7 +90,12 @@ function List() {
                             <td>{item?.tenant?.name ?? "-"}</td>
                             <td>{item?.type?.name ?? "-"}</td>
                             {/* <td>{item?.sqfoot ?? "-"}</td> */}
-                            {/* <td>{item?.status ?? "Vacant"}</td> */}
+                            <td>
+                            {item?.unit_status >= 1 
+                            ? <Badge color="blue" variant="filled" radius="sm">Occupied</Badge> 
+                            : <Badge color="orange" variant="filled" radius="sm">Vacant</Badge>
+                            }
+                            </td>
                             <td>{new Date(item?.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</td>
                             <td>
                                 <Link href="/askaris/revenue/addother/1">

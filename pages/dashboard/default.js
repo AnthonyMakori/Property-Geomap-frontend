@@ -120,6 +120,31 @@ function Analytics() {
                                 <Paper p="md" shadow='md' radius="md">
                                     <Group position="apart">
                                         <Text size="xs" color="dimmed" style={{ fontWeight: 500, textTransform: 'uppercase'}}>
+                                            Occupied Units
+                                        </Text>
+                                    </Group>
+
+                                    <Group align="flex-end" spacing="xs" mt={25}>
+                                        <Text style={{ fontWeight: 500, lineHeight: 1, fontSize: rem(24)}}>2</Text>
+                                    </Group>
+                                </Paper>
+
+                                <Paper p="md" shadow='md' radius="md">
+                                    <Group position="apart">
+                                        <Text size="xs" color="dimmed" style={{ fontWeight: 500, textTransform: 'uppercase'}}>
+                                            Vacant Units
+                                        </Text>
+                                    </Group>
+
+                                    <Group align="flex-end" spacing="xs" mt={25}>
+                                        <Text style={{ fontWeight: 500, lineHeight: 1, fontSize: rem(24)}}>7</Text>
+                                    </Group>
+
+                                </Paper>
+
+                                <Paper p="md" shadow='md' radius="md">
+                                    <Group position="apart">
+                                        <Text size="xs" color="dimmed" style={{ fontWeight: 500, textTransform: 'uppercase'}}>
                                             Total Invoices Amount
                                         </Text>
                                     </Group>
@@ -133,9 +158,11 @@ function Analytics() {
                                     </Text>
 
                                     <Text size="xs" color="dimmed" mt="md" style={{ fontWeight: 500, textTransform: 'uppercase'}}>
-                                            Total Invocies Paid
+                                            Total Invoices Paid
                                     </Text>
-                                    <Text mt="sm" style={{ fontWeight: 500, lineHeight: 1, fontSize: rem(15)}}>Ksh. { (dashboard?.total_paid ?? 0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') }</Text>
+                                    <Badge color="blue" variant="filled" radius="xs">
+                                        Ksh. { (dashboard?.total_paid ?? 0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') }
+                                    </Badge>
                                 </Paper>
 
                                 <Paper p="md" shadow='md' radius="md">
@@ -153,6 +180,8 @@ function Analytics() {
                                     Calculates the total owed amount for all the invoices generated
                                     </Text>
                                 </Paper>
+
+                                
 
                             </SimpleGrid>
                             <MobileDesktopChart p="md" shadow='md' radius="md"/>
