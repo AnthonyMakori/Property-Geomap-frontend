@@ -48,6 +48,31 @@ function Analytics() {
 
       store.dispatch(getDashboard(params));
     }, []);
+
+    const StatusBadge = ({status}) => {
+        let color = '';
+    
+        switch (status) {
+            case 'Partially Paid':
+                color = "blue"
+                break;
+            case 'Cancelled':
+                color = "red"
+                break;
+            case 'Completed':
+                color = "green"
+                break;
+            case 'Pending':
+                color = "orange"
+                break;
+            default:
+                color = "gray"
+        }
+    
+        return (
+            <Badge color={color} variant="filled" radius="sm">{status}</Badge>
+        )
+    }
   
     console.log('data monyancha', dashboard);
 
@@ -166,12 +191,46 @@ function Analytics() {
                             </Grid.Col>
                             <Grid.Col lg={8}>
                                 <Paper p="md" shadow='md' radius="md">
-                                    <Group position="apart" mb="md">
-                                        <Text size="lg" fw={600}>Recent Invoices</Text>
-                                        
-                                    </Group>
-                                    <ProjectsTable data={ProjectsData.slice(0, 6)}/>
-                                </Paper>
+                            <Group position="apart" mb="md">
+                                <Text fz="lg" fw={600}>Recent Invoices</Text>
+                            </Group>
+
+                            <Table>
+                            <thead>
+                                <tr>
+                                <th>Invoice No.</th>
+                                <th>Tenant</th>
+                                <th>Amount</th>
+                                <th>Paid</th>
+                                <th>Balance</th>
+                                <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {dashboard?.invoices?.map((item) => (
+                            <tr key={item?.id} >
+                            <td>{ item?.code }</td>
+                            <td>{ item?.tenant?.name ?? '-' }</td>
+                            <td>Ksh. {item?.total ?? "0"}</td>
+                            <td>Ksh. {item?.total_paid ?? "0"}</td>
+                            <td>Ksh. {item?.total_owed ?? "0"}</td>
+                            <td>
+                                
+                                {item?.total_paid > 0
+                                ? <StatusBadge status={`Partially Paid`}/>
+                                : item?.total_paid === 0
+                                ? <StatusBadge status={`Pending`}/>
+                                : item?.total_owed === 0
+                                ? <StatusBadge status={`Complete`}/>
+                                : null}
+                            </td>
+                            </tr>
+                             ))}
+
+                            </tbody>
+                            
+                            </Table>
+                        </Paper>
                             </Grid.Col>
                         </Grid>
                     </Stack>
