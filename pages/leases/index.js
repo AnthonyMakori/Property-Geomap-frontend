@@ -1,6 +1,6 @@
 import React, {SyntheticEvent, useState} from 'react';
 import Head from "next/head";
-import {ActionIcon, Table, Container, Group, Title, TextInput, Select, Button, Space, Flex, Paper, PaperProps, Stack, Text} from "@mantine/core";
+import {ActionIcon, Table, Container, Group, Title, TextInput, Select, Button, Space, Flex, Paper, PaperProps, Stack, Text, Badge} from "@mantine/core";
 import {PATH_DASHBOARD} from "@/routes";
 import {InvoicesTable, PageHeader} from "@/components";
 import InvoicesData from "@/mocks/Invoices.json";
@@ -126,7 +126,12 @@ function Leases() {
                             {/* <td>{new Date(item?.start_date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' })}</td> */}
                             <td>{new Date(item?.last_billing).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' })}</td>
                             <td>{item?.due ?? "-"}</td>
-                            <td>{item?.status ?? "-"}</td>
+                            <td>
+                            {item?.status === "Active" 
+                            ? <Badge color="green" variant="filled" radius="sm">Active</Badge> 
+                            : <Badge color="orange" variant="filled" radius="sm">Terminated</Badge>
+                            }
+                            </td>
                             
                             {/* <td>{new Date(item?.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' })}</td> */}
                             <td>

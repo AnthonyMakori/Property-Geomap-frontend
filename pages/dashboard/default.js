@@ -125,7 +125,7 @@ function Analytics() {
                                     </Group>
 
                                     <Group align="flex-end" spacing="xs" mt={25}>
-                                        <Text style={{ fontWeight: 500, lineHeight: 1, fontSize: rem(24)}}>2</Text>
+                                        <Text style={{ fontWeight: 500, lineHeight: 1, fontSize: rem(24)}}>{ dashboard?.occupied_units ?? 0 }</Text>
                                     </Group>
                                 </Paper>
 
@@ -137,7 +137,7 @@ function Analytics() {
                                     </Group>
 
                                     <Group align="flex-end" spacing="xs" mt={25}>
-                                        <Text style={{ fontWeight: 500, lineHeight: 1, fontSize: rem(24)}}>7</Text>
+                                        <Text style={{ fontWeight: 500, lineHeight: 1, fontSize: rem(24)}}>{ dashboard?.vacant_units ?? 0 }</Text>
                                     </Group>
 
                                 </Paper>

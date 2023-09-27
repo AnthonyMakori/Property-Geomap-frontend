@@ -14,6 +14,11 @@ const initialState = {
   getLeases: null,
   getLeasesStatus: "idle",
 
+  getOneBuilding: null,
+  getOneBuildingStatus: "idle",
+
+  getOneUnit: null,
+  getOneUnitStatus: "idle",
 
 };
 
@@ -161,6 +166,102 @@ export const getBuildings = createAsyncThunk(
     }
   );
 
+  //getOneBuilding: null,
+  export const getOneBuilding = createAsyncThunk(
+    "properties/getOneBuilding",
+    async ({
+      page = null,
+      filter = null,
+      buildingId = null,
+    } = {}) => {
+  
+      let url = undefined;
+      if (page) {
+        url = page + "&";
+      } else {
+        url = `${API_URL}/buildings/show/${buildingId}?`;
+      }
+  
+      const params = {};
+
+      if (filter) {
+        params["filter"] = filter;
+      }
+
+      url += new URLSearchParams(params);
+  
+      const startTime = new Date();
+      logger.log("getOneBuilding::BEGIN");
+      const response = await fetch(url, {
+        headers: {
+        //   Authorization: `Bearer ${accessToken} `,
+          Accept: "application/json",
+        },
+      }).then(async (response) => {
+        const data = await response.json();
+        const endTime = new Date();
+        const seconds = endTime.getTime() - startTime.getTime();
+        logger.log("getOneBuilding::END", { took: seconds, data });
+  
+        if (!response.ok) {
+          throw data;
+        }
+  
+        return data;
+      });
+  
+      return response;
+    }
+  );
+
+  //getOneUnit
+  export const getOneUnit = createAsyncThunk(
+    "properties/getOneUnit",
+    async ({
+      page = null,
+      filter = null,
+      unitId = null,
+    } = {}) => {
+  
+      let url = undefined;
+      if (page) {
+        url = page + "&";
+      } else {
+        url = `${API_URL}/units/show/${unitId}?`;
+      }
+  
+      const params = {};
+
+      if (filter) {
+        params["filter"] = filter;
+      }
+
+      url += new URLSearchParams(params);
+  
+      const startTime = new Date();
+      logger.log("getOneUnit::BEGIN");
+      const response = await fetch(url, {
+        headers: {
+        //   Authorization: `Bearer ${accessToken} `,
+          Accept: "application/json",
+        },
+      }).then(async (response) => {
+        const data = await response.json();
+        const endTime = new Date();
+        const seconds = endTime.getTime() - startTime.getTime();
+        logger.log("getOneUnit::END", { took: seconds, data });
+  
+        if (!response.ok) {
+          throw data;
+        }
+  
+        return data;
+      });
+  
+      return response;
+    }
+  );  
+
 
 const buildingsSlice = createSlice({
   name: "buildings",
@@ -202,6 +303,30 @@ const buildingsSlice = createSlice({
       .addCase(getLeases.fulfilled, (state, action) => {
         state.getLeasesStatus = "fulfilled";
         state.getLeases = action.payload;
+      })
+
+      //getOneBuilding
+      .addCase(getOneBuilding.pending, (state) => {
+        state.getOneBuildingStatus = "loading";
+      })
+      .addCase(getOneBuilding.rejected, (state) => {
+        state.getOneBuildingStatus = "rejected";
+      })
+      .addCase(getOneBuilding.fulfilled, (state, action) => {
+        state.getOneBuildingStatus = "fulfilled";
+        state.getOneBuilding = action.payload;
+      })
+
+      //getOneUnit
+      .addCase(getOneUnit.pending, (state) => {
+        state.getOneUnitStatus = "loading";
+      })
+      .addCase(getOneUnit.rejected, (state) => {
+        state.getOneUnitStatus = "rejected";
+      })
+      .addCase(getOneUnit.fulfilled, (state, action) => {
+        state.getOneUnitStatus = "fulfilled";
+        state.getOneUnit = action.payload;
       });
   },
 });

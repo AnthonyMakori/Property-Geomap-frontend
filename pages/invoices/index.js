@@ -1,6 +1,6 @@
 import React, {SyntheticEvent, useState} from 'react';
 import Head from "next/head";
-import {ActionIcon, Table, Container, Group, Title, TextInput, Select, Button, Space, Flex, Paper, PaperProps, Stack, Text} from "@mantine/core";
+import {ActionIcon, Table, Container, Group, Title, TextInput, Select, Button, Space, Flex, Paper, PaperProps, Stack, Text, Badge} from "@mantine/core";
 import {PATH_DASHBOARD} from "@/routes";
 import {InvoicesTable, PageHeader} from "@/components";
 import InvoicesData from "@/mocks/Invoices.json";
@@ -137,6 +137,31 @@ function Invoices() {
     }));
   };
 
+  const StatusBadge = ({status}) => {
+    let color = '';
+
+    switch (status) {
+        case 'Partially Paid':
+            color = "blue"
+            break;
+        case 'Cancelled':
+            color = "red"
+            break;
+        case 'Completed':
+            color = "green"
+            break;
+        case 'Pending':
+            color = "orange"
+            break;
+        default:
+            color = "gray"
+    }
+
+    return (
+        <Badge color={color} variant="filled" radius="sm">{status}</Badge>
+    )
+}
+
 
     return (
         <>
@@ -199,13 +224,13 @@ function Invoices() {
                             <td>Ksh. {item?.total_paid ?? "0"}</td>
                             <td>Ksh. {item?.total_owed ?? "0"}</td>
                             
-                            <td>
-                              {item?.total_paid > 0
-                                ? "Partially Paid"
+                            <td>                               
+                                {item?.total_paid > 0
+                                ? <StatusBadge status={`Partially Paid`}/>
                                 : item?.total_paid === 0
-                                ? "Pending"
+                                ? <StatusBadge status={`Pending`}/>
                                 : item?.total_owed === 0
-                                ? "Complete"
+                                ? <StatusBadge status={`Complete`}/>
                                 : null}
                             </td>
                                                                                 
