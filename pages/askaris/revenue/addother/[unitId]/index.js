@@ -87,6 +87,8 @@ function DetailsPage() {
 
       console.log('Building data 123 monyancha', units);
 
+      
+
       const StatusBadge = ({status}) => {
         let color = '';
     
@@ -249,7 +251,6 @@ function DetailsPage() {
                                 : null}
                             </td>
                             <td>
-                                <Button color="yellow" loading={pdfLoading[item.id]} onClick={() => printInvoice(item?.id)} mb="xs" leftIcon={<IconPrinter size="1rem" />} variant='outline' mr="xs" size='xs'> Download </Button>
                                 <RecordPaymentModal item={item} />
                             </td>
                             </tr>

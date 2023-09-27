@@ -98,7 +98,7 @@ function List() {
                             </td>
                             <td>{new Date(item?.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</td>
                             <td>
-                                <Link href="/askaris/revenue/addother/1">
+                                <Link href={`/askaris/revenue/addother/${item?.id}`}>
                                 <Button leftIcon={<IconEye size="1rem" />} variant='outline' mr="md" size='xs'> View </Button>
                                 </Link>
                                 {/* <Button leftIcon={<IconEdit size="1rem" />} variant='outline' size='xs'> Edit </Button>                             */}
