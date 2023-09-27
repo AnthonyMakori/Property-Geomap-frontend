@@ -9,6 +9,7 @@ import {IconEdit, IconEye, IconPlus} from "@tabler/icons-react";
 import Link from 'next/link';
 import PaginationLinks from '../../../components/Pagination/pagination-links';
 
+const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
 function List() {
 
@@ -18,7 +19,7 @@ function List() {
         (
             async () => {
                 try {
-                    const response = await fetch('http://localhost:8000/api/locations/streets');
+                    const response = await fetch(`${API_URL}/locations/streets`);
     
                     if (response.ok) {
                         const result = await response.json();

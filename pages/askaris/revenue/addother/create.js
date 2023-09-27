@@ -49,7 +49,7 @@ function CreateBusiness() {
         (
             async () => {
                 try {
-                    const response = await fetch('http://localhost:8000/api/buildings/index');
+                    const response = await fetch(`${API_URL}/buildings/index`);
     
                     if (response.ok) {
                         const result = await response.json();
@@ -70,7 +70,7 @@ function CreateBusiness() {
         (
             async () => {
                 try {
-                    const response = await fetch('http://localhost:8000/api/users/tenants');
+                    const response = await fetch(`${API_URL}/users/tenants`);
     
                     if (response.ok) {
                         const result = await response.json();
@@ -91,7 +91,7 @@ function CreateBusiness() {
         (
             async () => {
                 try {
-                    const response = await fetch('http://localhost:8000/api/units/unit-types');
+                    const response = await fetch(`${API_URL}/units/unit-types`);
     
                     if (response.ok) {
                         const result = await response.json();

@@ -9,6 +9,7 @@ import {IconEdit, IconEye, IconPlus} from "@tabler/icons-react";
 import Link from 'next/link';
 import PaginationLinks from '../../../components/Pagination/pagination-links';
 
+const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
 function List() {
     const [tenants, setTenants] = useState([]);
@@ -17,7 +18,7 @@ function List() {
         (
             async () => {
                 try {
-                    const response = await fetch('http://localhost:8000/api/users/tenants');
+                    const response = await fetch(`${API_URL}/users/tenants`);
     
                     if (response.ok) {
                         const result = await response.json();
