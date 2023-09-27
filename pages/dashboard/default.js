@@ -169,7 +169,7 @@ function Analytics() {
                             <thead>
                                 <tr>
                                 <th>Name</th>
-                                <th>Owner</th>
+                                {/* <th>Owner</th> */}
                                 <th>Units</th>
                                 </tr>
                             </thead>
@@ -177,7 +177,7 @@ function Analytics() {
                             {dashboard?.buildings?.map((item) => (
                             <tr key={item?.id} >
                             <td>{ item?.name }</td>
-                            <td>{item?.owner?.name ?? "-"}</td>
+                            {/* <td>{item?.owner?.name ?? "-"}</td> */}
                             <td>{item?.units ?? "-"}</td>
                             </tr>
                              ))}
@@ -197,7 +197,7 @@ function Analytics() {
                             <thead>
                                 <tr>
                                 <th>No.</th>
-                                <th>Tenant</th>
+                                {/* <th>Tenant</th> */}
                                 <th>Amount</th>
                                 <th>Paid</th>
                                 <th>Balance</th>
@@ -208,7 +208,7 @@ function Analytics() {
                             {dashboard?.invoices?.map((item) => (
                             <tr key={item?.id} >
                             <td>{ item?.code }</td>
-                            <td>{ item?.tenant?.name ?? '-' }</td>
+                            {/* <td>{ item?.tenant?.name ?? '-' }</td> */}
                             <td>Ksh. {item?.total ?? "0"}</td>
                             <td>Ksh. {item?.total_paid ?? "0"}</td>
                             <td>Ksh. {item?.total_owed ?? "0"}</td>
