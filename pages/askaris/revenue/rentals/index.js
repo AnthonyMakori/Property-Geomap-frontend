@@ -96,7 +96,7 @@ function List() {
                                 <tr>
                                 <th>Name</th>
                                 <th>Category</th>
-                                <th>Owner</th>
+                                {/* <th>Owner</th> */}
                                 <th>Units</th>
                                 {/* <th>Zone</th> */}
                                 <th>Location</th>
@@ -110,7 +110,7 @@ function List() {
                             <tr key={item?.id} >
                             <td>{ item?.name }</td>
                             <td>{ item?.type ?? '-' }</td>
-                            <td>{item?.owner?.name ?? "-"}</td>
+                            {/* <td>{item?.owner?.name ?? "-"}</td> */}
                             <td>{item?.units ?? "-"}</td>
                             {/* <td>{item?.zone?.name ?? "-"}</td> */}
                             <td>{item?.location ?? "-"}</td>
