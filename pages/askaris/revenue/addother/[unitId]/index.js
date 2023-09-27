@@ -146,6 +146,9 @@ function DetailsPage() {
                                         <Text ta="center" c="dimmed" fz="xs">
                                             Rent: Ksh. { unit?.amount ?? '-'}
                                         </Text>
+                                        <Text ta="center" c="dimmed" fz="xs">
+                                            Tenant: { unit?.tenant?.name ?? '-'}
+                                        </Text>
 
                                         <Button variant="outline" fullWidth mt="md">
                                             Edit Unit
