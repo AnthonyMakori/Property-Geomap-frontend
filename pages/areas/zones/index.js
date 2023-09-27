@@ -73,7 +73,7 @@ function List() {
                                 <th>Zone Name</th>
                                 <th>Description</th>
                                 <th>Created On</th>
-                                <th>Action</th>
+                                {/* <th>Action</th> */}
                                 </tr>
                             </thead>
                             <tbody>
@@ -82,12 +82,12 @@ function List() {
                             <td>{item?.name}</td>
                             <td>{item?.description ?? "-"}</td>
                             <td>{new Date(item?.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</td>
-                            <td>
+                            {/* <td>
                                 <Link href="#">
                                 <Button leftIcon={<IconEye size="1rem" />} variant='outline' mr="md" size='xs'> View </Button>
                                 </Link>
                                 <Button leftIcon={<IconEdit size="1rem" />} variant='outline' size='xs'> Edit </Button>                            
-                            </td>
+                            </td> */}
                             </tr>
                             ))}
                            

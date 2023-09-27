@@ -68,7 +68,7 @@ const mockdata = [
                 links: [
                     {label: 'Invoices', link: '/invoices'},
                     {label: 'Payments', link: '/payments'},
-                    {label: 'Expenses', link: '/invoices'},
+                    // {label: 'Expenses', link: '/invoices'},
                 ]
             },
             {
