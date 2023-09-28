@@ -15,6 +15,7 @@ import { getInvoices } from "@/store/accounts/accounts-slice";
 import { debounce } from 'lodash'; // Import debounce from lodash
 import { showNotification } from '@mantine/notifications';
 import RecordPaymentModal from '@/components/Invoices/record-payment-modal';
+import StkPushModal from '@/components/Invoices/stk-push-modal';
 
 function Invoices() {
     const [searchTerm, setSearchTerm] = useState('');
@@ -243,6 +244,7 @@ function Invoices() {
                                 <Button color="violet" leftIcon={<IconShare size="1rem" />} variant='outline'  mb="xs" mr="xs" size='xs'> Share </Button> */}
                                 <Button color="yellow" loading={pdfLoading[item.id]} onClick={() => printInvoice(item?.id)} mb="xs" leftIcon={<IconPrinter size="1rem" />} variant='outline' mr="xs" size='xs'> Download </Button>
                                 <RecordPaymentModal item={item} />
+                                <StkPushModal item={item} />
                                     
                                 {/* <ActionIcon variant="filled" color='red' aria-label="Settings">
                                     <IconTrash />
