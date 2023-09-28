@@ -47,6 +47,7 @@ import store from '@/store/store'
 import { formatNumber } from "@/lib/shared/data-formatters"
 import PaginationLinks from '@/components/Pagination/pagination-links';
 import RecordPaymentModal from '@/components/Invoices/record-payment-modal';
+import StkPushModal from '@/components/Invoices/stk-push-modal';
 
 const ICON_SIZE = 18;
 
@@ -251,7 +252,8 @@ function DetailsPage() {
                                 : null}
                             </td>
                             <td>
-                                <RecordPaymentModal item={item} />
+                                {/* <RecordPaymentModal item={item} /> */}
+                                <StkPushModal item={item} />
                             </td>
                             </tr>
                              ))}

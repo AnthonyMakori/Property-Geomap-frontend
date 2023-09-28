@@ -15,7 +15,7 @@ import {
   function StkPushModal({ item }) {
     const [opened, setOpened] = useState(false);
 
-    const [amount, setAmount] = useState("");
+    const [amount, setAmount] = useState(item?.total_owed);
     const [phone, setPhone] = useState("");
     const [isSubmitting, setIsSubmitting] = useState(false);
   
