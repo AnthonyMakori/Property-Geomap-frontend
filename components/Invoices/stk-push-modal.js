@@ -101,7 +101,10 @@ import {
           setPhone("");
           setOpened(false);
           const params = {};
-          store.dispatch(getInvoices(params));
+          setTimeout(() => {
+            store.dispatch(getInvoices(params));
+          }, 4000);
+          
           
       } catch (error) {
           setIsSubmitting(false);
@@ -144,7 +147,7 @@ import {
   
           <section className="flex justify-end space-y-2 bg-light mt-5 p-3 rounded-lg my-3">
             <Button mt="md" onClick={submitDetails} loading={isSubmitting}>
-              Complete Payment
+              Initiate Payment
             </Button>
           </section>
         </Modal>
