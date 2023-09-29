@@ -93,7 +93,7 @@ function CreateBusiness() {
                                     searchable
                                     clearable
                                     data={[
-                                        { value: '1', label: 'Steve Owuor' },
+                                        { value: '1', label: 'Benson Njumbi' },
                                         { value: '2', label: 'Enock Monyancha' },
                                     ]}
                                     />

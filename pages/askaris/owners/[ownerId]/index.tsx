@@ -92,7 +92,7 @@ function DetailsPage() {
                                     <Paper {...PAPER_PROPS}>
                                         <Avatar src="/1.png" size={100} radius={120} mx="auto" mb="md"/>
                                         <Text ta="center" fz="md" weight={500} mt="md">
-                                            Steve Owuor
+                                            Benson Njumbi
                                         </Text>
                                         <Text ta="center" c="dimmed" fz="xs">
                                             steveowuor2006@gmail.com
@@ -182,7 +182,7 @@ function DetailsPage() {
                             <td>Ridge Apartments</td>
                             <td>B001829</td>
                             <td>Unit 1</td>
-                            <td>Steve Owuor</td>
+                            <td>Benson Njumbi</td>
                             <td>Ksh. 25,000</td>
                             <td>01/09/2023</td>
                          
@@ -191,7 +191,7 @@ function DetailsPage() {
                             <td>Ridge Apartments</td>
                             <td>B001829</td>
                             <td>Unit 2</td>
-                            <td>Steve Owuor</td>
+                            <td>Benson Njumbi</td>
                             <td>Ksh. 25,000</td>
                             <td>01/09/2023</td>
                             </tr>
@@ -199,7 +199,7 @@ function DetailsPage() {
                             <td>Ridge Apartments</td>
                             <td>B001829</td>
                             <td>Unit 3</td>
-                            <td>Steve Owuor</td>
+                            <td>Benson Njumbi</td>
                             <td>Ksh. 25,000</td>
                             <td>01/09/2023</td>
                             </tr>
@@ -207,7 +207,7 @@ function DetailsPage() {
                             <td>Ridge Apartments</td>
                             <td>B001829</td>
                             <td>Unit 4</td>
-                            <td>Steve Owuor</td>
+                            <td>Benson Njumbi</td>
                             <td>Ksh. 25,000</td>
                             <td>01/09/2023</td>
                             </tr>
@@ -215,7 +215,7 @@ function DetailsPage() {
                             <td>Ridge Apartments</td>
                             <td>B001829</td>
                             <td>Unit 5</td>
-                            <td>Steve Owuor</td>
+                            <td>Benson Njumbi</td>
                             <td>Ksh. 25,000</td>
                             <td>01/09/2023</td>
                             </tr>
@@ -223,7 +223,7 @@ function DetailsPage() {
                             <td>Ridge Apartments</td>
                             <td>B001829</td>
                             <td>Unit 6</td>
-                            <td>Steve Owuor</td>
+                            <td>Benson Njumbi</td>
                             <td>Ksh. 25,000</td>
                             <td>01/09/2023</td>
                             </tr>
@@ -231,7 +231,7 @@ function DetailsPage() {
                             <td>Ridge Apartments</td>
                             <td>B001829</td>
                             <td>Unit 7</td>
-                            <td>Steve Owuor</td>
+                            <td>Benson Njumbi</td>
                             <td>Ksh. 25,000</td>
                             <td>01/09/2023</td>
                             </tr>
@@ -239,7 +239,7 @@ function DetailsPage() {
                             <td>Ridge Apartments</td>
                             <td>B001829</td>
                             <td>Unit 7</td>
-                            <td>Steve Owuor</td>
+                            <td>Benson Njumbi</td>
                             <td>Ksh. 25,000</td>
                             <td>01/09/2023</td>
                             </tr>
@@ -247,7 +247,7 @@ function DetailsPage() {
                             <td>Ridge Apartments</td>
                             <td>B001829</td>
                             <td>Unit 8</td>
-                            <td>Steve Owuor</td>
+                            <td>Benson Njumbi</td>
                             <td>Ksh. 25,000</td>
                             <td>01/09/2023</td>
                             </tr>

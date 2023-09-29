@@ -92,7 +92,7 @@ function DetailsPage() {
                                     <Paper {...PAPER_PROPS}>
                                         <Avatar src="/1.png" size={100} radius={120} mx="auto" mb="md"/>
                                         <Text ta="center" fz="md" weight={500} mt="md">
-                                            Steve Owuor
+                                            Benson Njumbi
                                         </Text>
                                         <Text ta="center" c="dimmed" fz="xs">
                                             steveowuor2006@gmail.com

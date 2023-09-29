@@ -52,7 +52,7 @@ function List() {
                             <tr >
                             <td>Plot 1</td>
                             <td>Test Category</td>
-                            <td>Steve Owuor</td>
+                            <td>Benson Njumbi</td>
                             <td>01/09/2023</td>
                             <td>
                                 <Button leftIcon={<IconEye size="1rem" />} variant='outline' mr="md" size='xs'> View </Button>
@@ -62,7 +62,7 @@ function List() {
                             <tr >
                             <td>Plot 1</td>
                             <td>Test Category</td>
-                            <td>Steve Owuor</td>
+                            <td>Benson Njumbi</td>
                             <td>01/09/2023</td>
                             <td>
                                 <Button leftIcon={<IconEye size="1rem" />} variant='outline' mr="md" size='xs'> View </Button>
@@ -72,7 +72,7 @@ function List() {
                             <tr >
                             <td>Plot 1</td>
                             <td>Test Category</td>
-                            <td>Steve Owuor</td>
+                            <td>Benson Njumbi</td>
                             <td>01/09/2023</td>
                             <td>
                                 <Button leftIcon={<IconEye size="1rem" />} variant='outline' mr="md" size='xs'> View </Button>
@@ -82,7 +82,7 @@ function List() {
                             <tr >
                             <td>Plot 1</td>
                             <td>Test Category</td>
-                            <td>Steve Owuor</td>
+                            <td>Benson Njumbi</td>
                             <td>01/09/2023</td>
                             <td>
                                 <Button leftIcon={<IconEye size="1rem" />} variant='outline' mr="md" size='xs'> View </Button>
@@ -92,7 +92,7 @@ function List() {
                             <tr >
                             <td>Plot 1</td>
                             <td>Test Category</td>
-                            <td>Steve Owuor</td>
+                            <td>Benson Njumbi</td>
                             <td>01/09/2023</td>
                             <td>
                                 <Button leftIcon={<IconEye size="1rem" />} variant='outline' mr="md" size='xs'> View </Button>
@@ -102,7 +102,7 @@ function List() {
                             <tr >
                             <td>Plot 1</td>
                             <td>Test Category</td>
-                            <td>Steve Owuor</td>
+                            <td>Benson Njumbi</td>
                             <td>01/09/2023</td>
                             <td>
                                 <Button leftIcon={<IconEye size="1rem" />} variant='outline' mr="md" size='xs'> View </Button>
@@ -112,7 +112,7 @@ function List() {
                             <tr >
                             <td>Plot 1</td>
                             <td>Test Category</td>
-                            <td>Steve Owuor</td>
+                            <td>Benson Njumbi</td>
                             <td>01/09/2023</td>
                             <td>
                                 <Button leftIcon={<IconEye size="1rem" />} variant='outline' mr="md" size='xs'> View </Button>
@@ -122,7 +122,7 @@ function List() {
                             <tr >
                             <td>Plot 1</td>
                             <td>Test Category</td>
-                            <td>Steve Owuor</td>
+                            <td>Benson Njumbi</td>
                             <td>01/09/2023</td>
                             <td>
                                 <Button leftIcon={<IconEye size="1rem" />} variant='outline' mr="md" size='xs'> View </Button>
@@ -132,7 +132,7 @@ function List() {
                             <tr >
                             <td>Plot 1</td>
                             <td>Test Category</td>
-                            <td>Steve Owuor</td>
+                            <td>Benson Njumbi</td>
                             <td>01/09/2023</td>
                             <td>
                                 <Button leftIcon={<IconEye size="1rem" />} variant='outline' mr="md" size='xs'> View </Button>
@@ -142,7 +142,7 @@ function List() {
                             <tr >
                             <td>Plot 1</td>
                             <td>Test Category</td>
-                            <td>Steve Owuor</td>
+                            <td>Benson Njumbi</td>
                             <td>01/09/2023</td>
                             <td>
                                 <Button leftIcon={<IconEye size="1rem" />} variant='outline' mr="md" size='xs'> View </Button>
@@ -152,7 +152,7 @@ function List() {
                             <tr >
                             <td>Plot 1</td>
                             <td>Test Category</td>
-                            <td>Steve Owuor</td>
+                            <td>Benson Njumbi</td>
                             <td>01/09/2023</td>
                             <td>
                                 <Button leftIcon={<IconEye size="1rem" />} variant='outline' mr="md" size='xs'> View </Button>

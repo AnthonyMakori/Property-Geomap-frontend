@@ -48,7 +48,7 @@ const LanguagePicker = ({type}: LanguagePickerProps) => {
             <Menu.Target>
                 <UnstyledButton className={classes.control}>
                     <Group spacing="xs">
-                        <Image src={selected.image} width={32} height={32} radius="xl" alt="flag"/> Steve Owuor
+                        <Image src={selected.image} width={32} height={32} radius="xl" alt="flag"/> Benson Njumbi
                         {type === "expanded" && <span className={classes.label}>{selected.label}</span>}
                     </Group>
                     {type === "expanded" && <IconChevronDown size="1rem" className={classes.icon} stroke={1.5}/>}
