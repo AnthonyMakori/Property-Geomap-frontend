@@ -50,7 +50,7 @@ const mockdata = [
                     // {label: 'Parking', link: PATH_ASKARIS_REVENUE.parking},
                     // {label: 'Land Rates', link: PATH_ASKARIS_REVENUE.landrates},
                     {label: 'Buildings', link: PATH_ASKARIS_REVENUE.rentals},
-                    {label: 'Units', link: PATH_ASKARIS_REVENUE.add},
+                    // {label: 'Units', link: PATH_ASKARIS_REVENUE.add},
                     {label: 'Leases', link: "/leases"},                   
                 ]
             },

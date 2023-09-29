@@ -59,7 +59,12 @@ function Signin() {
             });
     
             // Assuming the login was successful, you can proceed to navigate to the dashboard.
-            await router.push(PATH_DASHBOARD.default);
+            if(email === "enocmonyancha@gmail.com"){
+                await router.push('/dashboard/tenant');
+            }else{
+                await router.push(PATH_DASHBOARD.default);
+            }
+            
         } catch (error) {
             setIsSubmitting(false);
             // Handle network errors or other errors here

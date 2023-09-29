@@ -158,9 +158,9 @@ import {
           variant="outline"
           size="xs"
           ml="xs"
-          color="blue"
+          color="green"
         >
-          STK
+          Pay Now
         </Button>
       </>
     );

@@ -31,12 +31,16 @@ import { useRouter } from 'next/router';
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
 function CreateBusiness() {
+    const router = useRouter();
+
+    const buildingId = router.query?.buildingId ?? null;
+
     const [buildings, setBuildings] = useState([]);
     const [tenants, setTenants] = useState([]);
     const [types, setTypes] = useState([]);
 
     const [name, setName] = useState('');
-    const [building, setBuilding] = useState('');
+    const [building, setBuilding] = useState(buildingId);
     const [floor, setFloor] = useState('');
     const [tenant, setTenant] = useState('');
     const [code, setCode] = useState('');
@@ -129,7 +133,6 @@ function CreateBusiness() {
     })) ?? [];
 
 
-    const router = useRouter();
     const [isSubmitting, setIsSubmitting] = useState(false);
 
     const submit = async (e) => {
@@ -179,7 +182,7 @@ function CreateBusiness() {
             });
 
             // Assuming the login was successful, you can proceed to navigate to the dashboard.
-            await router.push('/askaris/revenue/addother');
+            await router.push(`/askaris/revenue/rentals/${buildingId}`);
         } catch (error) {
             setIsSubmitting(false);
             // Handle network errors or other errors here
@@ -208,7 +211,7 @@ function CreateBusiness() {
                                 <Stack>
                                     <Title order={3}>Add a Unit</Title>
                                 </Stack>
-                                <Link href="/askaris/revenue/addother">
+                                <Link href={`/askaris/revenue/rentals/${buildingId}`}>
                                 <Button leftIcon={<IconArrowBack size={18}/>} size='xs' variant='outline'>Back</Button>
                                 </Link>
                             </Flex>
@@ -216,6 +219,7 @@ function CreateBusiness() {
                             <Stack>
                                 <Text size="md" fw={600}>Unit Details</Text>
                                 <Group grow>
+                                {!building &&(
                                 <Select
                                     label="Select Building"
                                     placeholder="Select Building"
@@ -223,7 +227,8 @@ function CreateBusiness() {
                                     clearable
                                     onChange={setBuilding}
                                     data={ buildingsList }
-                                    />
+                                />
+                                )}
                                 <TextInput
                                     label="Unit Name"
                                     placeholder="B12"

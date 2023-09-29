@@ -48,6 +48,7 @@ import { getOneBuilding } from "@/store/properties/buildings/buildings-slice";
 import store from '@/store/store'
 import { formatNumber } from "@/lib/shared/data-formatters"
 import PaginationLinks from '../../../../../components/Pagination/pagination-links';
+import { IconPlus } from '@tabler/icons-react';
  
 const ICON_SIZE = 18;
 
@@ -224,7 +225,13 @@ function DetailsPage() {
                                     <Paper p="md" shadow='md' radius="md">
                             <Group position="apart" mb="md">
                                 <Text fz="lg" fw={600}>Units</Text>
+                                <Group justify="flex-end">
                                 <Input placeholder="Search" />
+                                <Link href={`/askaris/revenue/addother/create?buildingId=${buildingData?.building?.id}`}>
+                                <Button leftIcon={<IconPlus size={18}/>}>Add Unit</Button>
+                                </Link>
+                                </Group>
+                                
                             </Group>
                             <Table>
                             <thead>
@@ -253,8 +260,8 @@ function DetailsPage() {
                             </td>
                             <td>{new Date(item?.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</td>
                             <td>
-                                <Link href="/askaris/revenue/addother/1">
-                                <Button leftIcon={<IconEye size="1rem" />} variant='outline' mr="md" size='xs'> View </Button>
+                                <Link href={`/askaris/revenue/addother/${item?.id}?buildingId=${buildingId}`}>
+                                <Button leftIcon={<IconEye size="1rem" />} variant='outline' mr="md" size='xs'> View</Button>
                                 </Link>
                                 {/* <Button leftIcon={<IconEdit size="1rem" />} variant='outline' size='xs'> Edit </Button>                             */}
                             </td>

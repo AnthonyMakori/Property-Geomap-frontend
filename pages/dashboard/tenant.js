@@ -37,12 +37,12 @@ import {
     IconBusinessplan, IconCoins, IconDotsVertical, IconPrinter
 } from "@tabler/icons-react";
 import ProjectsData from "@/mocks/Projects.json";
-import {AppLayout} from "@/layout";
+import {ErrorLayout} from "@/layout";
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { useSelector } from 'react-redux';
-import { getOneUnit } from "@/store/properties/buildings/buildings-slice";
+import { getTenant } from "@/store/users/users-slice";
 import store from '@/store/store'
 import { formatNumber } from "@/lib/shared/data-formatters"
 import PaginationLinks from '@/components/Pagination/pagination-links';
@@ -51,31 +51,26 @@ import StkPushModal from '@/components/Invoices/stk-push-modal';
 
 const ICON_SIZE = 18;
 
-function DetailsPage() {
+function TenantDashboard() {
     const router = useRouter();
-    const unitId = router.query?.unitId ?? null;
-    const buildingId = router.query?.buildingId ?? null;
+    const tenantId = router.query?.tenantId ?? 1;
 
-    const unitStatus = useSelector((state) => state.buildings.getOneUnitStatus);
-    const unitData = useSelector((state) => state.buildings.getOneUnit);
+    const tenantStatus = useSelector((state) => state.users.getTenantStatus);
+    const tenantData = useSelector((state) => state.users.getTenant);
 
-    const unit = unitData?.unit;
+    const tenant = tenantData?.tenant;
   
-    const isLoading = unitStatus === 'loading';
+    const isLoading = tenantStatus === 'loading';
   
     useEffect(() => {
       const params = {};
 
-        params['unitId'] = unitId;
+        params['tenantId'] = tenantId;
 
-      store.dispatch(getOneUnit(params));
+      store.dispatch(getTenant(params));
 
-    }, [unitId]);
+    }, [tenantId]);
   
-    console.log('Unit data monyancha', unit);
-
-    const units = unitData?.units;
-
     function onPaginationLinkClicked(page) {
         if (!page) {
           return;
@@ -84,12 +79,8 @@ function DetailsPage() {
         const params = {};
         params["page"] = page;
     
-        store.dispatch(getOneUnit(params));
+        store.dispatch(getTenant(params));
       }
-
-      console.log('Building data 123 monyancha', units);
-
-      
 
       const StatusBadge = ({status}) => {
         let color = '';
@@ -116,11 +107,13 @@ function DetailsPage() {
         )
     }
 
-    const invoices = unitData?.invoices;
+    const invoices = tenantData?.invoices;
+
+    const units = tenantData?.units;
     
     return (
         <>
-            <AppLayout>
+            <ErrorLayout>
                 <Container fluid>
                     <Stack spacing="lg">
                     <Flex
@@ -130,49 +123,50 @@ function DetailsPage() {
                                 gap={{base: 'sm', sm: 4}}
                             >
                                 <Stack>
-                                    <Title order={3}>Unit Details</Title>
+                                    <Title order={3}>Tenant Dashboard</Title>
                                 </Stack>
-                                <Link href={`/askaris/revenue/rentals/${buildingId}`}>
-                                <Button leftIcon={<IconArrowBack size={18}/>} size='xs' variant='outline'>Back</Button>
-                                </Link>
                             </Flex>
                         <Grid>
                             <Grid.Col lg={3}>
                                 <Stack>
                                     <Paper p="md" shadow='md' radius="md">
-                                        <Avatar src="https://edityellow377.weebly.com/uploads/1/2/5/4/125405473/958370132.png" size={120} radius={5} mx="auto" mb="md"/>
+                                        <Avatar src="/1.png" size={120} radius={120} mx="auto" mb="md"/>
                                         <Text ta="center" fz="md" weight={500} mt="md">
-                                            { unit?.name ?? '-'}
+                                            { tenant?.name ?? '-'}
                                         </Text>
                                         <Text ta="center" c="dimmed" fz="xs">
-                                            Building: { unit?.building?.name ?? '-'}
+                                            { tenant?.phone ?? '-'}
                                         </Text>
                                         <Text ta="center" c="dimmed" fz="xs">
-                                            Rent: Ksh. { unit?.amount ?? '-'}
-                                        </Text>
-                                        <Text ta="center" c="dimmed" fz="xs">
-                                            Tenant: { unit?.tenant?.name ?? '-'}
+                                            { tenant?.email ?? '-'}
                                         </Text>
 
                                         <Button variant="outline" fullWidth mt="md">
-                                            Edit Unit
+                                            Edit Profile
                                         </Button>
                                     </Paper>
 
                                     <Paper p="md" shadow='md' radius="md">
-                                        <Text size="lg" fw={600} mb="md">Unit Type</Text>
-                                        <Group spacing="xs">
-                                             <Badge variant="filled" color="primary.8"> { unit?.type?.name ?? ''} </Badge>
-                                        </Group>
-                                    </Paper>
-                                    <Paper p="md" shadow='md' radius="md">
-                                        <Stack>
-                                            <Text size="lg" fw={600}>Location</Text>
-                                            <Group>
-                                                <IconHome size={ICON_SIZE}/>
-                                                <Text>{ unit?.building?.location ?? '-'}</Text>
-                                            </Group>
-                                        </Stack>
+                                        <Text size="lg" fw={600} mb="md">Occupied Units</Text>
+                                        <Table>
+                            <thead>
+                                <tr>
+                                <th>Unit</th>                               
+                                <th>Rent</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {units?.map((item) => (
+                            <tr key={item?.id} > 
+                            <td>{ item?.name ?? '-' }</td>  
+                            <td>Ksh. { item?.amount ?? '-' }</td>                        
+
+                            </tr>
+                             ))}
+
+                            </tbody>
+                            
+                            </Table>
                                     </Paper>
                                 </Stack>
                             </Grid.Col>
@@ -187,7 +181,7 @@ function DetailsPage() {
                                         ]}
                                     >
                                         <ProfileStatsCard
-                                            amount={unitData?.total_invoices ?? 0}
+                                            amount={tenantData?.invoices_count ?? 0}
                                             title="total invoices"
                                             icon={IconListCheck}
                                             progressValue={12}
@@ -195,7 +189,7 @@ function DetailsPage() {
                                             p="md" shadow='md' radius="md"
                                         />
                                         <ProfileStatsCard
-                                            amount={ `Ksh. ` + formatNumber(unitData?.total_invoiced ?? 0) }
+                                            amount={ `Ksh. ` + formatNumber(tenantData?.total_invoiced ?? 0) }
                                             title="Total Invoiced"
                                             icon={IconCoins}
                                             progressValue={72}
@@ -203,7 +197,7 @@ function DetailsPage() {
                                             p="md" shadow='md' radius="md"
                                         />
                                         <ProfileStatsCard
-                                            amount={ `Ksh. ` + formatNumber(unitData?.total_collected ?? 0) }
+                                            amount={ `Ksh. ` + formatNumber(tenantData?.total_collected ?? 0) }
                                             title="total collected"
                                             icon={IconBusinessplan}
                                             progressValue={12}
@@ -211,7 +205,7 @@ function DetailsPage() {
                                             p="md" shadow='md' radius="md"
                                         />
                                         <ProfileStatsCard
-                                            amount={ `Ksh. ` + formatNumber(unitData?.total_due ?? 0) }
+                                            amount={ `Ksh. ` + formatNumber(tenantData?.total_due ?? 0) }
                                             title="total due"
                                             icon={IconCoins}
                                             progressValue={45}
@@ -227,7 +221,8 @@ function DetailsPage() {
                             <Table>
                             <thead>
                                 <tr>
-                                <th>No.</th>                              
+                                <th>No.</th>
+                                <th>Unit</th>                               
                                 <th>Total</th>
                                 <th>Paid</th>
                                 <th>Owed</th>
@@ -238,7 +233,8 @@ function DetailsPage() {
                             <tbody>
                             {invoices?.data?.map((item) => (
                             <tr key={item?.id} >
-                            <td>#{ item?.code }</td>                          
+                            <td>#{ item?.code }</td>   
+                            <td>{ item?.unit?.name ?? '-' }</td>                        
                             <td>Ksh. {item?.total ?? "0"}</td>
                             <td>Ksh. {item?.total_paid ?? "0"}</td>
                             <td>Ksh. {item?.total_owed ?? "0"}</td>
@@ -272,9 +268,9 @@ function DetailsPage() {
                         </Grid>
                     </Stack>
                 </Container>
-            </AppLayout>
+            </ErrorLayout>
         </>
     );
 }
 
-export default DetailsPage;
+export default TenantDashboard;
