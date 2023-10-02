@@ -17,7 +17,8 @@ import {
     Textarea,
     TextInput,
     Select,
-    Title
+    Title,
+    FileInput,
 } from "@mantine/core";
 import {PATH_DASHBOARD} from "@/routes";
 import {useForm} from "@mantine/form";
@@ -270,7 +271,7 @@ function CreateBusiness() {
                                 onChange={(selectedTenant) => setTenant(selectedTenant)}
                                 data={tenantsList}
                             />
-                        </Group>
+                            </Group>
                                     <Group grow>
 
                                     <TextInput
@@ -346,8 +347,58 @@ function CreateBusiness() {
                                         />
                                     </Group>
 
+                                    {/* Additional Content */}
+                                    <Group grow>
+                                    <TextInput
+                                        label="Tenant Occupation"
+                                        // onChange={e => setPenalty(e.target.value)}
+                                        placeholder="Eg. Doctor"
+                                    />
+                                    <TextInput
+                                        label="Tenant ID"
+                                        // onChange={e => setGracePeriod(e.target.value)}
+                                        placeholder="Eg. 34565789"
+                                    />
+                                        <FileInput
+                                        label="Upload Tenant ID (Image)"
+                                        // onChange={e => setGracePeriod(e.target.value)}
+                                        placeholder="Upload Tenant ID"
+                                    />
+                                    </Group>
+
+                                    <Group grow>
+                                    
+                                    <FileInput
+                                        label="Upload Signed Lease Agreement (Image)"
+                                        // onChange={e => setGracePeriod(e.target.value)}
+                                        placeholder="Upload Signed Lease Agreement (Image)"
+                                    />
+                                    <TextInput
+                                        label="Tenant Signature"
+                                        // onChange={e => setPenalty(e.target.value)}
+                                        // placeholder="Eg. Terms"
+                                    />
+                                    <TextInput
+                                        label="Landloard Signature"
+                                        // onChange={e => setGracePeriod(e.target.value)}
+                                        // placeholder="Eg. 34565789"
+                                    />
+                                       
+                                    </Group>
+
+                                    <Group grow>
+                                    <Textarea
+                                        label="Terms and Conditions"
+                                        // onChange={e => setPenalty(e.target.value)}
+                                        placeholder="Eg. Terms"
+                                    />
+                                    
+                                       
+                                    </Group>
+
                                 <Box sx={{width: 'auto'}}>
                                     <Button onClick={submit} loading={isSubmitting} > Create Lease </Button>
+                                    <Button ml="xs" color='green' variant='outline' > Download Lease </Button>
                                 </Box>
                             </Stack>
                         </Paper>

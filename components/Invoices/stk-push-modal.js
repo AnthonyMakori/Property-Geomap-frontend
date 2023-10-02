@@ -152,6 +152,7 @@ import {
             <Text mt="md">OR</Text>
             <Text mt="md">Pay via Our Paybill</Text>
             <Text>Business No: <b>4085473</b> </Text>
+            <Text color="red">For Test Use: <b>4073825</b> </Text>
             <Text>Account No: <b>YOUR UNIT NUMBER - {unitNumber}</b></Text>
           </section>
   

@@ -19,7 +19,7 @@ import {
     TextInput,
     Input,
     Table,
-    Title, UnstyledButton, useMantineTheme
+    Title, UnstyledButton, useMantineTheme, Select
 } from "@mantine/core";
 
 import {PATH_DASHBOARD} from "@/routes";
@@ -44,7 +44,7 @@ import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { useSelector } from 'react-redux';
-import { getOneBuilding } from "@/store/properties/buildings/buildings-slice";
+import { getOneBuilding, getUnitTypes } from "@/store/properties/buildings/buildings-slice";
 import store from '@/store/store'
 import { formatNumber } from "@/lib/shared/data-formatters"
 import PaginationLinks from '../../../../../components/Pagination/pagination-links';
@@ -57,6 +57,9 @@ function DetailsPage() {
     const router = useRouter();
     const buildingId = router.query?.buildingId ?? null;
 
+    const [unitType, setUnitType] = useState("");
+    console.log("Selected Unit Type", unitType);
+
     const buildingStatus = useSelector((state) => state.buildings.getOneBuildingStatus);
     const buildingData = useSelector((state) => state.buildings.getOneBuilding);
 
@@ -68,10 +71,14 @@ function DetailsPage() {
       const params = {};
 
         params['buildingId'] = buildingId;
+        
+        if(unitType){
+        params['unitType'] = unitType;
+        }
 
       store.dispatch(getOneBuilding(params));
 
-    }, [buildingId]);
+    }, [buildingId, unitType]);
   
     console.log('Building data monyancha', building);
 
@@ -88,7 +95,22 @@ function DetailsPage() {
         store.dispatch(getOneBuilding(params));
       }
 
-      console.log('Building data 123 monyancha', units);
+      const types = useSelector((state) => state.buildings.getUnitTypes);
+
+      useEffect(() => {
+        const params = {};
+
+        store.dispatch(getUnitTypes(params));
+  
+      }, [buildingId]);
+
+      console.log('Unit Types xyz', types);
+
+      const unitTypesList =
+      types?.data?.map((item) => ({
+        value: item?.id,
+        label: item?.name,
+      })) ?? [];
 
     return (
         <>
@@ -227,6 +249,14 @@ function DetailsPage() {
                                 <Text fz="lg" fw={600}>Units</Text>
                                 <Group justify="flex-end">
                                 <Input placeholder="Search" />
+                                <Select
+                                        placeholder="Filter Unit Type"
+                                        searchable
+                                        clearable
+                                        value={unitType}
+                                        onChange={setUnitType}
+                                        data={ unitTypesList }
+                                    />
                                 <Link href={`/askaris/revenue/addother/create?buildingId=${buildingData?.building?.id}`}>
                                 <Button leftIcon={<IconPlus size={18}/>}>Add Unit</Button>
                                 </Link>

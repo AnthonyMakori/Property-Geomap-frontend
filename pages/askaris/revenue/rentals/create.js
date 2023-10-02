@@ -63,6 +63,42 @@ function CreateBusiness() {
     const router = useRouter();
     const [isSubmitting, setIsSubmitting] = useState(false);
 
+    const [formFields, setFormFields] = useState([]);
+    const [currentField, setCurrentField] = useState({
+      unitType: "",
+      totalUnits: "",
+      rentAmount: "",
+      squareFoot: "",
+    });
+  
+    const handleAddField = () => {
+      setFormFields([...formFields, { ...currentField }]);
+      setCurrentField({
+        unitType: "",
+        totalUnits: "",
+        rentAmount: "",
+        squareFoot: "",
+      });
+    };
+  
+    const handleDeleteField = (index) => {
+      const updatedFields = [...formFields];
+      updatedFields.splice(index, 1);
+      setFormFields(updatedFields);
+    };
+  
+    const handleFieldChange = (index, field, value) => {
+      const updatedFields = [...formFields];
+      updatedFields[index][field] = value;
+      setFormFields(updatedFields);
+    };
+  
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+      // Handle form submission and send data to the backend
+      // ...
+    };
+
     console.log("Category monyancha", category);
 
     const submit = async (e) => {
@@ -308,11 +344,7 @@ function CreateBusiness() {
                                 <Group grow>
 
 
-                                    <TextInput
-                                        label="Total Units"
-                                        onChange={e => setUnits(e.target.value)}
-                                        placeholder="Total Units No. Eg. 3"
-                                    />
+                                    
                                     <Select
                                         label="Building Zone"
                                         placeholder="Select Zone"
@@ -341,9 +373,6 @@ function CreateBusiness() {
                                         </Autocomplete>
                                     )}
 
-                                </Group>
-                                <Group grow>
-                                    
                                     <Select
                                         label="Building Street"
                                         placeholder="Select Street"
@@ -352,30 +381,8 @@ function CreateBusiness() {
                                         onChange={setStreet}
                                         data={streetsList}
                                     />
-                                    <TextInput
-                                        label="Rent Amount"
-                                        placeholder="Ksh. 5000"
-                                        onChange={e => setAmount(e.target.value)}
-                                    />
 
-                                </Group>
-
-                                <Group grow>
-                                    
-                                    <Select
-                                        label="Unit Type"
-                                        placeholder="Select Unit Type"
-                                        searchable
-                                        clearable
-                                        onChange={setUnitType}
-                                        data={ unitTypesList }
-                                    />
-                                    <TextInput
-                                        label="Square Foot"
-                                        onChange={e => setSqFoot(e.target.value)}
-                                        placeholder="100sq"
-                                    />
-                                    <Select
+                                    {/* <Select
                                         label="Status"
                                         onChange={setStatus}
                                         placeholder="Select Status"
@@ -386,8 +393,47 @@ function CreateBusiness() {
                                             { value: 'Occupied', label: 'Occupied' },
                                             { value: 'Under Maintenance', label: 'Under Maintenance' },
                                         ]}
-                                    />
+                                    /> */}
+
                                 </Group>
+                                
+                                    {formFields.map((field, index) => (
+                                    <div key={index}>
+                                        <Group grow>
+                                        
+                                        <Select
+                                        label="Unit Type"
+                                        placeholder="Select Unit Type"
+                                        searchable
+                                        clearable
+                                        value={field.unitType}
+                                        onChange={(value) => handleFieldChange(index, 'unitType', value)}
+                                        data={unitTypesList}
+                                        />
+                                        <TextInput
+                                        label="Total Units"
+                                        placeholder="Total Units No. Eg. 3"
+                                        value={field.totalUnits}
+                                        onChange={(value) => handleFieldChange(index, 'totalUnits', value)}
+                                        />
+                                        <TextInput
+                                        label="Rent Amount"
+                                        placeholder="Ksh. 5000"
+                                        value={field.rentAmount}
+                                        onChange={(value) => handleFieldChange(index, 'rentAmount', value)}
+                                        />
+                                        <TextInput
+                                        label="Square Foot"
+                                        placeholder="100sq"
+                                        value={field.squareFoot}
+                                        onChange={(value) => handleFieldChange(index, 'squareFoot', value)}
+                                        />
+                                        <Button color='red' mt="xl" onClick={() => handleDeleteField(index)}>Delete</Button>
+                                        </Group>
+                                    </div>
+                                    ))}
+                                    <Button onClick={handleAddField}>Add More Units</Button>
+                                
 
                                 <Box sx={{ width: 'auto' }}>
                                     <Button onClick={submit} loading={isSubmitting}>Create Building</Button>

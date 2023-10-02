@@ -20,6 +20,9 @@ const initialState = {
   getOneUnit: null,
   getOneUnitStatus: "idle",
 
+  getUnitTypes: null,
+  getUnitTypesStatus: "idle",
+
 };
 
 export const getBuildings = createAsyncThunk(
@@ -173,6 +176,7 @@ export const getBuildings = createAsyncThunk(
       page = null,
       filter = null,
       buildingId = null,
+      unitType = null,
     } = {}) => {
   
       let url = undefined;
@@ -186,6 +190,10 @@ export const getBuildings = createAsyncThunk(
 
       if (filter) {
         params["filter"] = filter;
+      }
+
+      if (unitType) {
+        params["unit_type"] = unitType;
       }
 
       url += new URLSearchParams(params);
@@ -263,6 +271,54 @@ export const getBuildings = createAsyncThunk(
   );  
 
 
+  // getUnitTypes
+  export const getUnitTypes = createAsyncThunk(
+    "properties/getUnitTypes",
+    async ({
+      page = null,
+      filter = null,
+    } = {}) => {
+  
+      let url = undefined;
+      if (page) {
+        url = page + "&";
+      } else {
+        url = `${API_URL}/units/unit-types?`;
+      }
+  
+      const params = {};
+
+      if (filter) {
+        params["filter"] = filter;
+      }
+
+      url += new URLSearchParams(params);
+  
+      const startTime = new Date();
+      logger.log("getUnitTypes::BEGIN");
+      const response = await fetch(url, {
+        headers: {
+        //   Authorization: `Bearer ${accessToken} `,
+          Accept: "application/json",
+        },
+      }).then(async (response) => {
+        const data = await response.json();
+        const endTime = new Date();
+        const seconds = endTime.getTime() - startTime.getTime();
+        logger.log("getUnitTypes::END", { took: seconds, data });
+  
+        if (!response.ok) {
+          throw data;
+        }
+  
+        return data;
+      });
+  
+      return response;
+    }
+  );  
+
+
 const buildingsSlice = createSlice({
   name: "buildings",
   initialState,
@@ -327,6 +383,18 @@ const buildingsSlice = createSlice({
       .addCase(getOneUnit.fulfilled, (state, action) => {
         state.getOneUnitStatus = "fulfilled";
         state.getOneUnit = action.payload;
+      })
+      
+      //getUnitTypes
+      .addCase(getUnitTypes.pending, (state) => {
+        state.getUnitTypesStatus = "loading";
+      })
+      .addCase(getUnitTypes.rejected, (state) => {
+        state.getUnitTypesStatus = "rejected";
+      })
+      .addCase(getUnitTypes.fulfilled, (state, action) => {
+        state.getUnitTypesStatus = "fulfilled";
+        state.getUnitTypes = action.payload;
       });
   },
 });
