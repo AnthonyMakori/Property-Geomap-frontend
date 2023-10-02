@@ -235,8 +235,10 @@ function DetailsPage() {
                             </Group>
                             <Table>
                             <thead>
-                                <tr>                               
+                                <tr>
+                                                              
                                 <th>Name</th>
+                                <th>Code</th> 
                                 <th>Rent</th>
                                 <th>Tenant</th>
                                 <th>Type</th>
@@ -247,8 +249,9 @@ function DetailsPage() {
                             </thead>
                             <tbody>
                             {units?.data?.map((item) => (
-                            <tr key={item?.id}>
+                            <tr key={item?.id}>                           
                             <td>{item?.name}</td>
+                            <td>{item?.code ?? "-"}</td>
                             <td>Ksh. {item?.amount ?? "0"}</td>
                             <td>{item?.tenant?.name ?? "-"}</td>
                             <td>{item?.type?.name ?? "-"}</td>

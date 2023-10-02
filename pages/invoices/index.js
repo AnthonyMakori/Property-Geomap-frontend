@@ -243,7 +243,7 @@ function Invoices() {
                                 <Button color="indigo" leftIcon={<IconEdit size="1rem" />} variant='outline' mb="xs"  mr="xs" size='xs'> Edit </Button>
                                 <Button color="violet" leftIcon={<IconShare size="1rem" />} variant='outline'  mb="xs" mr="xs" size='xs'> Share </Button> */}
                                 <Button color="yellow" loading={pdfLoading[item.id]} onClick={() => printInvoice(item?.id)} mb="xs" leftIcon={<IconPrinter size="1rem" />} variant='outline' mr="xs" size='xs'> Download </Button>
-                                {/* <RecordPaymentModal item={item} /> */}
+                                <RecordPaymentModal item={item} />
                                 <StkPushModal item={item} />
                                     
                                 {/* <ActionIcon variant="filled" color='red' aria-label="Settings">

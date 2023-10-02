@@ -67,7 +67,8 @@ function List() {
                             </Group>
                             <Table>
                             <thead>
-                                <tr>                               
+                                <tr>   
+                                <th>Code</th>                            
                                 <th>Name</th>
                                 {/* <th>Unit Code</th> */}
                                 <th>Building</th>
@@ -83,6 +84,7 @@ function List() {
                             <tbody>
                             {units?.data?.map((item) => (
                             <tr key={item?.id}>
+                            <td>{item?.code ?? "-"}</td>
                             <td>{item?.name}</td>
                             {/* <td>{item?.code ?? "-"}</td> */}
                             <td>{item?.building?.name}</td>

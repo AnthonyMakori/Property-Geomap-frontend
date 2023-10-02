@@ -2,6 +2,7 @@ import {
     Modal,
     Button,
     TextInput,
+    Text,
     Select,
   } from "@mantine/core";
   import { DatePicker } from "@mantine/dates";
@@ -14,6 +15,8 @@ import {
   
   function StkPushModal({ item }) {
     const [opened, setOpened] = useState(false);
+
+    const unitNumber = item?.unit?.code;
 
     const [amount, setAmount] = useState(item?.total_owed);
     const [phone, setPhone] = useState("");
@@ -143,6 +146,13 @@ import {
               value={phone}
               onChange={(e) => setPhone(e.currentTarget.value)}
             />
+          </section>
+
+          <section className="flex flex-col space-y-2 bg-light p-3 rounded-lg mt-4">
+            <Text mt="md">OR</Text>
+            <Text mt="md">Pay via Our Paybill</Text>
+            <Text>Business No: <b>4085473</b> </Text>
+            <Text>Account No: <b>YOUR UNIT NUMBER - {unitNumber}</b></Text>
           </section>
   
           <section className="flex justify-end space-y-2 bg-light mt-5 p-3 rounded-lg my-3">

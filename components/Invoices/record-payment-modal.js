@@ -138,8 +138,10 @@ function RecordPaymentModal({ item }) {
             value={paymentMethod}
             onChange={setPaymentMethod}
             data={[
-              { value: "Mpesa", label: "M-Pesa" },
-              { value: "Cash", label: "Cash" },
+              { value: "Cheque", label: "Cheque" },
+              { value: "Bank Transfer", label: "Bank Transfer" },
+              // { value: "Mpesa", label: "M-Pesa" },
+              // { value: "Cash", label: "Cash" },
             ]}
             searchable
             clearable
@@ -165,9 +167,9 @@ function RecordPaymentModal({ item }) {
         onClick={() => setOpened(true)}
         variant="outline"
         size="xs"
-        color="green"
+        color="blue"
       >
-        Pay
+        Record Pay
       </Button>
     </>
   );
