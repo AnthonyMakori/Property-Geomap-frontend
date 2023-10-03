@@ -1,10 +1,18 @@
 import { configureStore, createListenerMiddleware } from "@reduxjs/toolkit";
-import dashboardReducer from "./users/dashboard/dashboard-slice";
+import buildingsReducer from "./properties/buildings/buildings-slice";
+import usersReducer from "./users/users-slice";
+import accountsReducer from "./accounts/accounts-slice";
+import communicationsReducer from "./communications/communication-slice";
+import dashboardReducer from "./dashboard/dashboard-slice";
 
 const listenerMiddleware = createListenerMiddleware();
 
 export default configureStore({
   reducer: {
+    buildings: buildingsReducer,
+    users: usersReducer,
+    accounts: accountsReducer,
+    communication: communicationsReducer,
     dashboard: dashboardReducer,
   },
   // Add the listener middleware to the store.

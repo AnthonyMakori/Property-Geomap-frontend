@@ -28,9 +28,9 @@ function InvoiceDetails() {
     const router = useRouter()
     const [selectedData, setSelectedData] = useState<Invoices>();
 
-    useEffect(() => {
-        setSelectedData(InvoicesData.find(_ => _.id === router.query.id))
-    }, [router, InvoicesData]);
+    // useEffect(() => {
+    //     // setSelectedData()
+    // }, [router]);
 
     return (
         <>

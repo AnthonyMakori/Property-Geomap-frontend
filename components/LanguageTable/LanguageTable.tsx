@@ -10,7 +10,7 @@ const LanguageTable = ({data, ...others}: LanguageTableProps) => {
     return (
         <Paper {...others}>
             <Group position="apart" mb="sm">
-                <Text size="lg" fw={600}>Businesses</Text>
+                <Text size="lg" fw={600}>Buildings</Text>
                 <ActionIcon>
                     <IconDotsVertical size={18}/>
                 </ActionIcon>
@@ -19,7 +19,7 @@ const LanguageTable = ({data, ...others}: LanguageTableProps) => {
                 verticalSpacing="sm"
                 highlightOnHover
                 columns={[
-                    {accessor: 'business'},
+                    {accessor: 'building_name'},
                 ]}
                 records={data}
             />

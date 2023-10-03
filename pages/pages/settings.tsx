@@ -94,6 +94,7 @@ function Settings() {
                                             height={120}
                                             width={120}
                                             radius="50%"
+                                            alt=''
                                         />
                                         <FileButton onChange={setFile} accept="image/png,image/jpeg">
                                             {(props) =>

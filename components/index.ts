@@ -8,7 +8,6 @@ import SalesChart from "@/components/SalesChart/SalesChart";
 import MobileDesktopChart from "@/components/MobileDesktopChart/MobileDesktopChart";
 import ProjectsTable from "@/components/ProjectsTable/ProjectsTable";
 import StatsCard from "@/components/StatsCard/StatsCard";
-import MapChart from "@/components/MapChart/MapChart";
 import LanguageTable from "@/components/LanguageTable/LanguageTable";
 import TrafficTable from "@/components/TrafficTable/TrafficTable";
 import UserProfileCard from "@/components/UserProfileCard/UserProfileCard";
@@ -41,7 +40,6 @@ export {
     MobileDesktopChart,
     ProjectsTable,
     StatsCard,
-    MapChart,
     LanguageTable,
     TrafficTable,
     UserProfileCard,

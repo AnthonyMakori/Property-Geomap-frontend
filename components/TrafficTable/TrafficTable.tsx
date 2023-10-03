@@ -11,7 +11,7 @@ const TrafficTable = ({data, ...others}: LanguageTableProps) => {
     return (
         <Paper {...others}>
             <Group position="apart" mb="sm">
-                <Text size="lg" fw={600}>Network Traffic</Text>
+                <Text size="lg" fw={600}>Recent Invoices</Text>
                 <ActionIcon>
                     <IconDotsVertical size={18}/>
                 </ActionIcon>

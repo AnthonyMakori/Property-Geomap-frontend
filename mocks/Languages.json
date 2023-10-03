@@ -1,49 +1,49 @@
 [
   {
     "id": "9b68e4eb-2e86-4ad4-a60c-9e760b1a7931",
-    "business": "Retail Business",
+    "building_name": "Building 1",
     "users": 833,
     "users_percentage": 35
   },
   {
     "id": "ce725b5d-f542-42c7-ba8e-c2e38dd9a038",
-    "business": "Retail Business",
+    "building_name": "Building 2",
     "users": 790,
     "users_percentage": 71
   },
   {
     "id": "96b0791b-ca14-4ec7-ba0e-3c0c09e911b5",
-    "business": "Retail Business",
+    "building_name": "Building 3",
     "users": 959,
     "users_percentage": 10
   },
   {
     "id": "b845afb9-ed55-485c-b2d4-e2dcf570968b",
-    "business": "Retail Business",
+    "building_name": "Building 4",
     "users": 536,
     "users_percentage": 63
   },
   {
     "id": "198622ac-3554-4b76-913c-362c93a2bf8c",
-    "business": "Retail Business",
+    "building_name": "Building 5",
     "users": 70,
     "users_percentage": 4
   },
   {
     "id": "ff5c56e9-dec9-4c72-b4be-727eff9dd507",
-    "business": "Retail Business",
+    "building_name": "Building 6",
     "users": 326,
     "users_percentage": 40
   },
   {
     "id": "a577d727-9f37-4491-ba01-6b80c368d23c",
-    "business": "Retail Business",
+    "building_name": "Retail building",
     "users": 399,
     "users_percentage": 99
   },
   {
     "id": "bc487261-ac00-4dde-b534-87bef1c28b2a",
-    "business": "Retail Business",
+    "building_name": "Retail Business",
     "users": 1000,
     "users_percentage": 39
   }

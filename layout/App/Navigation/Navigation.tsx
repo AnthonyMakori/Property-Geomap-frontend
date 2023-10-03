@@ -9,20 +9,25 @@ import {
     IconPin,
     IconMapPin,
     IconCurrentLocation,
+    IconMessage2,
     IconSettings,
+    IconUserCog,
+    IconMessageCircle2,
 } from '@tabler/icons-react';
 import useStyles from "./Navigation.styles";
 import {Logo, UserProfileButton} from "@/components";
 import {
     PATH_AUTH,
-    PATH_CALENDAR,
-    PATH_DASHBOARD, PATH_DOCS,
-    PATH_ERROR,
+    PATH_DASHBOARD,
+    PATH_ASKARIS_REVENUE,
     PATH_INVOICES,
-    PATH_ORDERS,
+    PATH_MANAGE_OWNERS,
+    PATH_MANAGE_TENANTS,
+    PATH_MANAGE_STREETS,
+    PATH_MANAGE_LOCATIONS,
+    PATH_MANAGE_ZONES,
+    // PATH_ZONES,
     PATH_PAGES,
-    PATH_PROJECTS,
-    PATH_TASKS
 } from "@/routes";
 import UserProfileData from ".././../../mocks/UserProfile.json";
 import {LinksGroup} from "@/layout/App/Navigation/Links/Links";
@@ -38,45 +43,49 @@ const mockdata = [
                 link: PATH_DASHBOARD.default
             },
             {
-                label: 'Revenue Streams',
+                label: 'Properties',
                 icon: IconBuildingSkyscraper,
                 links: [
-                    {label: 'Businesses', link: PATH_DASHBOARD.default},
-                    {label: 'Parking', link: PATH_DASHBOARD.default},
-                    {label: 'Land Rates', link: PATH_DASHBOARD.default},
-                    {label: 'Rentals', link: PATH_DASHBOARD.default},
-                    {label: 'Add Revenue Streams', link: PATH_DASHBOARD.default},
+                    // {label: 'Businesses', link: PATH_ASKARIS_REVENUE.businesses},
+                    // {label: 'Parking', link: PATH_ASKARIS_REVENUE.parking},
+                    // {label: 'Land Rates', link: PATH_ASKARIS_REVENUE.landrates},
+                    {label: 'Buildings', link: PATH_ASKARIS_REVENUE.rentals},
+                    // {label: 'Units', link: PATH_ASKARIS_REVENUE.add},
+                    {label: 'Leases', link: "/leases"},                   
                 ]
             },
             {
-                label: 'Manage Invoices',
+                label: 'All Users',
+                icon: IconUserCog,
+                links: [
+                    {label: 'Landloards', link: PATH_MANAGE_OWNERS.all},
+                    {label: 'Tenants', link: PATH_MANAGE_TENANTS.all},
+                ]
+            },
+            {
+                label: 'Accounts',
                 icon: IconCashBanknote,
-                link: PATH_DASHBOARD.default
+                links: [
+                    {label: 'Invoices', link: '/invoices'},
+                    {label: 'Payments', link: '/payments'},
+                    // {label: 'Expenses', link: '/invoices'},
+                ]
             },
             {
-                label: 'Manage Owners',
-                icon: IconUserPlus,
-                link: PATH_DASHBOARD.default
+                label: 'Messages',
+                icon: IconMessageCircle2,
+                links: [
+                    {label: 'Sent Box', link: '/communications'},
+                ]
             },
             {
-                label: 'Manage Zones',
-                icon: IconPin,
-                link: PATH_DASHBOARD.default
-            },
-            {
-                label: 'Manage Locations',
-                icon: IconMapPin,
-                link: PATH_DASHBOARD.default
-            },
-            {
-                label: 'Manage Streets',
-                icon: IconCurrentLocation,
-                link: PATH_DASHBOARD.default
-            },
-            {
-                label: 'My Profile',
+                label: 'Settings',
                 icon: IconSettings,
-                link: PATH_DASHBOARD.default
+                links: [
+                    {label: 'Unit Types', link: "/settings/unit-types"},
+                    {label: 'Zones', link: PATH_MANAGE_ZONES.all},
+                    {label: 'Streets', link: PATH_MANAGE_STREETS.all},
+                ]
             },
            
         ]

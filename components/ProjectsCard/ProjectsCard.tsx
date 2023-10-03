@@ -97,7 +97,7 @@ const ProjectsCard = (props: ProjectsCardProps) => {
             <Stack spacing="sm">
                 <Flex justify="space-between" align="center">
                     <Flex align="center" gap="xs">
-                        {image && <Image src={image} width={20} height={20} radius="50%"/>}
+                        {image && <Image alt="" src={image} width={20} height={20} radius="50%"/>}
                         <Text fz="md" fw={600}>
                             {title}
                         </Text>

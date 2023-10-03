@@ -52,14 +52,14 @@ const PageHeader = ({withActions, breadcrumbItems, title, invoiceAction}: PageHe
                     >
                         <Stack spacing={4}>
                             <Title order={3}>{title}</Title>
-                            <Text>Managing your business made easy!</Text>
+                            <Text>Managing your buildings made easy!</Text>
                         </Stack>
-                        <Flex align="center" gap="sm">
+                        {/* <Flex align="center" gap="sm">
                             <ActionIcon color="primary">
                                 <IconRefresh size={18}/>
                             </ActionIcon>
                             <FilterDateMenu/>
-                        </Flex>
+                        </Flex> */}
                     </Flex> :
                     (invoiceAction ?
                             <Flex

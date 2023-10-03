@@ -14,8 +14,8 @@ const Logo = ({href, ...others}: LogoProps) => {
     return (
         <UnstyledButton className={classes.logo} component={Link} href={href || "/"} {...others}>
             <Group spacing="xs">
-                <Image src="/favicon.png" height={34} width={34} alt="Geomap logo"/>
-                <Text>Geomap Portal</Text>
+                <Image src="/favicon.png" height={34} width={34} alt="Ilovalue logo"/>
+                <Text>Ilovalue</Text>
             </Group>
         </UnstyledButton>
     );

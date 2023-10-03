@@ -1,16 +1,16 @@
 {
   "data": [
     {
-      "title": "Total Licenses",
+      "title": "Total Buildings",
       "icon": "receipt",
       "value": "4",
-      "diff": 34
+      "diff": 6
     },
     {
-      "title": "Total Businesses",
+      "title": "Total Units",
       "icon": "coin",
       "value": "6",
-      "diff": 13
+      "diff": 24
     },
     {
       "title": "Due Invoices",

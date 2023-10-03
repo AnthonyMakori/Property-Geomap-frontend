@@ -3,41 +3,66 @@ function path(root: string, sublink: string) {
 }
 
 const ROOTS_DASHBOARD = '/dashboard'
+const ROOTS_ASKARIS_REVENUE = '/askaris'
+const ROOTS_MANAGE_OWNERS = '/askaris/owners'
+const ROOTS_MANAGE_TENANTS = '/askaris/tenants'
+const ROOTS_MANAGE_ZONES = '/areas/zones'
+const ROOTS_MANAGE_LOCATIONS = '/areas/locations'
+const ROOTS_MANAGE_STREETS = '/areas/streets'
 const ROOTS_PAGES = '/pages'
-const ROOTS_PROJECTS = '/projects'
-const ROOTS_ORDERS = '/orders'
 const ROOTS_INVOICES = '/invoices'
-const ROOTS_TASKS = '/tasks'
-const ROOTS_CALENDAR = '/calendar'
 const ROOTS_AUTH = '/auth'
 const ROOTS_ERRORS = ''
-const ROOTS_START = '/start'
-const ROOTS_DOCS = '/docs'
-const ROOTS_CHANGELOG = '/changelog'
 
 export const PATH_DASHBOARD = {
     root: ROOTS_DASHBOARD,
     default: path(ROOTS_DASHBOARD, '/default'),
-    analytics: path(ROOTS_DASHBOARD, '/analytics'),
-    saas: path(ROOTS_DASHBOARD, '/saas'),
+    analytics: path(ROOTS_DASHBOARD, '/askaris'),
+    saas: path(ROOTS_DASHBOARD, '/admin'),
 }
+
+export const PATH_ASKARIS_REVENUE = {
+    root: ROOTS_ASKARIS_REVENUE,
+    businesses: path(ROOTS_ASKARIS_REVENUE, '/businesses'),
+    parking: path(ROOTS_ASKARIS_REVENUE, '/revenue/parking'),
+    landrates: path(ROOTS_ASKARIS_REVENUE, '/revenue/landrates'),
+    rentals: path(ROOTS_ASKARIS_REVENUE, '/revenue/rentals'),
+    add: path(ROOTS_ASKARIS_REVENUE, '/revenue/addother'),
+}
+
+export const PATH_MANAGE_OWNERS = {
+    root: ROOTS_MANAGE_OWNERS,
+    all: path(ROOTS_MANAGE_OWNERS, '/'),
+}
+
+export const PATH_MANAGE_TENANTS = {
+    root: ROOTS_MANAGE_TENANTS,
+    all: path(ROOTS_MANAGE_TENANTS, '/'),
+}
+
+export const PATH_MANAGE_ZONES = {
+    root: ROOTS_MANAGE_ZONES,
+    all: path(ROOTS_MANAGE_ZONES, '/'),
+}
+
+
+export const PATH_MANAGE_LOCATIONS = {
+    root: ROOTS_MANAGE_LOCATIONS,
+    all: path(ROOTS_MANAGE_LOCATIONS, '/'),
+}
+
+export const PATH_MANAGE_STREETS = {
+    root: ROOTS_MANAGE_STREETS,
+    all: path(ROOTS_MANAGE_STREETS, '/'),
+}
+
 
 export const PATH_PAGES = {
     root: ROOTS_PAGES,
     profile: path(ROOTS_PAGES, '/profile'),
     settings: path(ROOTS_PAGES, '/settings'),
-    pricing: path(ROOTS_PAGES, '/pricing'),
-    chat: path(ROOTS_PAGES, '/chat'),
-    blank: path(ROOTS_PAGES, '/blank'),
 }
 
-export const PATH_PROJECTS = {
-    root: ROOTS_PROJECTS,
-}
-
-export const PATH_ORDERS = {
-    root: ROOTS_ORDERS,
-}
 
 export const PATH_INVOICES = {
     root: ROOTS_INVOICES,
@@ -48,13 +73,6 @@ export const PATH_INVOICES = {
     }
 }
 
-export const PATH_TASKS = {
-    root: ROOTS_TASKS,
-}
-
-export const PATH_CALENDAR = {
-    root: ROOTS_CALENDAR,
-}
 
 export const PATH_AUTH = {
     root: ROOTS_AUTH,
@@ -71,17 +89,17 @@ export const PATH_ERROR = {
 }
 
 export const PATH_START = {
-    root: 'https://mantine-analytics-dashboard-docs.netlify.app/getting-started',
+    root: '',
 }
 
 export const PATH_DOCS = {
-    root: 'https://mantine-analytics-dashboard-docs.netlify.app/',
+    root: '',
 }
 
 export const PATH_CHANGELOG = {
-    root: ROOTS_CHANGELOG,
+    root: '',
 }
 
 export const PATH_GITHUB = {
-    org: "https://github.com/design-sparx",
+    org: "",
 }

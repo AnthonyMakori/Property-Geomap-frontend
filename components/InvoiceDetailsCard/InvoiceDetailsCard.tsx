@@ -42,8 +42,8 @@ const InvoiceDetails = ({data, ...others}: InvoiceDetailsProps) => {
     const rows = elements.map((element) => (
         <tr key={element.description}>
             <td>{element.description}</td>
-            <td>${element.unitPrice}</td>
-            <td>${element.amount}</td>
+            <td>Ksh. {element.unitPrice}</td>
+            <td>Ksh. {element.amount}</td>
         </tr>
     ));
 
@@ -66,7 +66,7 @@ const InvoiceDetails = ({data, ...others}: InvoiceDetailsProps) => {
                         </Menu>
                     </Flex>
                     <Text  {...TEXT_PROPS}>Hello {data.full_name},</Text>
-                    <Text  {...TEXT_PROPS}>This is the invoice for a payment of ${data.amount} you made
+                    <Text  {...TEXT_PROPS}>This is the invoice for a payment of Ksh. {data.amount} you made
                         to {data.client_company}</Text>
                     <Flex
                         justify="space-between"
@@ -134,12 +134,7 @@ const InvoiceDetails = ({data, ...others}: InvoiceDetailsProps) => {
                         <tr>
                             <td></td>
                             <td>Subtotal</td>
-                            <td>$140</td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td>Shipping</td>
-                            <td>$5</td>
+                            <td>Ksh. 140</td>
                         </tr>
                         <tr>
                             <td></td>
@@ -149,13 +144,11 @@ const InvoiceDetails = ({data, ...others}: InvoiceDetailsProps) => {
                         <tr>
                             <td></td>
                             <td>Total</td>
-                            <td>$137.75</td>
+                            <td>Ksh. 34,137.75</td>
                         </tr>
                         </tbody>
                     </Table>
-                    <Text ta="center" fz="sm" c="dimmed" mt="md">Extra note: Please send all items at the same time to
-                        the
-                        shipping address. Thanks in advance.</Text>
+                    <Text ta="center" fz="sm" c="dimmed" mt="md">Extra note: Please send all items at the same time. Thanks in advance.</Text>
                 </Stack> :
                 <p>Invoice not selected</p>
             }
