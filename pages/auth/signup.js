@@ -1,4 +1,4 @@
-import React, {SyntheticEvent, useState} from 'react';
+import React, { SyntheticEvent, useState } from 'react';
 import {
     Button,
     Center,
@@ -7,15 +7,16 @@ import {
     PasswordInput,
     rem,
     Text,
-    TextInput, TextProps,
-    Title, useMantineTheme
+    TextInput,
+    Title,
+    useMantineTheme,
 } from "@mantine/core";
 import Head from "next/head";
 import Link from "next/link";
-import {PATH_AUTH, PATH_DASHBOARD} from "@/routes";
-import {AuthLayout} from "@/layout";
-import {useMediaQuery} from "@mantine/hooks";
-import {useRouter} from "next/router";
+import { PATH_AUTH } from "@/routes"; // Adjust if necessary
+import { AuthLayout } from "@/layout";
+import { useMediaQuery } from "@mantine/hooks";
+import { useRouter } from "next/router";
 import { showNotification } from '@mantine/notifications';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
@@ -35,9 +36,7 @@ function SignUp() {
     const submit = async (e) => {
         e.preventDefault();
 
-
-        
-        if(!name){
+        if (!name) {
             showNotification({
                 title: "Error",
                 message: "Name is required!",
@@ -46,7 +45,7 @@ function SignUp() {
             return;
         }
 
-        if(!email){
+        if (!email) {
             showNotification({
                 title: "Error",
                 message: "Email is required!",
@@ -55,7 +54,7 @@ function SignUp() {
             return;
         }
 
-        if(!phone){
+        if (!phone) {
             showNotification({
                 title: "Error",
                 message: "Phone is required!",
@@ -64,7 +63,7 @@ function SignUp() {
             return;
         }
 
-        if(password != confirmPassword){
+        if (password !== confirmPassword) {
             showNotification({
                 title: "Error",
                 message: "Password does not match!",
@@ -74,7 +73,7 @@ function SignUp() {
         }
 
         setIsSubmitting(true);
-    
+
         try {
             const response = await fetch(`${API_URL}/register`, {
                 method: 'POST',
@@ -89,42 +88,35 @@ function SignUp() {
                     password,
                 }),
             });
-    
+
             if (!response.ok) {
-                throw new Error(`Failed to log in: ${response.statusText}`);
+                throw new Error(`Failed to register: ${response.statusText}`);
             }
 
             setIsSubmitting(false);
 
             showNotification({
                 title: "Success",
-                message: "Registration Successfull",
+                message: "Registration Successful",
                 color: "green",
             });
-    
-            // Assuming the login was successful, you can proceed to navigate to the dashboard.
+
             await router.push('/auth/signin');
         } catch (error) {
             setIsSubmitting(false);
-            // Handle network errors or other errors here
-
             showNotification({
                 title: "Error",
                 message: "" + error,
                 color: "red",
             });
-
-            console.error('Error during login:', error);
+            console.error('Error during registration:', error);
         }
-    }
-
+    };
 
     return (
         <>
             <AuthLayout>
-                <Title ta="center">
-                   Signup
-                </Title>
+                <Title ta="center">Signup</Title>
                 <Text ta="center">Create your account to continue</Text>
 
                 <Paper
@@ -136,25 +128,38 @@ function SignUp() {
                         width: rem(mobile_match ? 360 : 420),
                     }}
                 >
-                    <Flex
-                        direction={{base: 'column', sm: 'row'}}
-                        gap={{base: 'md'}}
-                    >
-                        <TextInput label="Full Name" onChange={e => setName(e.target.value)} placeholder="John Doe" required/>
-                        <TextInput label="Phone Number" onChange={e => setPhone(e.target.value)} placeholder="0799117020" required/>
+                    <Flex direction={{ base: 'column', sm: 'row' }} gap={{ base: 'md' }}>
+                        <TextInput label="Full Name" onChange={e => setName(e.target.value)} placeholder="John Doe" required />
+                        <TextInput label="Phone Number" onChange={e => setPhone(e.target.value)} placeholder="0799117020" required />
                     </Flex>
-                    <TextInput label="Email" onChange={e => setEmail(e.target.value)} placeholder="you@gmail.com" required mt="md"/>
-                    <PasswordInput label="Password" onChange={e => setPassword(e.target.value)} placeholder="Your password" required mt="md"/>
-                    <PasswordInput label="Confirm Password" onChange={e => setConfirmPassword(e.target.value)} placeholder="Confirm password" required mt="md"/>
+                    <TextInput label="Email" onChange={e => setEmail(e.target.value)} placeholder="you@gmail.com" required mt="md" />
+                    <PasswordInput label="Password" onChange={e => setPassword(e.target.value)} placeholder="Your password" required mt="md" />
+                    <PasswordInput label="Confirm Password" onChange={e => setConfirmPassword(e.target.value)} placeholder="Confirm password" required mt="md" />
                     <Button onClick={submit} loading={isSubmitting} fullWidth mt="xl">
                         Create account
                     </Button>
                     <Center mt="md">
-                        <Text size="sm" component={Link} href={PATH_AUTH.signin} >
-                            Already have an account? Sign in
+                        <Text size="sm">
+                            Already have an account?
                         </Text>
                     </Center>
-                </Paper>
+                    <Center>
+                       <Link href={PATH_AUTH.signin} passHref style={{ display: 'block', width: '100%', textDecoration: 'none' }}>
+                        <Button 
+                        style={{ 
+                            width: '100%', 
+                            backgroundColor: 'aqua', 
+                            transition: 'background-color 0.3s', 
+                            display: 'block' 
+                        }} 
+                        onMouseEnter={e => e.currentTarget.style.backgroundColor = 'green'} 
+                        onMouseLeave={e => e.currentTarget.style.backgroundColor = 'aqua'}
+                        >
+                        Sign in
+                        </Button>
+                    </Link>
+                    </Center>
+                   </Paper>
             </AuthLayout>
         </>
     );
