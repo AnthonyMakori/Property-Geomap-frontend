@@ -1,0 +1,30 @@
+/* @tailwind base; */
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
+
+body {
+    font-family: 'Manrope', sans-serif;
+}
+
+/* In a CSS file */
+.custom-link {
+  text-decoration: none;
+  color: #1c7ed6; /* You can set the color to your preference */
+}
+
+@media (max-width: 767px) {
+    #responsive-table {
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+    }
+
+    th,
+    td {
+      white-space: nowrap;
+    }
+  }

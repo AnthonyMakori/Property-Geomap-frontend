@@ -1,0 +1,22 @@
+LOCAL
+
+NEXT_PUBLIC_API_URL=http://127.0.0.1:8000/api
+API_URL=http://127.0.0.1:8000/api
+#NEXT_PUBLIC_API_URL=https://easeorder.onefundtrade.com/api
+# NEXT_PUBLIC_API_URL=https://api.geomap.ilovalue.com/api
+NEXT_PUBLIC_GOOGLE_MAPS_API_KEY=AIzaSyDz5yVWDaY5aE1w_5KQxHUqXfxeNpAMQ6c
+NEXTAUTH_SECRET=5YLXg5cNDw2ewfiHXLemv+EFSdz4w4AsnMU6ufAA7vs=
+#NEXTAUTH_URL=https://geomap.ilovalue.com
+NEXT_PUBLIC_DAYS_AGO_FILTER=3
+
+
+LIVE
+
+NEXT_PUBLIC_API_URL=https://api.geomap.ilovalue.com/api
+API_URL=https://api.geomap.ilovalue.com/api
+#NEXT_PUBLIC_API_URL=https://easeorder.onefundtrade.com/api
+# NEXT_PUBLIC_API_URL=https://api.geomap.ilovalue.com/api
+NEXT_PUBLIC_GOOGLE_MAPS_API_KEY=AIzaSyDz5yVWDaY5aE1w_5KQxHUqXfxeNpAMQ6c
+NEXTAUTH_SECRET=5YLXg5cNDw2ewfiHXLemv+EFSdz4w4AsnMU6ufAA7vs=
+NEXTAUTH_URL=https://geomap.ilovalue.com
+NEXT_PUBLIC_DAYS_AGO_FILTER=3

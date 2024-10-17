@@ -1,0 +1,50 @@
+[
+  {
+    "id": "2cfb8640-4c4e-431d-a02a-24f103027ecb",
+    "name": "Rent Payment",
+    "issued_date": "2/2/2023",
+    "end_date": "3/24/2023",
+    "status": "Completed",
+    "amount": "Ksh. 3,029"
+  },
+  {
+    "id": "a5fc92d3-73da-4be3-b94e-ea9b81c6a2fb",
+    "name": "Parking Fees",
+    "issued_date": "5/25/2022",
+    "end_date": "11/20/2023",
+    "status": "Completed",
+    "amount": "Ksh. 3,029"
+  },
+  {
+    "id": "2d745034-d666-4626-a1c6-9288954c0433",
+    "name": "Outdoor Advertising",
+    "issued_date": "7/16/2022",
+    "end_date": "6/21/2023",
+    "status": "Pending",
+    "amount": "Ksh. 3,029"
+  },
+  {
+    "id": "0a3c4806-426b-4f62-8173-6dbcb6bfa319",
+    "name": "Hire of county assets",
+    "issued_date": "5/14/2023",
+    "end_date": "2/4/2023",
+    "status": "Cancelled",
+    "amount": "Ksh. 3,029"
+  },
+  {
+    "id": "9d1b4342-89ab-457b-905d-48557fc5e7ef",
+    "name": "Liquor licenses",
+    "issued_date": "11/21/2022",
+    "end_date": "11/21/2022",
+    "status": "Completed",
+    "amount": "Ksh. 3,029"
+  },
+  {
+    "id": "60ef7bd7-6c40-4844-be4b-2a4dd976e0ab",
+    "name": "Properties and land rates",
+    "issued_date": "7/6/2023",
+    "end_date": "6/11/2023",
+    "status": "Cancelled",
+    "amount": "Ksh. 3,029"
+  }
+]
