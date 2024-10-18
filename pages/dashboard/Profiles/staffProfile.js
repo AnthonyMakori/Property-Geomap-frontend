@@ -7,7 +7,7 @@ import Link from 'next/link';
 import { Button } from '@mantine/core';
 import store from "@/store/store";
 
-const TenantProfile = () => {
+const StaffProfile = () => {
     const [profile, setProfile] = useState({
         logo: '', 
         name: '',
@@ -403,4 +403,4 @@ const TenantProfile = () => {
     );
 };
 
-export default TenantProfile;
+export default StaffProfile;
