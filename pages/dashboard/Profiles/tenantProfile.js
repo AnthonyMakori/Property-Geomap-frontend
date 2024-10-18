@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { Button } from '@mantine/core';
 import store from "@/store/store";
 
+
 const TenantProfile = () => {
     const [profile, setProfile] = useState({
         logo: '', 
@@ -63,6 +64,13 @@ const TenantProfile = () => {
     const handleMenuClick = (menu) => {
         setSelectedMenu(menu);
     };
+    const PasswordForm = ({ handleInputChange }) => {
+        const [showPassword, setShowPassword] = useState(false);
+    
+        const toggleShowPassword = () => {
+            setShowPassword((prevState) => !prevState);
+        };
+    }
 
     return (
         <div className="w-full flex flex-col" style={{ backgroundColor: '#0E0631' }}>
@@ -290,67 +298,67 @@ const TenantProfile = () => {
                         {selectedMenu === 'Emergency Contact' && (
                             <>
                                 {/* Emergency Contact Form */}
-                                <div className="grid grid-cols-2 gap-4 mb-4 min-h-[61.5vh]">
-                        <div>
-                            <label className="block mb-1 font-medium">Emergency Contact</label>
-                            <input
-                                type="text"
-                                name="emergencyContact"
-                                value={profile.emergencyContact}
-                                onChange={handleInputChange}
-                                className="w-full p-2 border rounded"
-                            />
-                        </div>
-                        <div>
-                            <label className="block mb-1 font-medium">Relationship</label>
-                            <input
-                                type="text"
-                                name="relationship"
-                                value={profile.relationship}
-                                onChange={handleInputChange}
-                                className="w-full p-2 border rounded"
-                            />
-                        </div>
-                        <div>
-                            <label className="block mb-1 font-medium">Tel No</label>
-                            <input
-                                type="text"
-                                name="telephoneNumber"
-                                value={profile.telephoneNumber}
-                                onChange={handleInputChange}
-                                className="w-full p-2 border rounded"
-                            />
-                        </div>
-                        <div>
-                            <label className="block mb-1 font-medium">Email</label>
-                            <input
-                                type="email"
-                                name="email"
-                                value={profile.email}
-                                onChange={handleInputChange}
-                                className="w-full p-2 border rounded"
-                            />
-                        </div>
-                        <div>
-                            <label className="block mb-1 font-medium">Address</label>
-                            <input
-                                type="text"
-                                name="address"
-                                value={profile.address}
-                                onChange={handleInputChange}
-                                className="w-full p-2 border rounded"
-                            />
-                        </div>
-                        <div>
-                            <label className="block mb-1 font-medium">Remarks</label>
-                            <textarea
-                                name="remarks"
-                                value={profile.remarks}
-                                onChange={handleInputChange}
-                                className="w-full p-2 border rounded"
-                            />
-                        </div>
-                    </div>
+                                <div className="grid grid-cols-2 gap-4 mb-2 min-h-[61.5vh]">
+                                    <div>
+                                        <label className="block mb-0.5 font-medium">Name</label>
+                                        <input
+                                            type="text"
+                                            name="emergencyContact"
+                                            value={profile.emergencyContact}
+                                            onChange={handleInputChange}
+                                            className="w-full p-2 border rounded"
+                                        />
+                                    </div>
+                                    <div>
+                                        <label className="block mb-0.5 font-medium">Relationship</label>
+                                        <input
+                                            type="text"
+                                            name="relationship"
+                                            value={profile.relationship}
+                                            onChange={handleInputChange}
+                                            className="w-full p-2 border rounded"
+                                        />
+                                    </div>
+                                    <div>
+                                        <label className="block mb-0.5 font-medium">Tel No</label>
+                                        <input
+                                            type="text"
+                                            name="telephoneNumber"
+                                            value={profile.telephoneNumber}
+                                            onChange={handleInputChange}
+                                            className="w-full p-2 border rounded"
+                                        />
+                                    </div>
+                                    <div>
+                                        <label className="block mb-0.5 font-medium">Email</label>
+                                        <input
+                                            type="email"
+                                            name="email"
+                                            value={profile.email}
+                                            onChange={handleInputChange}
+                                            className="w-full p-2 border rounded"
+                                        />
+                                    </div>
+                                    <div>
+                                        <label className="block mb-0.5 font-medium">Address</label>
+                                        <input
+                                            type="text"
+                                            name="address"
+                                            value={profile.address}
+                                            onChange={handleInputChange}
+                                            className="w-full p-2 border rounded"
+                                        />
+                                    </div>
+                                    <div>
+                                        <label className="block mb-0.5 font-medium">Remarks</label>
+                                        <textarea
+                                            name="remarks"
+                                            value={profile.remarks}
+                                            onChange={handleInputChange}
+                                            className="w-full p-2 border rounded"
+                                        />
+                                    </div>
+                                </div>
 
                             </>
                         )}
@@ -358,42 +366,39 @@ const TenantProfile = () => {
                         {selectedMenu === 'Change Password' && (
                             <>
                                 {/* Change Password Form */}
-                                <div className="flex justify-center items-center min-h-[64vh]">
-                        <div className="grid grid-cols-1 gap-4 mb-4 w-full max-w-md">
-                            <div>
-                                <label className="block mb-1 font-medium">Current Password</label>
-                                <input
-                                    type="password"
-                                    name="currentPassword"
-                                    onChange={handleInputChange}
-                                    className="w-full p-2 border rounded"
-                                />
-                            </div>
-                            <div>
-                                <label className="block mb-1 font-medium">New Password</label>
-                                <input
-                                    type="password"
-                                    name="password"
-                                    onChange={handleInputChange}
-                                    className="w-full p-2 border rounded"
-                                />
-                            </div>
-                            <div>
-                                <label className="block mb-1 font-medium">Confirm Password</label>
-                                <input
-                                    type="password"
-                                    name="confirmPassword"
-                                    onChange={handleInputChange}
-                                    className="w-full p-2 border rounded"
-                                />
-                            </div>
-                        </div>
-                    </div>
-
-                            </>
-                        )}
-
-                        <div className="text-center">
+                                <div>
+                                    <label className="block mb-1 font-medium">Current Password</label>
+                                    <input
+                                        type={showPassword ? "text" : "password"}
+                                        name="currentPassword"
+                                        onChange={handleInputChange}
+                                        placeholder="Current Password"
+                                        className="w-full p-2 border rounded"
+                                    />
+                                </div>
+                                <div>
+                                    <label className="block mb-1 font-medium">New Password</label>
+                                    <input
+                                        type={showPassword ? "text" : "password"}
+                                        name="password"
+                                        onChange={handleInputChange}
+                                        placeholder="New Password"
+                                        className="w-full p-2 border rounded"
+                                    />
+                                </div>
+                                <div>
+                                    <label className="block mb-1 font-medium">Confirm Password</label>
+                                    <input
+                                        type={showPassword ? "text" : "password"}
+                                        name="confirmPassword"
+                                        onChange={handleInputChange}
+                                        placeholder="Confirm Password"
+                                        className="w-full p-2 border rounded"
+                                    />
+                                </div>
+                                </>
+                            )}
+                       <div className="text-center">
                             <button type="submit" className="px-6 py-2 bg-[#00FFFF] text-white font-medium rounded hover:bg-blue-600">Update</button>
                         </div>
                     </form>
@@ -403,4 +408,7 @@ const TenantProfile = () => {
     );
 };
 
-export default TenantProfile;
+export default TenantProfile;    
+                       
+
+                        

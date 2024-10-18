@@ -4,6 +4,8 @@ import { getDateFilterFrom, getDateFilterTo } from '../../lib/shared/data-format
 import store from "@/store/store";
 import { getDashboard } from "@/store/dashboard/dashboard-slice";
 import { useSession } from "next-auth/react";
+
+
 import {
   Avatar,
   Button,
@@ -51,6 +53,13 @@ const Tenant = ({  }) => {
   const handleProfile = () => {
     router.push('/dashboard/Profiles/tenantProfile');
   };
+
+  const [newMessages, setNewMessages] = useState(3); 
+
+const handleSettingsRedirect = () => {
+  window.location.href = '/dashboard/Profiles/tenantProfile'; 
+};
+
 
 
 useEffect(() => {
@@ -184,32 +193,54 @@ const handleSelectChange = (value) => {
     style={{ width: '250px', paddingLeft: '20px' }}
   />
   <Group spacing="xs">
+  <div style={{ position: 'relative' }}>
     <IconNotification color="white" />
-    <IconBell color="white" />
-    <IconSettings color="white" />
-    <Menu>
-      <Menu.Target>
-        <Image
-          src={session?.user?.logo || '/TechForge 1.PNG'}
-          alt="Options"
-          height={44}
-          width={44}
-          radius={120}
-          style={{ cursor: 'pointer' }}
-        />
-      </Menu.Target>
-      <Menu.Dropdown>
-        <Menu.Item onClick={handleProfile}>
-          <IconUser size={18} style={{ marginRight: 8 }} />
-          Profile
-        </Menu.Item>
-        <Menu.Item onClick={handleLogout}>
-          <IconPower size={18} style={{ marginRight: 8 }} />
-          Log Out
-        </Menu.Item>
-      </Menu.Dropdown>
-    </Menu>
-  </Group>
+    {newMessages > 0 && (
+      <div
+        style={{
+          position: 'absolute',
+          top: -5,
+          right: -5,
+          backgroundColor: 'red',
+          color: 'white',
+          borderRadius: '50%',
+          width: 20,
+          height: 20,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          fontSize: 12,
+        }}
+      >
+        {newMessages}
+      </div>
+    )}
+  </div>
+  <IconSettings color="white" style={{ cursor: 'pointer' }} onClick={handleSettingsRedirect} />
+  <Menu>
+    <Menu.Target>
+      <Image
+        src={session?.user?.logo || '/TechForge 1.PNG'}
+        alt="Options"
+        height={44}
+        width={44}
+        radius={120}
+        style={{ cursor: 'pointer' }}
+      />
+    </Menu.Target>
+    <Menu.Dropdown>
+      <Menu.Item onClick={handleProfile}>
+        <IconUser size={18} style={{ marginRight: 8 }} />
+        Profile
+      </Menu.Item>
+      <Menu.Item onClick={handleLogout}>
+        <IconPower size={18} style={{ marginRight: 8 }} />
+        Log Out
+      </Menu.Item>
+    </Menu.Dropdown>
+  </Menu>
+</Group>
+
 </Flex>
 
         {/* Dashboard */}
