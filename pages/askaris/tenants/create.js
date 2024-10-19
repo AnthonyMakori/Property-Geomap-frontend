@@ -28,7 +28,6 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { showNotification } from '@mantine/notifications';
 import { useSession } from "next-auth/react";
-//
 import { getTenants } from '@/store/users/users-slice';
 import { useSelector } from 'react-redux';
 import store from '@/store/store';
@@ -47,8 +46,13 @@ function CreateTenant() {
     const [type, setType] = useState('');
     const [code, setCode] = useState('');
     const [nid, setNid] = useState('');
+    const [occupation, setOccupation] = useState('');
+    const [nationality, setNationality] = useState('');
     const [password, setPassword] = useState('');
+    const [language, setLanguages] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
+    const [marital, setMarital] = useState('');
+    const [medical, setMedical] = useState('');
     const router = useRouter();
     const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -90,6 +94,46 @@ function CreateTenant() {
              });
              return;
          }
+         if(!nationality){
+            showNotification({
+                title: "Error",
+                message: "Nationality is required!",
+                color: "red",
+            });
+            return;
+        }
+        if(!status ){
+            showNotification({
+                title: "Error",
+                message: "Marital Status  is required!",
+                color: "red",
+            });
+            return;
+        }
+        if(!occupation){
+            showNotification({
+                title: "Error",
+                message: "Religion is required!",
+                color: "red",
+            });
+            return;
+        }
+        if(!language){
+            showNotification({
+                title: "Error",
+                message: "language is required!",
+                color: "red",
+            });
+            return;
+        }
+        if(!medical){
+            showNotification({
+                title: "Error",
+                message: "Medical is required!",
+                color: "red",
+            });
+            return;
+        }
 
         setIsSubmitting(true);
 
@@ -113,6 +157,11 @@ function CreateTenant() {
                     gender,
                     nid,
                     password,
+                    nationality,
+                    marital,
+                    occupation,
+                    language,
+                    medical,
                 }),
             });
     
@@ -215,10 +264,59 @@ function CreateTenant() {
                                     <Group grow>
 
                                    <TextInput
-                                    label="Client Code(Leave empty to autogenerate random code)"
+                                    label="Code(Leave empty to autogenerate random code)"
                                     placeholder="Client Code"
                                     onChange={e => setCode(e.target.value)}
                                     />
+                                    <TextInput
+                                    label="Client Nationality"
+                                    placeholder="Client Nationality"
+                                    onChange={e => setNationality(e.target.value)}
+                                    />
+                                    
+                                    
+                                    <TextInput
+                                    label="Client languages"
+                                    placeholder="Client Spoken languages"
+                                    onChange={e => setLanguages(e.target.value)}
+                                    />
+
+                                    </Group>
+                                    <Group grow>
+                                    <TextInput
+                                    label="Client medical condition"
+                                    placeholder="Client Medical Condition"
+                                    onChange={e => setMedical(e.target.value)}
+                                    />
+                                    
+                                    
+                                    <Select
+                                    label="Marital Status"
+                                    placeholder="Select Marital Status"
+                                    onChange={setMarital}
+                                    searchable
+                                    clearable
+                                    data={[
+                                        { value: 'Single', label: 'Single' },
+                                        { value: 'Married', label: 'Married' },
+                                    ]}
+                                    /> 
+                                    <Select
+                                    label="Occupation"
+                                    placeholder="Select Occupation"
+                                    onChange={setOccupation}
+                                    searchable
+                                    clearable
+                                    data={[
+                                        { value: 'Working', label: 'Working' },
+                                        { value: 'Student', label: 'Student' },
+                                        { value: 'None', label: 'None'},
+                                        
+                                    ]}
+                                    /> 
+
+                                    </Group>
+                                    <Group grow>
 
                                 <PasswordInput label="Password" onChange={e => setPassword(e.target.value)} mt="md"/>
                                      <PasswordInput label="Confirm Password" onChange={e => setConfirmPassword(e.target.value)} mt="md"/>
