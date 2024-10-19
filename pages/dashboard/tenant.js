@@ -20,6 +20,8 @@ import {
   Select,
   Image,
   TextInput,
+  Center,
+  Progress,
 } from "@mantine/core";
 import {
   IconDashboard,
@@ -170,178 +172,295 @@ const handleSelectChange = (value) => {
       </Stack>
 
       {/* Main Content */}
-      <Flex direction="column" style={{ flex: 1, padding: 0 }}>
-        {/* Top Bar */}
-        <Flex
-    justify="space-between"
-    align="center"
-    padding="lg"
-    style={{
-      background: "#181449",
-      position: '',  
-      top: 0,
-      right: 0,
-      left: '250px',  
-      zIndex: 9,
-      height: '50px',  
-      paddingRight: '20px',
-    }}
-  >
-  <Input
-    placeholder="Type to search..."
-    variant="filled"
-    style={{ width: '250px', paddingLeft: '20px' }}
-  />
-  <Group spacing="xs">
-  <div style={{ position: 'relative' }}>
-    <IconNotification color="white" />
-    {newMessages > 0 && (
-      <div
+          <Flex direction="column" style={{ flex: 1, padding: 0 }}>
+            {/* Top Bar */}
+            <Flex
+        justify="space-between"
+        align="center"
+        padding="lg"
         style={{
-          position: 'absolute',
-          top: -5,
-          right: -5,
-          backgroundColor: 'red',
-          color: 'white',
-          borderRadius: '50%',
-          width: 20,
-          height: 20,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          fontSize: 12,
+          background: "#181449",
+          position: '',  
+          top: 0,
+          right: 0,
+          left: '250px',  
+          zIndex: 9,
+          height: '50px',  
+          paddingRight: '20px',
         }}
       >
-        {newMessages}
+      <Input
+        placeholder="Type to search..."
+        variant="filled"
+        style={{ width: '250px', paddingLeft: '20px' }}
+      />
+      <Group spacing="xs">
+      <div style={{ position: 'relative' }}>
+        <IconNotification color="white" />
+        {newMessages > 0 && (
+          <div
+            style={{
+              position: 'absolute',
+              top: -5,
+              right: -5,
+              backgroundColor: 'red',
+              color: 'white',
+              borderRadius: '50%',
+              width: 20,
+              height: 20,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              fontSize: 12,
+            }}
+          >
+            {newMessages}
+          </div>
+        )}
       </div>
-    )}
-  </div>
-  <IconSettings color="white" style={{ cursor: 'pointer' }} onClick={handleSettingsRedirect} />
-  <Menu>
-    <Menu.Target>
-      <Image
-        src={session?.user?.logo || '/TechForge 1.PNG'}
-        alt="Options"
-        height={44}
-        width={44}
-        radius={120}
-        style={{ cursor: 'pointer' }}
-      />
-    </Menu.Target>
-    <Menu.Dropdown>
-      <Menu.Item onClick={handleProfile}>
-        <IconUser size={18} style={{ marginRight: 8 }} />
-        Profile
-      </Menu.Item>
-      <Menu.Item onClick={handleLogout}>
-        <IconPower size={18} style={{ marginRight: 8 }} />
-        Log Out
-      </Menu.Item>
-    </Menu.Dropdown>
-  </Menu>
-</Group>
+      <IconSettings color="white" style={{ cursor: 'pointer' }} onClick={handleSettingsRedirect} />
+      <Menu>
+        <Menu.Target>
+          <Image
+            src={session?.user?.logo || '/TechForge 1.PNG'}
+            alt="Options"
+            height={44}
+            width={44}
+            radius={120}
+            style={{ cursor: 'pointer' }}
+          />
+        </Menu.Target>
+        <Menu.Dropdown>
+          <Menu.Item onClick={handleProfile}>
+            <IconUser size={18} style={{ marginRight: 8 }} />
+            Profile
+          </Menu.Item>
+          <Menu.Item onClick={handleLogout}>
+            <IconPower size={18} style={{ marginRight: 8 }} />
+            Log Out
+          </Menu.Item>
+        </Menu.Dropdown>
+      </Menu>
+    </Group>
 
-</Flex>
-
-        {/* Dashboard */}
-        <Flex justify="space-between" align="center" style={{ marginBottom: '1rem' }}>
-      <Title order={3} style={{ color: 'blue', paddingLeft: '20px' }}>
-        Tenant Dashboard
-      </Title>
-      <Select
-        placeholder="Changes"
-        data={['Payment', 'Repair', 'Message', 'Report']}
-        style={{ width: '150px', paddingTop: '20px', paddingRight: '20px' }} 
-        onChange={handleSelectChange} 
-      />
     </Flex>
 
-        {/* Cards Section */}
-        <Flex wrap="wrap" gap="lg" style={{ justifyContent: 'space-between', width: '100%', paddingLeft: '1rem', paddingRight: '1rem' }}>
-          <Paper
-            withBorder
-            shadow="md"
-            padding="md"
-            radius="lg"
-            style={{
-              backgroundColor: '#62B2FF',
-              width: 'calc(25% - 20px)',
-              minHeight: '150px',
-              flex: '1 1 auto',
-              paddingLeft: '20px',
-              paddingRight: '20px',
-            }}
-          >
-            <Group position="apart">
-              <Text size="sm" color="white">High-risk events</Text>
-              <IconShield size={18} color="white" />
-            </Group>
-            <Text size="xl" weight={700} color="white">29</Text>
-          </Paper>
-
-          <Paper
-            withBorder
-            shadow="md"
-            padding="md"
-            radius="lg"
-            style={{
-              backgroundColor: '#5EDAD3',
-              width: 'calc(25% - 20px)',
-              minHeight: '150px',
-              flex: '1 1 auto',
-              paddingLeft: '20px',
-              paddingRight: '20px',
-            }}
-          >
-            <Group position="apart">
-              <Text size="sm" color="white">Risky activities</Text>
-              <IconChartBar size={18} color="white" />
-            </Group>
-            <Text size="xl" weight={700} color="white">08</Text>
-          </Paper>
-
-          <Paper
-            withBorder
-            shadow="md"
-            padding="md"
-            radius="lg"
-            style={{
-              background: 'linear-gradient(135deg, #FF61C2 0%, #9A48D0 100%)',
-              width: 'calc(25% - 20px)',
-              minHeight: '150px',
-              flex: '1 1 auto',
-              paddingLeft: '20px',
-              paddingRight: '20px',
-            }}
-          >
-            <Group position="apart">
-              <Text size="sm" color="white">High-risk Users</Text>
-              <IconNotification size={18} color="white" />
-            </Group>
-            <Text size="xl" weight={700} color="white">06</Text>
-          </Paper>
-
-          <Paper
-            withBorder
-            shadow="md"
-            padding="md"
-            radius="lg"
-            style={{
-              backgroundColor: '#FF61C2',
-              width: 'calc(25% - 20px)',
-              minHeight: '150px',
-              flex: '1 1 auto',
-              paddingLeft: '20px',
-              paddingRight: '20px',
-            }}
-          >
-            <Group position="apart">
-              <Text size="sm" color="white">Devices with issues</Text>
-              <IconSettings size={18} color="white" />
-            </Group>
-            <Text size="xl" weight={700} color="white">01</Text>
-          </Paper>
+            {/* Dashboard */}
+            <Flex justify="space-between" align="center" style={{ marginBottom: '1rem' }}>
+          <Title order={3} style={{ color: 'blue', paddingLeft: '20px' }}>
+            Tenant Dashboard
+          </Title>
+          <Select
+            placeholder="Changes"
+            data={['Payment', 'Repair', 'Message', 'Report']}
+            style={{ width: '150px', paddingTop: '20px', paddingRight: '20px' }} 
+            onChange={handleSelectChange} 
+          />
         </Flex>
+
+            {/* Cards Section */}
+            <Flex wrap="wrap" gap="lg" style={{ justifyContent: 'space-between', width: '100%', paddingLeft: '1rem', paddingRight: '1rem' }}>
+  {/* Card 1: High-risk events */}
+  <Paper
+    withBorder
+    shadow="md"
+    padding="md"
+    radius="lg"
+    style={{
+      backgroundColor: '#62B2FF',
+      width: 'calc(25% - 20px)',
+      minHeight: '150px',
+      flex: '1 1 auto',
+      padding: '20px',
+      position: 'relative',
+    }}
+  >
+    <Group position="apart">
+      <Text size="sm" color="white">High-risk events</Text>
+      <IconShield size={18} color="white" />
+    </Group>
+    <Text size="xl" weight={700} color="white">29</Text>
+    <Center style={{ position: 'absolute', bottom: '10px', right: '10px' }}>
+      <div style={{ position: 'relative', width: '50px', height: '50px' }}>
+        {/* Outer Ring */}
+        <svg width="50" height="50">
+          <circle
+            cx="25"
+            cy="25"
+            r="20" 
+            stroke="white" 
+            strokeWidth="5" 
+            fill="transparent"
+          />
+          <circle
+            cx="25"
+            cy="25"
+            r="20"
+            stroke="blue" 
+            strokeWidth="5" 
+            strokeDasharray="100" 
+            strokeDashoffset={100 - (65 * 100) / 100}
+            fill="transparent"
+          />
+        </svg>
+        <Center style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }}>
+          <Text color="white" size="xs" weight={700}>65%</Text>
+        </Center>
+      </div>
+    </Center>
+  </Paper>
+
+  {/* Card 2: Risky activities */}
+  <Paper
+    withBorder
+    shadow="md"
+    padding="md"
+    radius="lg"
+    style={{
+      backgroundColor: '#5EDAD3',
+      width: 'calc(25% - 20px)',
+      minHeight: '150px',
+      flex: '1 1 auto',
+      padding: '20px',
+      position: 'relative',
+    }}
+  >
+    <Group position="apart">
+      <Text size="sm" color="white">Risky activities</Text>
+      <IconChartBar size={18} color="white" />
+    </Group>
+    <Text size="xl" weight={700} color="white">08</Text>
+    <Center style={{ position: 'absolute', bottom: '10px', right: '10px' }}>
+      <div style={{ position: 'relative', width: '50px', height: '50px' }}>
+        {/* Outer Ring */}
+        <svg width="50" height="50">
+          <circle
+            cx="25"
+            cy="25"
+            r="20"
+            stroke="white" 
+            strokeWidth="5"
+            fill="transparent"
+          />
+          <circle
+            cx="25"
+            cy="25"
+            r="20"
+            stroke="blue" 
+            strokeWidth="5"
+            strokeDasharray="100"
+            strokeDashoffset={100 - (30 * 100) / 100} 
+            fill="transparent"
+          />
+        </svg>
+        <Center style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }}>
+          <Text color="white" size="xs" weight={700}>30%</Text>
+        </Center>
+      </div>
+    </Center>
+  </Paper>
+
+  {/* Card 3: High-risk Users */}
+  <Paper
+    withBorder
+    shadow="md"
+    padding="md"
+    radius="lg"
+    style={{
+      background: 'linear-gradient(135deg, #FF61C2 0%, #9A48D0 100%)',
+      width: 'calc(25% - 20px)',
+      minHeight: '150px',
+      flex: '1 1 auto',
+      padding: '20px',
+      position: 'relative',
+    }}
+  >
+    <Group position="apart">
+      <Text size="sm" color="white">High-risk Users</Text>
+      <IconNotification size={18} color="white" />
+    </Group>
+    <Text size="xl" weight={700} color="white">06</Text>
+    <Center style={{ position: 'absolute', bottom: '10px', right: '10px' }}>
+      <div style={{ position: 'relative', width: '50px', height: '50px' }}>
+        {/* Outer Ring */}
+        <svg width="50" height="50">
+          <circle
+            cx="25"
+            cy="25"
+            r="20"
+            stroke="white" 
+            strokeWidth="5" 
+            fill="transparent"
+          />
+          <circle
+            cx="25"
+            cy="25"
+            r="20"
+            stroke="blue" 
+            strokeWidth="5"
+            strokeDasharray="100"
+            strokeDashoffset={100 - (50 * 100) / 100} 
+            fill="transparent"
+          />
+        </svg>
+        <Center style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }}>
+          <Text color="white" size="xs" weight={700}>50%</Text>
+        </Center>
+      </div>
+    </Center>
+  </Paper>
+
+  {/* Card 4: Devices with issues */}
+  <Paper
+    withBorder
+    shadow="md"
+    padding="md"
+    radius="lg"
+    style={{
+      backgroundColor: '#FF61C2',
+      width: 'calc(25% - 20px)',
+      minHeight: '150px',
+      flex: '1 1 auto',
+      padding: '20px',
+      position: 'relative',
+    }}
+  >
+    <Group position="apart">
+      <Text size="sm" color="white">Devices with issues</Text>
+      <IconSettings size={18} color="white" />
+    </Group>
+    <Text size="xl" weight={700} color="white">01</Text>
+    <Center style={{ position: 'absolute', bottom: '10px', right: '10px' }}>
+      <div style={{ position: 'relative', width: '50px', height: '50px' }}>
+        {/* Outer Ring */}
+        <svg width="50" height="50">
+          <circle
+            cx="25"
+            cy="25"
+            r="20"
+            stroke="white" 
+            strokeWidth="5" 
+            fill="transparent"
+          />
+          <circle
+            cx="25"
+            cy="25"
+            r="20"
+            stroke="blue" 
+            strokeWidth="5"
+            strokeDasharray="100"
+            strokeDashoffset={100 - (10 * 100) / 100} 
+            fill="transparent"
+          />
+        </svg>
+        <Center style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }}>
+          <Text color="white" size="xs" weight={700}>10%</Text>
+        </Center>
+      </div>
+    </Center>
+  </Paper>
+</Flex>
+
 
         {/* Graph and Environment Settings Section */}
                   <Flex style={{ marginTop: '2rem', width: '100%', paddingLeft: '1rem', paddingRight: '1rem' }}>
@@ -383,6 +502,10 @@ const handleSelectChange = (value) => {
                 
                 <Text size="sm" color="white" style={{ textAlign: 'start', paddingLeft: '20px' }}>
                     <Text component="span" color="blue">Email:</Text> {session?.user?.email || 'N/A'}
+                </Text>
+
+                <Text size="sm" color="white" style={{ textAlign: 'start', paddingLeft: '20px' }}>
+                    <Text component="span" color="blue">Nationality:</Text> {session?.user?.nationality || 'N/A'}
                 </Text>
                 
                 <Text size="sm" color="white" style={{ textAlign: 'start', paddingLeft: '20px' }}>
