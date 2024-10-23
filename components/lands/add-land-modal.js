@@ -175,7 +175,7 @@ import { getTaxes } from "../../store/settings/settings-slice";
         store.dispatch(getOwners(params));
     }, [session]);
 
-    console.log("Monyancha Owners", owners);
+    console.log("Anthony Owners", owners);
 
     const ownersList =
     owners?.data?.map((item) => ({

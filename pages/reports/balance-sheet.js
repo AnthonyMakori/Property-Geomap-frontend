@@ -80,7 +80,7 @@ function BalanceSheet() {
     store.dispatch(getBalanceSheet(params));
   }, [debouncedSearchTerm, session, status]);
 
-  console.log("data monyancha balance sheet", items);
+  console.log("data Anthony balance sheet", items);
 
   function onPaginationLinkClicked(page) {
     if (!page || !session) {

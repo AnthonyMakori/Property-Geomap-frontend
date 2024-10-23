@@ -66,7 +66,7 @@ function Invoices() {
       store.dispatch(getInvoices(params));
     }, [debouncedSearchTerm, paymentStatus, startDate, endDate, session, status]);
   
-    console.log('data monyancha', invoices);
+    console.log('data Anthony', invoices);
   
     function onPaginationLinkClicked(page) {
       if (!page || !session) {

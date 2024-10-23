@@ -109,7 +109,7 @@ export default function CompanyStatementOfAccounts() {
     store.dispatch(getBuldingReport(params));
   }, [debouncedSearchTerm, session, startDate, endDate, status, buildingId]);
 
-  console.log("Monyancha Onya Landlord Statement", statement);
+  console.log("Anthony Onya Landlord Statement", statement);
 
   function onPaginationLinkClicked(page) {
     if (!session || !page) {

@@ -61,7 +61,7 @@ function TaxReport() {
       store.dispatch(getTaxes(params));
     }, [debouncedSearchTerm, session, status, startDate, endDate]);
   
-    console.log('data monyancha income', taxes);
+    console.log('data Anthony income', taxes);
   
     function onPaginationLinkClicked(page) {
       if (!session || !page) {

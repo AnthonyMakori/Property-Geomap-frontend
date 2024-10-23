@@ -43,7 +43,7 @@ function DepositRefunds() {
       store.dispatch(getRefunds(params));
     }, [debouncedSearchTerm, session, status]);
   
-    console.log('data monyancha income', refunds);
+    console.log('data Anthony income', refunds);
   
     function onPaginationLinkClicked(page) {
       if (!session || !page) {

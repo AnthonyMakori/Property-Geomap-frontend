@@ -52,7 +52,7 @@ function AccessControl() {
       store.dispatch(getAccessGroups(params));
     }, [debouncedSearchTerm, session, status]);
   
-    console.log('data monyancha', accessGroups);
+    console.log('data Anthony', accessGroups);
   
     function onPaginationLinkClicked(page) {
       if (!page || !session) {

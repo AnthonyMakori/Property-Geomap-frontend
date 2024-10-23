@@ -55,7 +55,7 @@ function Staff() {
       store.dispatch(getStaff(params));
     }, [debouncedSearchTerm, session, status]);
   
-    console.log('data monyancha', staff?.data);
+    console.log('data Anthony', staff?.data);
   
     function onPaginationLinkClicked(page) {
       if (!page || !session) {
@@ -127,8 +127,8 @@ function Staff() {
                             </thead>
                             <tbody>
                             <tr >
-                            <td>Steve Owuor</td>
-                            <td>steveowuor@gmail.com</td>
+                            <td>Ednah Moraa</td>
+                            <td>nedinahmora@gmail.com</td>
                             <td>-</td>
                             <td>Landlord</td>
                             <td>27 Oct, 2023</td>
@@ -139,8 +139,8 @@ function Staff() {
                             </td>
                             </tr>
                             <tr>
-                            <td>Benson Njumbi</td>
-                            <td>bensonnjumbi@gmail.com</td>
+                            <td>Anthony Makori</td>
+                            <td>antonymakori2019@gmail.com</td>
                             <td>-</td>
                             <td>Landlord</td>
                             <td>27 Oct, 2023</td>

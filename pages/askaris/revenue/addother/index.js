@@ -38,7 +38,7 @@ function List() {
         store.dispatch(getUnits(params));
       }, [session, status]);
     
-      console.log("Units data monyancha", units);
+      console.log("Units data Anthony", units);
 
       function onPaginationLinkClicked(page) {
         if (!page || !session) {

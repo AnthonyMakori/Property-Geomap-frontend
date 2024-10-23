@@ -47,7 +47,7 @@ function Expenses() {
       store.dispatch(getRepairs(params));
     }, [debouncedSearchTerm, session, status]);
   
-    console.log('data monyancha', repairs);
+    console.log('data Anthony', repairs);
   
     function onPaginationLinkClicked(page) {
       if (!page || !session) {

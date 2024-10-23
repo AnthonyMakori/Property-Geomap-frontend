@@ -42,7 +42,7 @@ function BankPayments() {
       store.dispatch(getPayments(params));
     }, [debouncedSearchTerm, session, status]);
   
-    console.log('data monyancha', payments);
+    console.log('data Anthony', payments);
   
     function onPaginationLinkClicked(page) {
       if (!page || !session) {

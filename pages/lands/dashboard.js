@@ -91,7 +91,7 @@ function LandDashboard() {
         )
     }
   
-    console.log('data monyancha', dashboard);
+    console.log('data Anthony', dashboard);
 
 
     const sales = dashboard?.sales;

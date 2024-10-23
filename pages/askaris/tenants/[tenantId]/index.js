@@ -164,6 +164,7 @@ function TenantDetails() {
                                                 <Text>National ID: {tenant?.nid ?? '-'}</Text>
                                                 <Text>Gender: {tenant?.gender ?? '-'}</Text>
                                                 <Text>Role: Tenant</Text>
+                                                {/*<Text>Unit: {tenant?.unit}</Text>*/}
                                                 <Text>Type: {tenant?.type ?? 'Individual Account'}</Text>
                                                 <Text>Created At: {formatDate(tenant?.created_at)}</Text>
                                             

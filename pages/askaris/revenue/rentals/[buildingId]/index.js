@@ -89,7 +89,7 @@ function DetailsPage() {
 
     }, [buildingId, unitType, , session, status]);
   
-    console.log('Building data monyancha', building);
+    console.log('Building data Anthony', building);
 
     const units = buildingData?.units;
 

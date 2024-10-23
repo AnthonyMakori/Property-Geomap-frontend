@@ -216,7 +216,7 @@ function SellPlotModal({ item }) {
     store.dispatch(getStaff(params));
   }, [session]);
 
-  console.log("Monyancha Owners", staff);
+  console.log("Anthony Owners", staff);
 
   const staffList =
     staff?.data?.map((item) => ({

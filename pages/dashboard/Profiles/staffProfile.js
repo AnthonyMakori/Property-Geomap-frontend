@@ -13,7 +13,7 @@ const StaffProfile = () => {
         name: '',
         unitNumber: '',
         nId: '',
-        dateOfBirth: '',
+        birthDate: '',
         maritalStatus: '',
         nationality: '',
         gender: '',
@@ -153,7 +153,7 @@ const StaffProfile = () => {
                                 <input
                                     type="date"  
                                     name="dateOfBirth"
-                                    value={session?.user?.dob}
+                                    value={session?.user?.birthDate}
                                     onChange={handleInputChange}
                                     className="w-full p-2 border rounded"
                                 />

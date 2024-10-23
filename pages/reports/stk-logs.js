@@ -192,10 +192,10 @@ function StkPushLogs() {
                             <tbody>
 
                             <tr  >
-                            <td>Enock Monyancha</td>
-                            <td>0799117020</td>
+                            <td>Anthony Makori</td>
+                            <td>0707497200</td>
                             <td>29604-316883713-1</td>
-                            <td>ws_CO_28092023135449424799117020</td>
+                            <td>ws_CO_28092023135449424707497200</td>
                             <td>2001</td>
                             <td>The initiator information is invalid.</td>
                             <td>Ksh. 12,790</td>

@@ -49,6 +49,7 @@ function CreateTenant() {
     const [occupation, setOccupation] = useState('');
     const [nationality, setNationality] = useState('');
     const [password, setPassword] = useState('');
+   // const [birthDate, setBirthDate] = useState('');
     const [language, setLanguages] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [marital, setMarital] = useState('');
@@ -113,7 +114,7 @@ function CreateTenant() {
         if(!occupation){
             showNotification({
                 title: "Error",
-                message: "Religion is required!",
+                message: "Occupation is required!",
                 color: "red",
             });
             return;
@@ -162,6 +163,7 @@ function CreateTenant() {
                     occupation,
                     language,
                     medical,
+                   // birthDate,
                 }),
             });
     
@@ -173,7 +175,7 @@ function CreateTenant() {
 
             showNotification({
                 title: "Success",
-                message: "Tenant Created Successfull",
+                message: "Tenant Created Successfully",
                 color: "green",
             });
     
@@ -251,7 +253,7 @@ function CreateTenant() {
                                 <Select
                                     label="Gender"
                                     placeholder="Select Gender"
-                                    onChange={setGender}
+                                    onChange={ setGender }
                                     searchable
                                     clearable
                                     data={[
@@ -284,44 +286,45 @@ function CreateTenant() {
                                     </Group>
                                     <Group grow>
                                     <TextInput
-                                    label="Client medical condition"
-                                    placeholder="Client Medical Condition"
-                                    onChange={e => setMedical(e.target.value)}
+                                        label="Client medical condition"
+                                        placeholder="Client Medical Condition"
+                                        onChange={e => setMedical(e.target.value)}
                                     />
                                     
+                                    <Select
+                                        label="Marital Status"
+                                        placeholder="Select Marital Status"
+                                        onChange={setMarital}
+                                        searchable
+                                        clearable
+                                        data={[
+                                            { value: 'Single', label: 'Single' },
+                                            { value: 'Married', label: 'Married' },
+                                        ]}
+                                    /> 
+                                    <Select
+                                        label="Occupation"
+                                        placeholder="Select Occupation"
+                                        onChange={setOccupation}
+                                        clearable
+                                        data={[
+                                            { value: 'Working', label: 'Working' },
+                                            { value: 'Student', label: 'Student' },
+                                            { value: 'None', label: 'None'},
+                                        ]}
+                                    /> 
                                     
-                                    <Select
-                                    label="Marital Status"
-                                    placeholder="Select Marital Status"
-                                    onChange={setMarital}
-                                    searchable
-                                    clearable
-                                    data={[
-                                        { value: 'Single', label: 'Single' },
-                                        { value: 'Married', label: 'Married' },
-                                    ]}
-                                    /> 
-                                    <Select
-                                    label="Occupation"
-                                    placeholder="Select Occupation"
-                                    onChange={setOccupation}
-                                    searchable
-                                    clearable
-                                    data={[
-                                        { value: 'Working', label: 'Working' },
-                                        { value: 'Student', label: 'Student' },
-                                        { value: 'None', label: 'None'},
-                                        
-                                    ]}
-                                    /> 
-
-                                    </Group>
-                                    <Group grow>
-
-                                <PasswordInput label="Password" onChange={e => setPassword(e.target.value)} mt="md"/>
-                                     <PasswordInput label="Confirm Password" onChange={e => setConfirmPassword(e.target.value)} mt="md"/>
-
-                                    </Group> 
+                                </Group>
+                                
+                                <Group grow>
+                               {/*<TextInput
+                                        label="Date of Birth"
+                                        placeholder="Date of Birth"
+                                        onChange={e => setBirthDate(e.target.value)}
+                                    />*/}
+                                    <PasswordInput label="Password" onChange={e => setPassword(e.target.value)} mt="md"/>
+                                    <PasswordInput label="Confirm Password" onChange={e => setConfirmPassword(e.target.value)} mt="md"/>
+                                </Group>
 
                                 <Box sx={{width: 'auto'}}>
                                     <Button onClick={submit} loading={isSubmitting}>Create Client</Button>

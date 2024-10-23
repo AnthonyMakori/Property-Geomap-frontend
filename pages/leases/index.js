@@ -43,7 +43,7 @@ function Leases() {
       store.dispatch(getLeases(params));
     }, [debouncedSearchTerm, session, status]);
   
-    console.log('data monyancha', leases);
+    console.log('data Anthony', leases);
   
     function onPaginationLinkClicked(page) {
       if (!page || !session) {

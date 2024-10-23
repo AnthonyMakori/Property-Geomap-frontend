@@ -47,11 +47,11 @@ export default NextAuth({
         }
       }
 
-      console.log("Monyancha 1");
+      console.log("Anthony 1");
 
       // Persist the OAuth access_token to the token right after signin
       if (user) {
-        console.log("Monyancha 2");
+        console.log("Anthony 2");
         // console.log("Credentials", token);
         const filteredUser = {
           name: user.name,
@@ -66,13 +66,13 @@ export default NextAuth({
         token = { ...token, ...filteredUser };
         console.log("the filtered value is " + filteredUser);
       }
-      console.log("Monyancha 3");
+      console.log("Anthony 3");
       return token;
     },
     
 
     async session({ session, token, user }) {
-      console.log("Monyancha 4");
+      console.log("Anthony 4");
       // Send properties to the client, like an access_token from a provider.
       let customUser = { ...token };
       session = { user: customUser };
@@ -84,15 +84,15 @@ export default NextAuth({
   providers: [
     CredentialsProvider({
       async authorize(credentials) {
-        console.log("Monyancha 5");
+        console.log("Anthony 5");
         const accessToken = credentials.token ?? null;
 
         const body = JSON.stringify(credentials);
         logger.info("Authorizing: ", body);
-        console.log("Monyancha 5", body);
+        console.log("Anthony 5", body);
 
         if (!accessToken) {
-          console.log("Monyancha 6", body);
+          console.log("Anthony 6", body);
           const resp = await fetch(`${process.env.API_URL}/login`, {
             method: "POST",
             headers: {
@@ -102,18 +102,18 @@ export default NextAuth({
             body,
           })
             .then(async (response) => {
-              console.log("Monyancha 7.1");
+              console.log("Anthony 7.1");
               let data = null;
               try {
                 data = await response.json();
               } catch (e) {
-	        console.log("Monyancha 7.1.5", e);
+	        console.log("Anthony 7.1.5", e);
 
                 data = await response.text();
                 throw data;
               }
 
-              console.log("Monyancha 7.2", data);
+              console.log("Anthony 7.2", data);
 
               logger.info("authorize", data);
               if (!response.ok) {
@@ -123,12 +123,12 @@ export default NextAuth({
                 throw JSON.stringify({ message: "Could not log you in" });
               }
 
-              console.log("Monyancha 8");
+              console.log("Anthony 8");
 
               return data;
             })
            .catch((error) => {
-              console.log("Monyancha 10");
+              console.log("Anthony 10");
               console.log(error);
               if (error) {
                 logger.warn("Unauthorized::UNCAUGHT ", error);
@@ -138,7 +138,7 @@ export default NextAuth({
               throw new Error(error);
             });
 
-            console.log("Monyancha 11");
+            console.log("Anthony 11");
 
           console.log("The Resp is" + resp);
           return {
@@ -147,7 +147,7 @@ export default NextAuth({
           };
         }
 
-        console.log("Monyancha 12");
+        console.log("Anthony 12");
 
         // We have a token, try it out
         const resp = await fetch(`${process.env.API_URL}/auth/me`, {

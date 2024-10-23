@@ -52,7 +52,7 @@ function Staff() {
       store.dispatch(getStaff(params));
     }, [debouncedSearchTerm, session, status]);
   
-    console.log('data monyancha', staff?.data);
+    console.log('data Anthony', staff?.data);
   
     function onPaginationLinkClicked(page) {
       if (!page || !session) {

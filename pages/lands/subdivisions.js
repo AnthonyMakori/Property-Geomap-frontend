@@ -45,7 +45,7 @@ function LandSubdivisions() {
       store.dispatch(getPlots(params));
     }, [searchTerm, landId, session, status]);
   
-    console.log('data monyancha', items);
+    console.log('data Anthony', items);
   
     function onPaginationLinkClicked(page) {
       if (!page || !session) {

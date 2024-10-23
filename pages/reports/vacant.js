@@ -43,7 +43,7 @@ function VacantHouses() {
       store.dispatch(getVacantUnits(params));
     }, [debouncedSearchTerm, status, session]);
   
-    console.log('data monyancha', vacantUnits);
+    console.log('data Anthony', vacantUnits);
   
     function onPaginationLinkClicked(page) {
       if (!session || !page) {

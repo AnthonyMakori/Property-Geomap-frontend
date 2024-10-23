@@ -109,7 +109,7 @@ export default function CompanyStatementOfAccounts() {
     store.dispatch(getLandlordStatement(params));
   }, [debouncedSearchTerm, session, startDate, endDate, status, landlordId]);
 
-  console.log("Monyancha Onya Landlord Statement", statement);
+  console.log("Anthony Onya Landlord Statement", statement);
 
   function onPaginationLinkClicked(page) {
     if (!session || !page) {
@@ -297,7 +297,7 @@ export default function CompanyStatementOfAccounts() {
     store.dispatch(getPlotSales(params));
   }, [session, status]);
 
-  console.log("data monyancha", items);
+  console.log("data Anthony", items);
 
   function onPaginationLinkClicked(page) {
     if (!page || !session) {
@@ -328,7 +328,7 @@ export default function CompanyStatementOfAccounts() {
     store.dispatch(getLands(params));
   }, [searchTerm, session, status]);
 
-  console.log("data monyancha", items);
+  console.log("data Anthony", items);
 
   function onPaginationLinkClicked(page) {
     if (!page || !session) {
