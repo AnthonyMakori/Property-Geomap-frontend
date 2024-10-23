@@ -40,7 +40,7 @@ function List() {
       store.dispatch(getBuildings(params));
     }, [debouncedSearchTerm, session, status]);
   
-    console.log('Buildings data monyancha', buildings);
+    console.log('Buildings data Anthony', buildings);
   
     function onPaginationLinkClicked(page) {
         if (!page || !session) {

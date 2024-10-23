@@ -77,7 +77,7 @@ function CreateExpense() {
     store.dispatch(getUnits(params));
   }, [session, status]);
 
-  console.log("Units data monyancha", units);
+  console.log("Units data Anthony", units);
 
   const unitsList =
   units?.data?.map((item) => ({

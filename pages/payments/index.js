@@ -12,7 +12,7 @@ import PaginationLinks from '@/components/Pagination/pagination-links';
 import store from '@/store/store'
 import { useSelector } from "react-redux";
 import { getPayments } from "@/store/accounts/accounts-slice";
-import { debounce } from 'lodash'; // Import debounce from lodash
+import { debounce } from 'lodash'; 
 import { IconPrinter } from '@tabler/icons-react';
 import { useSession } from "next-auth/react";
 
@@ -42,7 +42,7 @@ function Leases() {
       store.dispatch(getPayments(params));
     }, [debouncedSearchTerm, session, status]);
   
-    console.log('data monyancha', payments);
+    console.log('data Anthony', payments);
   
     function onPaginationLinkClicked(page) {
       if (!page || !session) {

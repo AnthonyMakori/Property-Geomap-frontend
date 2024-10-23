@@ -41,7 +41,7 @@ function Installments() {
       store.dispatch(getInstallments(params));
     }, [saleId, session, status]);
   
-    console.log('data monyancha', items);
+    console.log('data Anthony', items);
   
     function onPaginationLinkClicked(page) {
       if (!page || !session) {

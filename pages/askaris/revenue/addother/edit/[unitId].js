@@ -67,7 +67,7 @@ function EditUnit() {
         store.dispatch(getUnitTypes(params));
     }, [session]);
 
-    console.log("Monyancha Unit Types", unitTypes);
+    console.log("Anthony Unit Types", unitTypes);
     ///
 
     const unitTypesList =

@@ -82,7 +82,7 @@ function DetailsPage() {
 
     }, [unitId, session, status]);
   
-    console.log('Unit data monyancha', unit);
+    console.log('Unit data Anthony', unit);
 
     const units = unitData?.units;
 
@@ -98,7 +98,7 @@ function DetailsPage() {
         store.dispatch(getOneUnit(params));
       }
 
-      console.log('Building data 123 monyancha', units);
+      console.log('Building data 123 Anthony', units);
 
       
 

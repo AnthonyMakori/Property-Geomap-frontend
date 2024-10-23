@@ -60,7 +60,7 @@ function Leases() {
       store.dispatch(getIncomes(params));
     }, [debouncedSearchTerm, session, status, startDate, endDate]);
   
-    console.log('data monyancha income', incomes);
+    console.log('data Anthony income', incomes);
   
     function onPaginationLinkClicked(page) {
       if (!session || !page) {

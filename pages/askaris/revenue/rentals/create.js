@@ -91,7 +91,7 @@ function CreateBusiness() {
     store.dispatch(getZones(params));
   }, [session]);
 
-  console.log("Monyancha Zones", zones);
+  console.log("Anthony Zones", zones);
   ///
 
   ///
@@ -108,7 +108,7 @@ function CreateBusiness() {
     store.dispatch(getOwners(params));
   }, [session]);
 
-  console.log("Monyancha Owners", owners);
+  console.log("Anthony Owners", owners);
   ///
 
   ///
@@ -125,7 +125,7 @@ function CreateBusiness() {
     store.dispatch(getStreets(params));
   }, [session]);
 
-  console.log("Monyancha Streets", streets);
+  console.log("Anthony Streets", streets);
   ///
 
   ///
@@ -142,7 +142,7 @@ function CreateBusiness() {
     store.dispatch(getUnitTypes(params));
   }, [session]);
 
-  console.log("Monyancha Unit Types", unitTypes);
+  console.log("Anthony Unit Types", unitTypes);
   ///
 
   const submit = async (e) => {
@@ -330,12 +330,12 @@ function CreateBusiness() {
                   />
                 </Group>
                 <Group grow>
-                  {/* <TextInput
-                    label="Total Units"
-                    value={1}
-                    onChange={(e) => setUnits(e.target.value)}
-                    placeholder="Total Units No. Eg. 3"
-                  /> */}
+                <TextInput
+                  label="Total Units"
+                  value={units}
+                  onChange={(e) => setUnits(e.target.value)}
+                  placeholder="Total Units No. Eg. 3"
+                />
                   <Select
                     label="Building Zone"
                     placeholder="Select Zone"
@@ -391,7 +391,7 @@ function CreateBusiness() {
                   />
                 </Group>
 
-                {/* <Group grow>
+                 <Group grow>
                   <Select
                     label="Tax"
                     placeholder="Tax"
@@ -417,9 +417,9 @@ function CreateBusiness() {
                     sx={{ flex: 1 }}
                     className="w-full sm:w-auto"
                   />
-                </Group> */}
+                </Group> 
 
-                {/* <Group grow>
+                 <Group grow>
                   <Select
                     label="Unit Type"
                     placeholder="Select Unit Type"
@@ -448,7 +448,7 @@ function CreateBusiness() {
                       },
                     ]}
                   />
-                </Group> */}
+                </Group> 
 
                 <Box sx={{ width: "auto" }}>
                   <Button onClick={submit} loading={isSubmitting}>

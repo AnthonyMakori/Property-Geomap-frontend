@@ -73,7 +73,7 @@ function EditBuilding() {
       store.dispatch(getZones(params));
     }, [session]);
 
-    console.log("Monyancha Zones", zones);
+    console.log("Anthony Zones", zones);
     ///
 
     ///

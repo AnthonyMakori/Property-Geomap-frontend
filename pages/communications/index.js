@@ -45,7 +45,7 @@ function Leases() {
       store.dispatch(getCommunications(params));
     }, [debouncedSearchTerm, session, status]);
   
-    console.log('data monyancha', communications);
+    console.log('data Anthony', communications);
   
     function onPaginationLinkClicked(page) {
       if (!page) {
@@ -87,7 +87,7 @@ function Leases() {
       store.dispatch(getAirtimeBalance(params));
     }, [session, status]);
 
-    console.log("Monyancha Airtime", airtime);
+    console.log("Anthony Airtime", airtime);
 
     //End Airtime Balance
 

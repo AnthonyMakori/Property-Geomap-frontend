@@ -33,10 +33,10 @@ function List() {
         params["accessToken"] = session.user.accessToken;
 
         store.dispatch(getUnitTypes(params));
-        console.log("Monyancha 2");
+        console.log("Anthony 2");
     }, [session, status]);
 
-    console.log("Monyancha Unit Types", unitTypes);
+    console.log("Anthony Unit Types", unitTypes);
     ///
 
     function onPaginationLinkClicked(page) {

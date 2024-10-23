@@ -4,7 +4,16 @@ import { getDateFilterFrom, getDateFilterTo } from '../../lib/shared/data-format
 import store from "@/store/store";
 import { getDashboard } from "@/store/dashboard/dashboard-slice";
 import { useSession } from "next-auth/react";
-
+import { getSingleTenant } from '@/store/users/users-slice';
+import { useSelector } from 'react-redux';
+import {ProfileStatsCardNoProgress} from "@/components";
+import StkPushModal from '@/components/Invoices/stk-push-modal';
+import UserData from "@/mocks/UserProfile.json";
+import ProjectsData from "@/mocks/Projects.json";
+import {AppLayout} from "@/layout";
+import Link from 'next/link';
+import { formatDate} from '@/lib/shared/data-formatters'
+import RecordPaymentModal from '@/components/Invoices/record-payment-modal';
 
 import {
   Avatar,
@@ -13,6 +22,7 @@ import {
   Group,
   Input,
   Paper,
+  Table,
   Stack,
   Text,
   Title,
@@ -21,7 +31,6 @@ import {
   Image,
   TextInput,
   Center,
-  Progress,
 } from "@mantine/core";
 import {
   IconDashboard,
@@ -35,6 +44,9 @@ import {
   IconMail,
   IconMessageCircle,
   IconTools,
+  IconCoins,
+  IconListCheck,
+  IconBusinessplan,
 } from "@tabler/icons-react";
 
 const PATH_AUTH = {
@@ -42,11 +54,64 @@ const PATH_AUTH = {
   login: '/login'
 };
 
-const Tenant = ({  }) => {
+function Tenant  () {
   const router = useRouter();
   const [startDate, setStartDate] = useState(getDateFilterFrom());
   const [endDate, setEndDate] = useState(getDateFilterTo());
   const { data: session, status } = useSession();
+  const tenantId = router.query?.tenantId ?? null;
+
+  console.log("Tenant ID", tenantId);
+
+  const tenantStatus = useSelector((state) => state.users.getSingleTenantStatus);
+    const tenantData = useSelector((state) => state.users.getSingleTenant);
+  
+    const isLoading = tenantStatus === 'loading';
+
+    useEffect(() => {
+      if (!session || status !== "authenticated") {
+        return;
+        }
+        const params = {};
+        params["accessToken"] = session.user.accessToken;
+        params["tenantId"] = tenantId;
+
+      store.dispatch(getSingleTenant(params));
+    }, [session, status, tenantId]);
+
+    const tenant = tenantData?.tenant;
+
+    const invoices = tenantData?.invoices;
+
+    const StatusBadge = ({status}) => {
+      let color = '';
+  
+      switch (status) {
+          case 'Partially Paid':
+              color = "blue"
+              break;
+          case 'Rejected':
+              color = "red"
+              break;
+          case 'Approved':
+              color = "green"
+              break;
+          case 'Pending':
+              color = "orange"
+              break;
+              case 'Completed':
+              color = "green"
+              break;
+          default:
+              color = "gray"
+      }
+  
+      return (
+          <Badge color={color} variant="filled" radius="sm">{status}</Badge>
+      )
+  }
+
+
 
   const handleLogout = () => {
     router.push(PATH_AUTH.signin);
@@ -82,21 +147,13 @@ useEffect(() => {
 
   store.dispatch(getDashboard(params));
 }, [session, startDate, endDate,]);
-useEffect(() => {
-  if (!session  == "authenticated") {
-    return;
-  }
-  
-  const params = {};
-  params["accessToken"] = session?.user?.accessToken;
-}, [session ]);
 
 const handleSelectChange = (value) => {
   if (value) {
     
     switch (value) {
       case 'Payment':
-        router.push('/payment'); 
+        router.push('/payments/'); 
         break;
       case 'Repair':
         router.push('/repair'); 
@@ -112,7 +169,6 @@ const handleSelectChange = (value) => {
     }
   }
 };
-
 
 
   return (
@@ -149,22 +205,22 @@ const handleSelectChange = (value) => {
           Dashboard
         </Button>
         <Button variant="subtle" color="gray" leftIcon={<IconShield />}>
-          Data Security
+          My Details
         </Button>
         <Button variant="subtle" color="gray" leftIcon={<IconChartBar />}>
-          User Behavior
+         Behavior
         </Button>
         <h2 className="text-lg md:text-xl font-semibold text-white" style={{ marginLeft: '10px' }}>
             Manage
           </h2>
           <Button variant="subtle" color="gray" leftIcon={<IconDashboard />}>
-          Dashboard
+          Concerns
         </Button>
         <Button variant="subtle" color="gray" leftIcon={<IconShield />}>
-          Data Security
+          Message
         </Button>
         <Button variant="subtle" color="gray" leftIcon={<IconChartBar />}>
-          User Behavior
+          Repairs
         </Button>
         <Button variant="light" color="violet" style={{ marginTop: 'auto' }}>
           Upgrade Now
@@ -251,7 +307,7 @@ const handleSelectChange = (value) => {
             Tenant Dashboard
           </Title>
           <Select
-            placeholder="Changes"
+            placeholder="Services"
             data={['Payment', 'Repair', 'Message', 'Report']}
             style={{ width: '150px', paddingTop: '20px', paddingRight: '20px' }} 
             onChange={handleSelectChange} 
@@ -259,235 +315,297 @@ const handleSelectChange = (value) => {
         </Flex>
 
             {/* Cards Section */}
-            <Flex wrap="wrap" gap="lg" style={{ justifyContent: 'space-between', width: '100%', paddingLeft: '1rem', paddingRight: '1rem' }}>
-  {/* Card 1: High-risk events */}
-  <Paper
-    withBorder
-    shadow="md"
-    padding="md"
-    radius="lg"
-    style={{
-      backgroundColor: '#62B2FF',
-      width: 'calc(25% - 20px)',
-      minHeight: '150px',
-      flex: '1 1 auto',
-      padding: '20px',
-      position: 'relative',
-    }}
-  >
-    <Group position="apart">
-      <Text size="sm" color="white">High-risk events</Text>
-      <IconShield size={18} color="white" />
-    </Group>
-    <Text size="xl" weight={700} color="white">29</Text>
-    <Center style={{ position: 'absolute', bottom: '10px', right: '10px' }}>
-      <div style={{ position: 'relative', width: '50px', height: '50px' }}>
-        {/* Outer Ring */}
-        <svg width="50" height="50">
-          <circle
-            cx="25"
-            cy="25"
-            r="20" 
-            stroke="white" 
-            strokeWidth="5" 
-            fill="transparent"
-          />
-          <circle
-            cx="25"
-            cy="25"
-            r="20"
-            stroke="blue" 
-            strokeWidth="5" 
-            strokeDasharray="100" 
-            strokeDashoffset={100 - (65 * 100) / 100}
-            fill="transparent"
-          />
-        </svg>
-        <Center style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }}>
-          <Text color="white" size="xs" weight={700}>65%</Text>
-        </Center>
-      </div>
-    </Center>
-  </Paper>
+<Flex wrap="wrap" gap="lg" style={{ justifyContent: 'space-between', width: '100%', paddingLeft: '1rem', paddingRight: '1rem' }}>
 
-  {/* Card 2: Risky activities */}
-  <Paper
-    withBorder
+{/* Card 1: Total Invoices */}
+<Paper
+  withBorder
+  shadow="md"
+  padding="md"
+  radius="lg"
+  style={{
+    backgroundColor: '#62B2FF', 
+    width: 'calc(25% - 20px)',
+    minHeight: '150px',
+    padding: '20px',
+    position: 'relative',
+  }}
+>
+  <ProfileStatsCardNoProgress
+    amount={tenantData?.total_invoices ?? 0}
+    title={<span style={{ color: 'white' }}>Total Invoices</span>}
+    icon={IconCoins}
+    color="indigo.7" 
+    p="md"
     shadow="md"
-    padding="md"
-    radius="lg"
-    style={{
-      backgroundColor: '#5EDAD3',
-      width: 'calc(25% - 20px)',
-      minHeight: '150px',
-      flex: '1 1 auto',
-      padding: '20px',
-      position: 'relative',
-    }}
-  >
-    <Group position="apart">
-      <Text size="sm" color="white">Risky activities</Text>
-      <IconChartBar size={18} color="white" />
-    </Group>
-    <Text size="xl" weight={700} color="white">08</Text>
-    <Center style={{ position: 'absolute', bottom: '10px', right: '10px' }}>
-      <div style={{ position: 'relative', width: '50px', height: '50px' }}>
-        {/* Outer Ring */}
-        <svg width="50" height="50">
-          <circle
-            cx="25"
-            cy="25"
-            r="20"
-            stroke="white" 
-            strokeWidth="5"
-            fill="transparent"
-          />
-          <circle
-            cx="25"
-            cy="25"
-            r="20"
-            stroke="blue" 
-            strokeWidth="5"
-            strokeDasharray="100"
-            strokeDashoffset={100 - (30 * 100) / 100} 
-            fill="transparent"
-          />
-        </svg>
-        <Center style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }}>
-          <Text color="white" size="xs" weight={700}>30%</Text>
-        </Center>
-      </div>
-    </Center>
-  </Paper>
+    style={{ position: 'relative', backgroundColor: '#62B2FF' }} 
+  />
+  <Center style={{ position: 'absolute', bottom: '10px', right: '10px' }}>
+    <div style={{ position: 'relative', width: '50px', height: '50px' }}>
+      {/* Outer Ring */}
+      <svg width="50" height="50">
+        <circle
+          cx="25"
+          cy="25"
+          r="20"
+          stroke="white"
+          strokeWidth="5"
+          fill="transparent"
+        />
+        <circle
+          cx="25"
+          cy="25"
+          r="20"
+          stroke="blue"
+          strokeWidth="5"
+          strokeDasharray={2 * Math.PI * 20}
+          strokeDashoffset={(2 * Math.PI * 20) * (1 - 45 / 100)} 
+          fill="transparent"
+        />
+      </svg>
+      <Center style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }}>
+        <Text color="white" size="xs" weight={700}>
+          45%
+        </Text>
+      </Center>
+    </div>
+  </Center>
+</Paper>
 
-  {/* Card 3: High-risk Users */}
-  <Paper
-    withBorder
-    shadow="md"
-    padding="md"
-    radius="lg"
-    style={{
-      background: 'linear-gradient(135deg, #FF61C2 0%, #9A48D0 100%)',
-      width: 'calc(25% - 20px)',
-      minHeight: '150px',
-      flex: '1 1 auto',
-      padding: '20px',
-      position: 'relative',
-    }}
-  >
-    <Group position="apart">
-      <Text size="sm" color="white">High-risk Users</Text>
-      <IconNotification size={18} color="white" />
-    </Group>
-    <Text size="xl" weight={700} color="white">06</Text>
-    <Center style={{ position: 'absolute', bottom: '10px', right: '10px' }}>
-      <div style={{ position: 'relative', width: '50px', height: '50px' }}>
-        {/* Outer Ring */}
-        <svg width="50" height="50">
-          <circle
-            cx="25"
-            cy="25"
-            r="20"
-            stroke="white" 
-            strokeWidth="5" 
-            fill="transparent"
-          />
-          <circle
-            cx="25"
-            cy="25"
-            r="20"
-            stroke="blue" 
-            strokeWidth="5"
-            strokeDasharray="100"
-            strokeDashoffset={100 - (50 * 100) / 100} 
-            fill="transparent"
-          />
-        </svg>
-        <Center style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }}>
-          <Text color="white" size="xs" weight={700}>50%</Text>
-        </Center>
-      </div>
-    </Center>
-  </Paper>
+{/* Card 2: Total Invoiced */}
+<Paper
+  withBorder
+  shadow="md"
+  padding="md"
+  radius="lg"
+  style={{
+    backgroundColor: '#5EDAD3',
+    width: 'calc(25% - 20px)',
+    minHeight: '150px',
+    flex: '1 1 auto',
+    padding: '20px',
+    position: 'relative',
+  }}
+>
+  <ProfileStatsCardNoProgress
+    amount={`Ksh. ${tenantData?.total_invoiced ?? 0}`}
+    title={<span style={{ color: 'white' }}>Total Invoiced</span>}
+    icon={IconListCheck}
+    color="teal.7"
+    p="md" shadow="md"
+    style={{ position: 'relative', backgroundColor: '#5EDAD3' }}
+  />
+  <Center style={{ position: 'absolute', bottom: '10px', right: '10px' }}>
+    <div style={{ position: 'relative', width: '50px', height: '50px' }}>
+      {/* Outer Ring */}
+      <svg width="50" height="50">
+        <circle
+          cx="25"
+          cy="25"
+          r="20"
+          stroke="white" 
+          strokeWidth="5"
+          fill="transparent"
+        />
+        <circle
+          cx="25"
+          cy="25"
+          r="20"
+          stroke="#319795"
+          strokeWidth="5"
+          strokeDasharray={2 * Math.PI * 20}
+          strokeDashoffset={(2 * Math.PI * 20) * (1 - 72 / 100)} 
+          fill="transparent"
+        />
+      </svg>
+      <Center style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }}>
+        <Text color="white" size="xs" weight={700}>
+          72%
+        </Text>
+      </Center>
+    </div>
+  </Center>
+</Paper>
 
-  {/* Card 4: Devices with issues */}
-  <Paper
-    withBorder
-    shadow="md"
-    padding="md"
-    radius="lg"
-    style={{
-      backgroundColor: '#FF61C2',
-      width: 'calc(25% - 20px)',
-      minHeight: '150px',
-      flex: '1 1 auto',
-      padding: '20px',
-      position: 'relative',
-    }}
-  >
-    <Group position="apart">
-      <Text size="sm" color="white">Devices with issues</Text>
-      <IconSettings size={18} color="white" />
-    </Group>
-    <Text size="xl" weight={700} color="white">01</Text>
-    <Center style={{ position: 'absolute', bottom: '10px', right: '10px' }}>
-      <div style={{ position: 'relative', width: '50px', height: '50px' }}>
-        {/* Outer Ring */}
-        <svg width="50" height="50">
-          <circle
-            cx="25"
-            cy="25"
-            r="20"
-            stroke="white" 
-            strokeWidth="5" 
-            fill="transparent"
-          />
-          <circle
-            cx="25"
-            cy="25"
-            r="20"
-            stroke="blue" 
-            strokeWidth="5"
-            strokeDasharray="100"
-            strokeDashoffset={100 - (10 * 100) / 100} 
-            fill="transparent"
-          />
-        </svg>
-        <Center style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }}>
-          <Text color="white" size="xs" weight={700}>10%</Text>
-        </Center>
-      </div>
-    </Center>
-  </Paper>
+{/* Card 3: Total Paid */}
+<Paper
+  withBorder
+  shadow="md"
+  padding="md"
+  radius="lg"
+  style={{
+    background: 'linear-gradient(135deg, #FF61C2 0%, #9A48D0 100%)',
+    width: 'calc(25% - 20px)',
+    minHeight: '150px',
+    flex: '1 1 auto',
+    padding: '20px',
+    position: 'relative',
+  }}
+>
+  <ProfileStatsCardNoProgress
+    amount={`Ksh. ${tenantData?.total_collected ?? 0}`}
+    title={<span style={{ color: 'white' }}>Total Paid</span>}
+    icon={IconBusinessplan}
+    color="green"
+    p="md" shadow="md"
+    style={{ position: 'relative', background: 'linear-gradient(135deg, #FF61C2 0%, #9A48D0 100%)', }}
+  />
+  <Center style={{ position: 'absolute', bottom: '10px', right: '10px' }}>
+    <div style={{ position: 'relative', width: '50px', height: '50px' }}>
+      {/* Outer Ring */}
+      <svg width="50" height="50">
+        <circle
+          cx="25"
+          cy="25"
+          r="20"
+          stroke="white" 
+          strokeWidth="5" 
+          fill="transparent"
+        />
+        <circle
+          cx="25"
+          cy="25"
+          r="20"
+          stroke="green"
+          strokeWidth="5"
+          strokeDasharray={2 * Math.PI * 20}
+          strokeDashoffset={(2 * Math.PI * 20) * (1 - 50 / 100)} 
+          fill="transparent"
+        />
+      </svg>
+      <Center style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }}>
+        <Text color="white" size="xs" weight={700}>
+          50%
+        </Text>
+      </Center>
+    </div>
+  </Center>
+</Paper>
+
+{/* Card 4: Total Due */}
+<Paper
+  withBorder
+  shadow="md"
+  padding="md"
+  radius="lg"
+  style={{
+    backgroundColor: '#FF61C2',
+    width: 'calc(25% - 20px)',
+    minHeight: '150px',
+    flex: '1 1 auto',
+    padding: '20px',
+    position: 'relative',
+  }}
+>
+  <ProfileStatsCardNoProgress
+    amount={`Ksh. ${tenantData?.total_due ?? 0}`}
+    title={<span style={{ color: 'white' }}>Total Due</span>}
+    icon={IconCoins}
+    color="red"
+    p="md" shadow="md"
+    style={{ position: 'relative', backgroundColor: '#FF61C2' }}
+  />
+  <Center style={{ position: 'absolute', bottom: '10px', right: '10px' }}>
+    <div style={{ position: 'relative', width: '50px', height: '50px' }}>
+      {/* Outer Ring */}
+      <svg width="50" height="50">
+        <circle
+          cx="25"
+          cy="25"
+          r="20"
+          stroke="white" 
+          strokeWidth="5" 
+          fill="transparent"
+        />
+        <circle
+          cx="25"
+          cy="25"
+          r="20"
+          stroke="red"
+          strokeWidth="5"
+          strokeDasharray={2 * Math.PI * 20}
+          strokeDashoffset={(2 * Math.PI * 20) * (1 - 10 / 100)} 
+          fill="transparent"
+        />
+      </svg>
+      <Center style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }}>
+        <Text color="white" size="xs" weight={700}>
+          10%
+        </Text>
+      </Center>
+    </div>
+  </Center>
+</Paper>
+
 </Flex>
 
 
         {/* Graph and Environment Settings Section */}
-                  <Flex style={{ marginTop: '2rem', width: '100%', paddingLeft: '1rem', paddingRight: '1rem' }}>
+                  <Flex style={{ marginTop: '1rem', width: '100%', paddingLeft: '1rem', paddingRight: '1rem' }}>
             {/* Left Column: Live Graph, Your Details, One Time Report */}
-            <Flex direction="column" style={{ flex: 3, marginRight: '2rem' }}>
+            <Flex direction="column" style={{ flex: 3, marginRight: '1rem' }}>
               {/* Graph */}
-              <Paper withBorder shadow="md" padding="lg" radius="lg" style={{ backgroundColor: '#181449', marginBottom: '2rem' }}>
-                  <Title order={4} style={{ color: 'white', paddingLeft: '20px' }}>Payments In Time</Title>
-                  <div style={{ height: 200, background: '#181449', position: 'relative' }}>
-                    {/* Horizontal Grid Lines and Labels */}
-                    <div style={{ position: 'absolute', top: '0', left: '20px', width: 'calc(100% - 40px)', height: 'calc(100% - 30px)', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', pointerEvents: 'none' }}>
-                      {['7k', '6k', '5k', '4k', '3k', '2k', '1k', '0'].map((label, index) => (
-                        <div key={index} style={{ display: 'flex', alignItems: 'center' }}>
-                          <Text color="white" size="xs" style={{ width: '30px', textAlign: 'right', paddingRight: '10px' }}>{label}</Text>
-                          <div style={{ flexGrow: 1, height: '1px', backgroundColor: '#ffffff50' }} />
-                        </div>
-                      ))}
-                    </div>
+              <Paper
+                withBorder
+                shadow="md"
+                padding="lg"
+                radius="lg"
+                style={{
+                  backgroundColor: '#181449',
+                  marginBottom: '1rem',
+                  height: '250px' // Set the desired height
+                }}
+              >
+                <Group position="apart" mb="md">
+                  <Text fz="lg" fw={600} style={{ color: 'blue', paddingLeft: '20px' }}>
+                    Recent Invoices
+                  </Text>
+                  <Input
+                    placeholder="Search"
+                    style={{ paddingRight: '20px', paddingTop: '20px' }}
+                  />
+                </Group>
+                <div id="responsive-table">
+                  <Table>
+                    <thead>
+                      <tr>
+                        <th>No.</th>
+                        <th>Total</th>
+                        <th>Paid</th>
+                        <th>Owed</th>
+                        <th>Status</th>
+                        <th>Date</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {invoices?.data?.map((item) => (
+                        <tr key={item?.id}>
+                          <td>{item?.code}</td>
+                          <td>Ksh. {item?.total ?? '0'}</td>
+                          <td>Ksh. {item?.total_paid ?? '0'}</td>
+                          <td>Ksh. {item?.total_owed ?? '0'}</td>
 
-                    {/* Months at the Bottom */}
-                    <div style={{ position: 'absolute', bottom: '0px', left: '50px', right: '50px', display: 'flex', justifyContent: 'space-between', color: 'white' }}>
-                      {['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'].map((month, index) => (
-                        <span key={index}>{month}</span>
+                          <td>
+                            {item?.total_paid > 0 ? (
+                              <StatusBadge status={`Partially Paid`} />
+                            ) : item?.total_paid === 0 ? (
+                              <StatusBadge status={`Pending`} />
+                            ) : item?.total_owed === 0 ? (
+                              <StatusBadge status={`Complete`} />
+                            ) : null}
+                          </td>
+                          <td>{formatDate(item?.created_at)}</td>
+                          <td>
+                            {/* <RecordPaymentModal item={item} /> */}
+                            <StkPushModal item={item} />
+                          </td>
+                        </tr>
                       ))}
-                    </div>
-                  </div>
-                </Paper>
+                    </tbody>
+                  </Table>
+                </div>
+              </Paper>
 
 
 

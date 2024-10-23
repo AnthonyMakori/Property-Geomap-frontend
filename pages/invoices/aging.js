@@ -84,7 +84,7 @@ function AgingReport() {
     store.dispatch(getInvoicesAgingReport(params));
   }, [debouncedSearchTerm, session, status, startDate, endDate]);
 
-  console.log("data monyancha income", items);
+  console.log("data Anthony income", items);
 
   function onPaginationLinkClicked(page) {
     if (!session || !page) {

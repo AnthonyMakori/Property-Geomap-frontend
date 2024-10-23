@@ -76,7 +76,7 @@ function BalanceSheet() {
     store.dispatch(getTrialBalance(params));
   }, [debouncedSearchTerm, session, status]);
 
-  console.log("data monyancha", trialBalance?.data);
+  console.log("data Anthony", trialBalance?.data);
 
   console.log("Search Term Here", debouncedSearchTerm);
 

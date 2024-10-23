@@ -67,10 +67,10 @@ function SystemSettings() {
         params["accessToken"] = session.user.accessToken;
 
         store.dispatch(getSystemSettings(params));
-        console.log("Monyancha 2");
+        console.log("Anthony 2");
     }, [session, status]);
 
-    console.log("Monyancha Monyancha", systemSettings);
+    console.log("Anthony Anthony", systemSettings);
     
     useEffect(() => {
         if(!systemSettings){

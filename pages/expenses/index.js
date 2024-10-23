@@ -45,7 +45,7 @@ function Expenses() {
       store.dispatch(getExpenses(params));
     }, [debouncedSearchTerm, session, status]);
   
-    console.log('data monyancha', expenses);
+    console.log('data Anthony', expenses);
   
     function onPaginationLinkClicked(page) {
       if (!page || !session) {

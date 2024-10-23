@@ -28,6 +28,7 @@ import PageHeader from "@/components/PageHeader/PageHeader";
 import RouterTransition from "@/components/RouterTransition/RouterTransition"
 import ProfileStatsCard from "@/components/ProfileStatsCard/ProfileStatsCard";
 import Faqs from "@/components/Faqs/Faqs";
+import ProfileStatsCardNoProgress from "@/components/ProfileStatsCardNoProgress/ProfileStatsCardNoProgress"
 
 export {
     Logo,
@@ -59,5 +60,6 @@ export {
     PageHeader,
     RouterTransition,
     ProfileStatsCard,
+    ProfileStatsCardNoProgress,
     Faqs
 };

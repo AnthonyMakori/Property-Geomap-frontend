@@ -4,12 +4,12 @@ import { useSession } from "next-auth/react";
 import { getDashboard } from "@/store/dashboard/dashboard-slice";
 import {IconArrowBack} from "@tabler/icons-react";
 import Link from 'next/link';
-import { Button } from '@mantine/core';
+import { Button, TextInput } from '@mantine/core';
 import store from "@/store/store";
 
 
 const TenantProfile = () => {
-    const [profile, setProfile] = useState({
+    const [user, setProfile] = useState({
         logo: '', 
         name: '',
         unitNumber: '',
@@ -58,7 +58,7 @@ const TenantProfile = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log('Updated Profile:', profile);
+        console.log('Updated Profile:', user);
     };
 
     const handleMenuClick = (menu) => {
@@ -112,7 +112,7 @@ const TenantProfile = () => {
                 </div>
 
                 {/* Profile Details Form */}
-                <div className="w-3/4 bg-white p-6 rounded shadow min-h-[62vh]">
+                <div className="w-3/4 bg-white p-6 rounded shadow min-h-[77.5vh]">
                     <form onSubmit={handleSubmit}>
                         {selectedMenu === 'Personal Details' && (
                             <>
@@ -120,24 +120,28 @@ const TenantProfile = () => {
                                 {/* Row 1 */}
                         <div className="grid grid-cols-2 gap-4 mb-4 ">
                             <div>
-                                <label className="block mb-1 font-medium">Unit Number</label>
-                                <input
+                               
+                                <TextInput
+                                className="w-full sm:w-auto"
+                                placeholder="Unit Number"
                                     type="text"
-                                    name="unitNumber"
+                                   
                                     value={session?.user?.code}
                                     onChange={handleInputChange}
-                                    className="w-full p-2 border rounded"
+                                   
                                     readOnly  
                                 />
                             </div>
                             <div>
-                                <label className="block mb-1 font-medium">Name</label>
-                                <input
+                                
+                                <TextInput
+                                className="w-full sm:w-auto"
+                                placeholder="Name"
                                     type="text"
-                                    name="name"
+                                   
                                     value={session?.user?.name}
                                     onChange={handleInputChange}
-                                    className="w-full p-2 border rounded"
+                                   // className="w-full p-2 border rounded"
                                     readOnly  
                                 />
                             </div>
@@ -146,24 +150,25 @@ const TenantProfile = () => {
                         {/* Row 2 */}
                         <div className="grid grid-cols-2 gap-4 mb-4">
                             <div>
-                                <label className="block mb-1 font-medium">National Id</label>
-                                <input
+                                
+                                <TextInput
+                                className="w-full sm:w-auto"
+                                placeholder="National Id"
                                     type="text"
-                                    name="nationalId"
                                     value={session?.user?.nid}
                                     onChange={handleInputChange}
-                                    className="w-full p-2 border rounded"
                                     readOnly  
                                 />
                             </div>
                             <div>
-                                <label className="block mb-1 font-medium">Date of Birth</label>
-                                <input
-                                    type="date"  
-                                    name="dateOfBirth"
-                                    value={session?.user?.dob}
+                               
+                                <TextInput
+                                className="w-full sm:w-auto"
+                                placeholder="Date of Birth"
+                                    type="date"
+                                    value={session?.user?.birthDate}
                                     onChange={handleInputChange}
-                                    className="w-full p-2 border rounded"
+
                                 />
                             </div>
                         </div>
@@ -171,24 +176,25 @@ const TenantProfile = () => {
                         {/* Row 3 */}
                         <div className="grid grid-cols-2 gap-4 mb-4">
                             <div>
-                                <label className="block mb-1 font-medium">Marital Status</label>
-                                <input
+                               
+                                <TextInput
+                                className="w-full sm:w-auto"
+                                placeholder="Marital Status"
                                     type="text"
-                                    name="maritalStatus"
-                                    value={session?.user?.status}
+                                    value={session?.user?.maritalStatus }
                                     onChange={handleInputChange}
-                                    className="w-full p-2 border rounded"
+                                    readOnly  
                                 />
                             </div>
                             <div>
-                                <label className="block mb-1 font-medium">Nationality</label>
-                                <input
-                                    type="text"
-                                    name="nationality"
+                               
+                                <TextInput
+                                className="w-full sm:w-auto"
+                                placeholder="Nationality"
+                                    type="text" 
                                     value={session?.user?.nationality}
                                     onChange={handleInputChange}
-                                    className="w-full p-2 border rounded"
-                                    
+                                    readOnly  
                                 />
                             </div>
                         </div>
@@ -196,24 +202,25 @@ const TenantProfile = () => {
                         {/* Row 4 */}
                         <div className="grid grid-cols-2 gap-4 mb-4">
                             <div>
-                                <label className="block mb-1 font-medium">Gender</label>
-                                <input
+                                
+                                <TextInput
+                                className="w-full sm:w-auto"
+                                placeholder="Gender"
                                     type="text"
-                                    name="gender"
                                     value={session?.user?.gender}
                                     onChange={handleInputChange}
-                                    className="w-full p-2 border rounded"
                                     readOnly  
                                 />
                             </div>
                             <div>
-                                <label className="block mb-1 font-medium">Religion</label>
-                                <input
+                               
+                                <TextInput
+                                className="w-full sm:w-auto"
+                                placeholder="Occupation"
                                     type="text"
-                                    name="religion"
-                                    value={session?.user?.religion}
+                                    value={session?.user?.occupation}
                                     onChange={handleInputChange}
-                                    className="w-full p-2 border rounded"
+                                    readOnly  
                                 />
                             </div>
                         </div>
@@ -221,23 +228,24 @@ const TenantProfile = () => {
                         {/* Row 5 */}
                         <div className="grid grid-cols-2 gap-4 mb-4">
                             <div>
-                                <label className="block mb-1 font-medium">Language</label>
-                                <input
+                                
+                                <TextInput
+                                className="w-full sm:w-auto"
+                                placeholder="Language"
                                     type="text"
-                                    name="language"
                                     value={session?.user?.language}
                                     onChange={handleInputChange}
-                                    className="w-full p-2 border rounded"
+                                    readOnly  
                                 />
                             </div>
                             <div>
-                                <label className="block mb-1 font-medium">Medical</label>
-                                <input
+                                
+                                <TextInput
+                                className="w-full sm:w-auto"
+                                placeholder="Medical"
                                     type="text"
-                                    name="medical"
                                     value={session?.user?.medical}
                                     onChange={handleInputChange}
-                                    className="w-full p-2 border rounded"
                                 />
                             </div>
                         </div>
@@ -250,44 +258,51 @@ const TenantProfile = () => {
                                 {/* Contact Details Form */}
                                 <div className="grid grid-cols-2 gap-4 mb-4 min-h-[61.5vh]">
                         <div>
-                            <label className="block mb-1 font-medium">Contact Number</label>
-                            <input
-                                type="text"
-                                name="contactNumber"
-                                value={session?.user.phone}
-                                onChange={handleInputChange}
-                                className="w-full p-2 border rounded"
-                            />
+                           
+                            <TextInput
+                                className="w-full sm:w-auto"
+                                placeholder="Contact Number"
+                                    type="text"
+                                    value={session?.user?.phone}
+                                    onChange={handleInputChange}
+                                  
+                                />
                         </div>
                         <div>
-                            <label className="block mb-1 font-medium">Email</label>
-                            <input
-                                type="email"
-                                name="email"
-                                value={session?.user.email}
-                                onChange={handleInputChange}
-                                className="w-full p-2 border rounded"
-                            />
+                            
+                            <TextInput
+                                className="w-full sm:w-auto"
+                                placeholder="Email"
+                                    type="text"
+                                    value={session?.user?.email}
+                                    onChange={handleInputChange}
+                                   
+                                    
+                                />
                         </div>
                         <div>
-                            <label className="block mb-1 font-medium">County</label>
-                            <input
-                                type="text"
-                                name="county"
-                                value={session?.user.county} 
-                                onChange={handleInputChange}
-                                className="w-full p-2 border rounded"
-                            />
+                            
+                            <TextInput
+                                className="w-full sm:w-auto"
+                                placeholder="County"
+                                    type="text"
+                                    value={session?.user?.county}
+                                    onChange={handleInputChange}
+                                   
+                                     
+                                />
                         </div>
                         <div>
-                            <label className="block mb-1 font-medium">Address</label>
-                            <input
-                                type="text"
-                                name="address"
-                                value={session?.user.address} 
-                                onChange={handleInputChange}
-                                className="w-full p-2 border rounded"
-                            />
+                          
+                            <TextInput
+                                className="w-full sm:w-auto"
+                                placeholder="Address"
+                                    type="text"
+                                    value={session?.user?.address}
+                                    onChange={handleInputChange}
+                                   
+                                    
+                                />
                         </div>
                     </div>
 
@@ -300,63 +315,69 @@ const TenantProfile = () => {
                                 {/* Emergency Contact Form */}
                                 <div className="grid grid-cols-2 gap-4 mb-2 min-h-[61.5vh]">
                                     <div>
-                                        <label className="block mb-0.5 font-medium">Name</label>
-                                        <input
-                                            type="text"
-                                            name="emergencyContact"
-                                            value={profile.emergencyContact}
-                                            onChange={handleInputChange}
-                                            className="w-full p-2 border rounded"
-                                        />
+                                        
+                                        <TextInput
+                                className="w-full sm:w-auto"
+                                placeholder="Name"
+                                    type="text"
+                                    value={session?.user?.name}
+                                    onChange={handleInputChange}
+                                   
+                                />
                                     </div>
                                     <div>
-                                        <label className="block mb-0.5 font-medium">Relationship</label>
-                                        <input
-                                            type="text"
-                                            name="relationship"
-                                            value={profile.relationship}
-                                            onChange={handleInputChange}
-                                            className="w-full p-2 border rounded"
-                                        />
+                                       
+                                        <TextInput
+                                className="w-full sm:w-auto"
+                                placeholder="Relationship"
+                                    type="text"
+                                    value={session?.user?.relationship}
+                                    onChange={handleInputChange}
+                                   
+                                />
                                     </div>
                                     <div>
-                                        <label className="block mb-0.5 font-medium">Tel No</label>
-                                        <input
-                                            type="text"
-                                            name="telephoneNumber"
-                                            value={profile.telephoneNumber}
-                                            onChange={handleInputChange}
-                                            className="w-full p-2 border rounded"
-                                        />
+                                       
+                                        <TextInput
+                                className="w-full sm:w-auto"
+                                placeholder="Tel No"
+                                    type="text"
+                                    value={session?.user?.phone}
+                                    onChange={handleInputChange}
+                                   
+                                />
                                     </div>
                                     <div>
-                                        <label className="block mb-0.5 font-medium">Email</label>
-                                        <input
-                                            type="email"
-                                            name="email"
-                                            value={profile.email}
-                                            onChange={handleInputChange}
-                                            className="w-full p-2 border rounded"
-                                        />
+                                        
+                                        <TextInput
+                                className="w-full sm:w-auto"
+                                placeholder="Email"
+                                    type="text"
+                                    value={session?.user?.email}
+                                    onChange={handleInputChange}
+                                   
+                                />
                                     </div>
                                     <div>
-                                        <label className="block mb-0.5 font-medium">Address</label>
-                                        <input
-                                            type="text"
-                                            name="address"
-                                            value={profile.address}
-                                            onChange={handleInputChange}
-                                            className="w-full p-2 border rounded"
-                                        />
+                                        
+                                        <TextInput
+                                className="w-full sm:w-auto"
+                                placeholder="Address"
+                                    type="text"
+                                    value={session?.user?.address}
+                                    onChange={handleInputChange}
+                                />
                                     </div>
                                     <div>
-                                        <label className="block mb-0.5 font-medium">Remarks</label>
-                                        <textarea
-                                            name="remarks"
-                                            value={profile.remarks}
-                                            onChange={handleInputChange}
-                                            className="w-full p-2 border rounded"
-                                        />
+                                       
+                                        <TextInput
+                                className="w-full sm:w-auto"
+                                placeholder="Remarks"
+                                    type="text"
+                                    value={""}
+                                    onChange={handleInputChange}
+                                   
+                                />
                                     </div>
                                 </div>
 
@@ -366,41 +387,39 @@ const TenantProfile = () => {
                         {selectedMenu === 'Change Password' && (
                             <>
                                 {/* Change Password Form */}
-                                <div>
-                                    <label className="block mb-1 font-medium">Current Password</label>
-                                    <input
-                                        type={showPassword ? "text" : "password"}
-                                        name="currentPassword"
+                               <div className="flex flex-col items-center space-y-8">
+                                    <TextInput
+                                        className="w-full sm:w-[32rem]" 
+                                        placeholder="Current password"
+                                        type="text"
                                         onChange={handleInputChange}
-                                        placeholder="Current Password"
-                                        className="w-full p-2 border rounded"
+                                    />
+                                    <TextInput
+                                        className="w-full sm:w-[32rem]"
+                                        placeholder="New password"
+                                        type="text"
+                                        onChange={handleInputChange}
+                                    />
+                                    <TextInput
+                                        className="w-full sm:w-[32rem]"
+                                        placeholder="Confirm password"
+                                        type="text"
+                                        onChange={handleInputChange}
                                     />
                                 </div>
-                                <div>
-                                    <label className="block mb-1 font-medium">New Password</label>
-                                    <input
-                                        type={showPassword ? "text" : "password"}
-                                        name="password"
-                                        onChange={handleInputChange}
-                                        placeholder="New Password"
-                                        className="w-full p-2 border rounded"
-                                    />
-                                </div>
-                                <div>
-                                    <label className="block mb-1 font-medium">Confirm Password</label>
-                                    <input
-                                        type={showPassword ? "text" : "password"}
-                                        name="confirmPassword"
-                                        onChange={handleInputChange}
-                                        placeholder="Confirm Password"
-                                        className="w-full p-2 border rounded"
-                                    />
-                                </div>
+
+
                                 </>
                             )}
-                       <div className="text-center">
-                            <button type="submit" className="px-6 py-2 bg-[#00FFFF] text-white font-medium rounded hover:bg-blue-600">Update</button>
-                        </div>
+                      <div className="fixed bottom-10 right-10">
+                        <button
+                            type="submit"
+                            className="px-6 py-2 bg-[#00FFFF] text-white font-medium rounded hover:bg-blue-600"
+                        >
+                            Update
+                        </button>
+                    </div>
+
                     </form>
                 </div>
             </div>

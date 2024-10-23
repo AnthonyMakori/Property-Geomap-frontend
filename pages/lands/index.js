@@ -37,7 +37,7 @@ function Lands() {
       store.dispatch(getLands(params));
     }, [searchTerm, session, status]);
   
-    console.log('data monyancha', items);
+    console.log('data Anthony', items);
   
     function onPaginationLinkClicked(page) {
       if (!page || !session) {

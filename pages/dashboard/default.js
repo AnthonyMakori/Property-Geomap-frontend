@@ -69,7 +69,7 @@ function Analytics() {
 
   const [opened, setOpened] = useState(false);
 
-  console.log("Monyancha 123", graphData);
+  console.log("Anthony 123", graphData);
 
   const isLoading = dashboardStatus === "loading";
 
@@ -119,7 +119,7 @@ function Analytics() {
     );
   };
 
-  console.log("data monyancha", dashboard);
+  console.log("data Anthony", dashboard);
 
     //Chart Data
     useEffect(() => {
@@ -189,7 +189,7 @@ function Analytics() {
     store.dispatch(getAirtimeBalance(params));
   }, [session, status]);
 
-  console.log("Monyancha Airtime", airtime);
+  console.log("Anthony Airtime", airtime);
 
   //End Airtime Balance
 

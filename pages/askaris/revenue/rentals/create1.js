@@ -123,7 +123,7 @@ function CreateBusiness() {
       store.dispatch(getZones(params));
     }, [session]);
 
-    console.log("Monyancha Zones", zones);
+    console.log("Anthony Zones", zones);
     ///
 
     ///
@@ -140,7 +140,7 @@ function CreateBusiness() {
         store.dispatch(getOwners(params));
     }, [session]);
 
-    console.log("Monyancha Owners", owners);
+    console.log("Anthony Owners", owners);
     ///
 
     ///
@@ -157,7 +157,7 @@ function CreateBusiness() {
         store.dispatch(getStreets(params));
     }, [session]);
 
-    console.log("Monyancha Streets", streets);
+    console.log("Anthony Streets", streets);
     ///
 
     ///
@@ -174,7 +174,7 @@ function CreateBusiness() {
         store.dispatch(getUnitTypes(params));
     }, [session]);
 
-    console.log("Monyancha Unit Types", unitTypes);
+    console.log("Anthony Unit Types", unitTypes);
     ///
     
 

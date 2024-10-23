@@ -43,7 +43,7 @@ function OccupiedUnits() {
       store.dispatch(getOccupiedUnits(params));
     }, [debouncedSearchTerm, session, status]);
   
-    console.log('data monyancha', occupiedUnits);
+    console.log('data Anthony', occupiedUnits);
   
     function onPaginationLinkClicked(page) {
       if (!session || !page) {
